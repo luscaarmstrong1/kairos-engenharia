@@ -1,0 +1,18 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHero from "@components/PageHero.astro";
+---
+
+<BaseLayout title="Política de Privacidade" description="Política de privacidade da Kairós Engenharia." path="/politica-de-privacidade/">
+  <PageHero eyebrow="Privacidade" title="Política de Privacidade" description="Tratamos dados pessoais apenas para responder solicitações, qualificar contatos B2B e cumprir obrigações legais aplicáveis." />
+  <section class="bg-white px-5 py-20 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-4xl space-y-8 text-base leading-8 text-slate-700">
+      <p>Coletamos os dados informados voluntariamente em formulários, como nome, empresa, cargo, e-mail, telefone, estado, concessionária, perfil, desafio, prazo e mensagem.</p>
+      <p>Os dados são usados para retorno comercial e técnico, triagem de demanda, registro de origem, prevenção de spam e melhoria do atendimento. Não vendemos dados pessoais.</p>
+      <p>Quando houver endpoint externo, ele deve aplicar validação, limite de requisições, honeypot, sanitização, registro de origem e encaminhamento seguro ao CRM.</p>
+      <p>Analytics só é iniciado após consentimento de cookies. Não envie dados pessoais em campos de analytics.</p>
+      <p>Para solicitar acesso, correção ou exclusão de dados, contate a Kairós pelo e-mail institucional informado no rodapé.</p>
+      <p>GitHub Pages não permite configurar livremente todos os headers HTTP de segurança. Para reforço futuro, a migração para domínio próprio protegido por Cloudflare está preparada conceitualmente.</p>
+    </div>
+  </section>
+</BaseLayout>

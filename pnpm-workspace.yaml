@@ -1,2 +1,10 @@
 allowBuilds:
   esbuild: true
+  sharp: true
+overrides:
+  '@opentelemetry/core': ^2.8.0
+  yaml: ^2.8.3
+minimumReleaseAgeExclude:
+  - '@astrojs/internal-helpers@0.10.1'
+  - '@astrojs/markdown-satteri@0.3.3'
+  - astro@7.0.6

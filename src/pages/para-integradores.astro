@@ -1,0 +1,67 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHero from "@components/PageHero.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import CtaBand from "@components/CtaBand.astro";
+import { withBase } from "@lib/urls";
+
+const offerings = [
+  "Auditoria de projetos",
+  "Homologação e pareceres restritivos",
+  "Revisão de dimensionamento",
+  "Defesa técnica e padronização documental",
+  "Atendimento white label",
+  "Apoio em reuniões com cliente",
+  "Retainer mensal",
+  "Confidencialidade e não aliciamento",
+];
+---
+
+<BaseLayout
+  title="Para Integradores"
+  description="Departamento terceirizado de engenharia, conexão e regulação para integradores de energia solar e parceiros B2B."
+  path="/para-integradores/"
+>
+  <PageHero
+    eyebrow="Para integradores"
+    title="Seu departamento terceirizado de engenharia, conexão e regulação."
+    description="Apoio técnico white label para integradores que precisam lidar com projetos complexos, pareceres restritivos, homologação e documentação padronizada."
+    primaryHref={withBase("/contato/?perfil=Integrador")}
+    primaryLabel="Estruturar parceria técnica"
+  />
+
+  <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
+    <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.8fr_1.2fr]">
+      <SectionHeading
+        eyebrow="Modelo de parceria"
+        title="Apoio técnico sem competir com a relação comercial do integrador."
+        description="O fluxo pode ser white label, com confidencialidade, não aliciamento e critérios claros de acionamento técnico."
+      />
+      <div class="grid gap-4 sm:grid-cols-2">
+        {offerings.map((item) => (
+          <article class="reveal rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
+            <h2 class="text-lg font-semibold text-slate-950">{item}</h2>
+            <p class="mt-3 text-sm leading-7 text-slate-600">Atuação modular para reduzir retrabalho, organizar evidências e preservar a experiência do cliente final.</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 px-5 py-24 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <SectionHeading eyebrow="Fluxo de atendimento" title="Entrada técnica, triagem, documentação e entrega rastreável." />
+      <div class="mt-10 grid gap-4 lg:grid-cols-4">
+        {["Triagem do caso", "Revisão de documentos", "Estratégia técnica", "Entrega e reunião"].map((step, index) => (
+          <div class="reveal rounded-md border border-slate-200 bg-white p-6 shadow-crisp">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-energy-600">Passo {index + 1}</p>
+            <h2 class="mt-4 text-xl font-semibold text-slate-950">{step}</h2>
+            <p class="mt-3 text-sm leading-7 text-slate-600">Cada etapa preserva contexto, premissas e próximos passos para o integrador conduzir a relação comercial.</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title="Estruture uma retaguarda técnica para projetos que exigem mais que dimensionamento padrão." label="Estruturar parceria técnica" href="/contato/?perfil=Integrador" />
+</BaseLayout>

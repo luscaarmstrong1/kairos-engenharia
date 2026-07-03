@@ -1,16 +1,17 @@
 # Kairós Engenharia
 
-Site institucional da Kairós Engenharia, preparado para publicação no GitHub Pages em:
+Site institucional premium da Kairós Engenharia, publicado em:
 
 https://renovera1.github.io/renovera-projetos-eletricos/
 
 ## Stack
 
-- Vite
-- React
+- Astro
+- TypeScript
 - Tailwind CSS
-- Vitest + Testing Library
-- ESLint
+- Markdown Content Collections
+- Vitest
+- Playwright
 
 ## Scripts
 
@@ -18,52 +19,63 @@ https://renovera1.github.io/renovera-projetos-eletricos/
 pnpm install
 pnpm dev
 pnpm lint
+pnpm typecheck
 pnpm test
+pnpm test:e2e
 pnpm build
+pnpm audit:links
 ```
 
-O `vite.config.js` usa:
+O `astro.config.mjs` usa a base do GitHub Pages:
 
 ```js
-base: "/renovera-projetos-eletricos/"
+base: "/renovera-projetos-eletricos"
 ```
 
-Após o build, `scripts/postbuild-pages.mjs` copia o `index.html` para as rotas estáticas:
+## Rotas
 
+- `/`
 - `/servicos/`
-- `/a-kairos/`
+- `/servicos/engenharia-projetos-eletricos/`
+- `/servicos/consultoria-regulatoria/`
+- `/servicos/inteligencia-energetica/`
+- `/servicos/eletromobilidade/`
+- `/para-integradores/`
 - `/cases/`
 - `/conteudos/`
+- `/conteudos/[slug]/`
+- `/a-kairos/`
 - `/contato/`
-- `/404.html`
+- `/politica-de-privacidade/`
+- `/politica-de-cookies/`
+- `/404/`
+- `/rss.xml`
+- `/sitemap.xml`
 
-## Publicação no GitHub Pages
+## Variáveis públicas
 
-1. Suba o conteúdo deste projeto para `renovera1/renovera-projetos-eletricos`.
-2. Rode `pnpm install`.
-3. Rode `pnpm build`.
-4. Publique a pasta `dist/` pelo fluxo escolhido do GitHub Pages ou configure um workflow para build automático.
-5. Valide a URL final: `https://renovera1.github.io/renovera-projetos-eletricos/`.
+Copie `.env.example` e configure somente valores públicos:
 
-## Configurações editáveis
+- `PUBLIC_FORM_ENDPOINT`
+- `PUBLIC_WHATSAPP_NUMBER`
+- `PUBLIC_CALENDAR_URL`
+- `PUBLIC_LINKEDIN_URL`
+- `PUBLIC_GA_MEASUREMENT_ID`
+- `PUBLIC_TURNSTILE_SITE_KEY`
 
-As principais configurações ficam em `src/config/site.js`.
-
-- WhatsApp: defina `VITE_WHATSAPP_NUMBER` no ambiente ou edite `whatsappNumber`.
-- E-mail: edite `email`.
-- LinkedIn: defina `VITE_LINKEDIN_URL` ou edite `linkedinUrl`.
-- Formulário: configure `VITE_CONTACT_ENDPOINT`.
-- Domínio futuro: atualize `baseUrl`, `sitemap.xml`, `robots.txt` e o `base` do Vite se o caminho mudar.
-
-Enquanto `VITE_CONTACT_ENDPOINT` não estiver configurado, o formulário valida os campos e exibe:
-
-> Solicitação validada. Configure o endpoint seguro de envio para concluir a integração.
+Segredos, tokens, webhooks privados e credenciais de CRM devem ficar no endpoint externo, não no GitHub Pages.
 
 ## Conteúdo
 
-- Serviços: `src/data/content.js`, em `serviceGroups`.
-- Cases: `src/data/content.js`, em `caseStudies`.
-- Artigos: `src/data/content.js`, em `articles`.
-- Textos institucionais: `src/App.jsx` e `src/data/content.js`.
+- Serviços, cases, rotas e FAQ: `src/data/site.ts`
+- Blog: `src/content/blog`
+- Componentes: `src/components`
+- Layout e SEO: `src/layouts/BaseLayout.astro`
+- Auditoria: `AUDIT.md`
 
-Não há tokens, senhas ou chaves de API no front-end.
+## Automação
+
+- Deploy GitHub Pages com lint, typecheck, testes, e2e, build e auditoria de links.
+- Dependabot semanal.
+- CodeQL.
+- Issue semanal de pauta editorial com checklist de fontes e revisão humana.

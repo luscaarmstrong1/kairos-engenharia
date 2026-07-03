@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHero from "@components/PageHero.astro";
+import { withBase } from "@lib/urls";
+
+const posts = (await getCollection("blog")).filter((post) => post.data.status === "published").sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="Conteúdos Técnicos"
+  description="Artigos técnicos da Kairós Engenharia sobre regulação, geração distribuída, engenharia elétrica, eletromobilidade e inteligência energética."
+  path="/conteudos/"
+>
+  <PageHero
+    eyebrow="Conteúdos"
+    title="Conteúdo técnico com revisão humana antes de qualquer publicação regulatória."
+    description="Os artigos iniciais são estáticos, em Markdown, e evitam afirmações regulatórias não verificadas como fato absoluto."
+  />
+
+  <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
+    <div class="mx-auto grid max-w-7xl gap-5 lg:grid-cols-3">
+      {posts.map((post) => (
+        <article class="reveal flex min-h-[290px] flex-col rounded-md border border-slate-200 bg-white p-7 shadow-crisp">
+          <div class="flex items-center justify-between gap-4">
+            <span class="rounded-full bg-energy-400/12 px-3 py-1 text-xs font-bold text-energy-700">{post.data.category}</span>
+            <span class="text-xs font-medium text-slate-500">{post.data.readTime}</span>
+          </div>
+          <h2 class="mt-6 text-xl font-semibold tracking-normal text-slate-950">{post.data.title}</h2>
+          <p class="mt-4 flex-1 text-sm leading-7 text-slate-600">{post.data.description}</p>
+          <a href={withBase(`/conteudos/${post.id}/`)} class="mt-6 inline-flex w-fit text-sm font-semibold text-energy-700" data-track="article-read">
+            Ler artigo <span class="ml-2" aria-hidden="true">→</span>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,39 @@
+---
+import { buildWhatsAppUrl, whatsappMessageForPath } from "@lib/whatsapp";
+import { withBase } from "@lib/urls";
+type Props = { pathname: string };
+const { pathname } = Astro.props;
+const number = import.meta.env.PUBLIC_WHATSAPP_NUMBER;
+const message = whatsappMessageForPath(pathname);
+const whatsappHref = buildWhatsAppUrl(number, message);
+const safeHref = whatsappHref.startsWith("http") ? whatsappHref : withBase(whatsappHref);
+---
+
+<div class="fixed bottom-5 right-5 z-40 flex flex-col gap-3">
+  <a
+    href={safeHref}
+    target={safeHref.startsWith("http") ? "_blank" : undefined}
+    rel={safeHref.startsWith("http") ? "noopener noreferrer" : undefined}
+    class="grid h-12 w-12 place-items-center rounded-md bg-energy-400 text-xl font-semibold text-navy-950 shadow-glow transition hover:bg-energy-300"
+    aria-label={safeHref.startsWith("http") ? "Falar pelo WhatsApp" : "Abrir contato"}
+    data-track="whatsapp"
+    data-message={message}
+  >
+    ◌
+  </a>
+  <button
+    type="button"
+    class="grid h-12 w-12 place-items-center rounded-md border border-slate-200 bg-white text-lg font-semibold text-navy-950 shadow-crisp transition hover:bg-slate-50"
+    aria-label="Voltar ao topo"
+    data-top-button
+  >
+    ↑
+  </button>
+</div>
+
+<script>
+  // @ts-nocheck
+  document.querySelector("[data-top-button]")?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>

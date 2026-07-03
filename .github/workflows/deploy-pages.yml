@@ -39,11 +39,23 @@ jobs:
       - name: Lint
         run: pnpm lint
 
+      - name: Typecheck
+        run: pnpm typecheck
+
       - name: Test
         run: pnpm test
 
+      - name: Install Playwright
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: E2E
+        run: pnpm test:e2e
+
       - name: Build
         run: pnpm build
+
+      - name: Link audit
+        run: pnpm audit:links
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -1,0 +1,56 @@
+---
+const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || "";
+---
+
+<section
+  class="fixed inset-x-4 bottom-4 z-30 mx-auto hidden max-w-3xl rounded-md border border-slate-200 bg-white p-4 text-slate-900 shadow-crisp"
+  aria-live="polite"
+  data-cookie-banner
+  data-ga-id={gaId}
+>
+  <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <p class="text-sm leading-6 text-slate-600">
+      Usamos cookies necessários para funcionamento e analytics apenas com consentimento. Dados pessoais não são enviados para analytics antes da sua autorização.
+    </p>
+    <div class="flex shrink-0 gap-2">
+      <button type="button" class="rounded-md border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700" data-cookie-decline>Recusar</button>
+      <button type="button" class="rounded-md bg-navy-950 px-4 py-2 text-sm font-semibold text-white" data-cookie-accept>Aceitar</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  // @ts-nocheck
+  const banner = document.querySelector("[data-cookie-banner]");
+  const consent = localStorage.getItem("kairos-cookie-consent");
+  const gaId = banner?.getAttribute("data-ga-id");
+
+  function startAnalytics() {
+    if (!gaId || document.querySelector(`[src*="${gaId}"]`)) return;
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args) {
+      window.dataLayer.push(args);
+    }
+    window.gtag = gtag;
+    gtag("js", new Date());
+    gtag("config", gaId, { anonymize_ip: true });
+  }
+
+  if (!consent) banner?.classList.remove("hidden");
+  if (consent === "accepted") startAnalytics();
+
+  document.querySelector("[data-cookie-accept]")?.addEventListener("click", () => {
+    localStorage.setItem("kairos-cookie-consent", "accepted");
+    banner?.classList.add("hidden");
+    startAnalytics();
+  });
+
+  document.querySelector("[data-cookie-decline]")?.addEventListener("click", () => {
+    localStorage.setItem("kairos-cookie-consent", "declined");
+    banner?.classList.add("hidden");
+  });
+</script>

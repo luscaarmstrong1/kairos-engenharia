@@ -1,0 +1,16 @@
+import { describe, expect, it } from "vitest";
+import { allRoutes, servicePages } from "../data/site";
+import { absoluteUrl, withBase } from "../lib/urls";
+
+describe("routes and SEO helpers", () => {
+  it("inclui todas as rotas principais solicitadas", () => {
+    expect(allRoutes).toContain("/para-integradores/");
+    expect(allRoutes).toContain("/politica-de-privacidade/");
+    expect(servicePages.map((service) => service.slug)).toContain("consultoria-regulatoria");
+  });
+
+  it("gera URLs com base do GitHub Pages", () => {
+    expect(withBase("/contato/")).toBe("/renovera-projetos-eletricos/contato/");
+    expect(absoluteUrl("/servicos/")).toBe("https://renovera1.github.io/renovera-projetos-eletricos/servicos/");
+  });
+});

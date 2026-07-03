@@ -1,0 +1,191 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import QuickTriage from "@components/QuickTriage.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import ServiceCard from "@components/ServiceCard.astro";
+import CaseCard from "@components/CaseCard.astro";
+import CtaBand from "@components/CtaBand.astro";
+import { cases, faqs, profileSolutions, servicePages } from "@data/site";
+import { withBase } from "@lib/urls";
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Início", item: "https://renovera1.github.io/renovera-projetos-eletricos/" },
+  ],
+};
+---
+
+<BaseLayout
+  title="Kairós Engenharia | Engenharia técnico-regulatória e inteligência energética"
+  description="Engenharia que transforma restrições técnicas em decisões viáveis para conexão, projetos elétricos, regulação, dados e eletromobilidade."
+  path="/"
+  jsonLd={breadcrumbJsonLd}
+>
+  <section class="relative isolate overflow-hidden bg-navy-950 pt-32 text-white">
+    <div class="absolute inset-0 bg-hero-grid bg-[size:42px_42px] opacity-70" aria-hidden="true"></div>
+    <div class="noise"></div>
+    <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white to-transparent" aria-hidden="true"></div>
+    <div class="relative mx-auto grid max-w-7xl gap-12 px-5 pb-20 sm:px-6 lg:grid-cols-[1fr_.9fr] lg:px-8">
+      <div class="flex flex-col justify-center">
+        <p class="inline-flex w-fit rounded-full border border-energy-300/25 bg-white/7 px-3 py-2 text-xs font-bold uppercase tracking-[0.16em] text-energy-300">
+          Engenharia elétrica, regulação e inteligência energética
+        </p>
+        <h1 class="mt-7 max-w-4xl text-balance text-4xl font-semibold leading-[1.06] tracking-normal text-white sm:text-5xl lg:text-6xl">
+          Engenharia que transforma restrições técnicas em decisões viáveis.
+        </h1>
+        <p class="mt-7 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+          Projetos elétricos, conexão à rede, consultoria técnico-regulatória e inteligência energética para empresas que precisam gerar, expandir, proteger e operar com segurança.
+        </p>
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+          <a href={withBase("/contato/")} class="inline-flex items-center justify-center rounded-md bg-energy-400 px-5 py-3 text-sm font-semibold text-navy-950 transition hover:bg-energy-300" data-track="hero-diagnostico">
+            Solicitar diagnóstico técnico <span class="ml-2" aria-hidden="true">→</span>
+          </a>
+          <a href={withBase("/servicos/")} class="inline-flex items-center justify-center rounded-md border border-white/16 bg-white/6 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/12" data-track="hero-solucoes">
+            Conhecer nossas soluções
+          </a>
+        </div>
+        <div class="mt-5 grid gap-3 sm:grid-cols-3">
+          <a href={withBase("/para-integradores/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Terceirizar engenharia regulatória</a>
+          <a href={withBase("/servicos/engenharia-projetos-eletricos/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Avaliar infraestrutura e demanda</a>
+          <a href={withBase("/servicos/eletromobilidade/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Estudar viabilidade de recarga</a>
+        </div>
+      </div>
+      <div class="reveal relative min-h-[520px]">
+        <div class="absolute inset-0 rounded-md border border-white/10 bg-white/6 shadow-glow backdrop-blur"></div>
+        <div class="screen-grid absolute inset-5 overflow-hidden rounded-md border border-white/12 bg-[#071a2e] p-5">
+          <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500">Mapa técnico</p>
+          <h2 class="mt-2 text-xl font-semibold text-white">Conexão, demanda e risco</h2>
+          <div class="mt-8 grid gap-4">
+            {["Parecer", "Demanda", "Proteção", "Backup", "Recarga"].map((item, index) => (
+              <div class="flex items-center justify-between rounded-md border border-white/10 bg-white/5 p-4">
+                <span class="text-sm text-slate-300">{item}</span>
+                <span class="text-xs font-semibold uppercase tracking-[0.14em] text-energy-300">{index % 2 ? "modelar" : "auditar"}</span>
+              </div>
+            ))}
+          </div>
+          <div class="mt-6 rounded-md border border-white/10 bg-navy-950/70 p-5">
+            <svg viewBox="0 0 520 220" class="h-auto w-full" role="img" aria-label="Diagrama abstrato de curva de carga e conexão">
+              <path d="M35 184H488M35 134H488M35 84H488" stroke="rgba(226,232,240,.13)" />
+              <path d="M42 168C95 130 126 70 180 112C231 151 244 174 300 119C350 70 389 82 444 132C464 151 480 161 494 164" fill="none" stroke="#2DD4BF" stroke-width="6" stroke-linecap="round" />
+              <path d="M44 188C118 174 154 155 230 176C308 198 360 160 490 146" fill="none" stroke="#94A3B8" stroke-width="3" stroke-dasharray="7 8" stroke-linecap="round" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <QuickTriage />
+
+  <section class="bg-white px-5 py-12 text-slate-900 sm:px-6 lg:px-8">
+    <div class="mx-auto grid max-w-7xl gap-3 sm:grid-cols-4">
+      {["Engenharia de acesso", "Projetos elétricos estratégicos", "Regulação", "Dados e automação"].map((item) => (
+        <div class="rounded-md border border-slate-200 bg-slate-50 px-4 py-4 text-sm font-semibold text-slate-700">{item}</div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-white px-5 pb-24 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <SectionHeading
+        eyebrow="Onde projetos convencionais deixam de ser suficientes"
+        title="A Kairós entra quando conexão, demanda, proteção e regulação precisam ser tratados como sistema."
+        description="O trabalho separa hipótese, evidência e decisão em cenários de restrição de conexão, subestação, geração distribuída, backup e eletromobilidade."
+      />
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {["Restrição de conexão", "Subestação", "Demanda", "Proteção", "Geração distribuída", "Backup", "Eletromobilidade", "Gestão documental"].map((item) => (
+          <div class="reveal rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
+            <h3 class="text-lg font-semibold text-slate-950">{item}</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">Análise técnica, premissas verificáveis e documentação proporcional ao risco.</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 px-5 py-24 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <SectionHeading
+        eyebrow="Soluções por perfil"
+        title="Abordagens diferentes para integradores, operações críticas, indústria e mobilidade elétrica."
+      />
+      <div class="mt-10 grid gap-5 lg:grid-cols-4">
+        {profileSolutions.map((solution) => (
+          <ServiceCard title={solution.title} description={solution.text} href={solution.href} eyebrow="Perfil" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <SectionHeading eyebrow="Serviços" title="Quatro frentes técnicas para reduzir incerteza antes do investimento." />
+      <div class="mt-10 grid gap-5 lg:grid-cols-2">
+        {servicePages.map((service) => (
+          <ServiceCard title={service.title} description={service.description} href={`/servicos/${service.slug}/`} eyebrow={service.eyebrow} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-navy-950 px-5 py-24 text-white sm:px-6 lg:px-8">
+    <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.8fr_1.2fr]">
+      <SectionHeading dark eyebrow="Método de trabalho" title="Diagnóstico, evidência, estratégia e entrega rastreável." description="A metodologia evita promessa genérica e organiza a decisão com clareza técnica." />
+      <div class="grid gap-4 sm:grid-cols-2">
+        {["Diagnóstico técnico", "Modelagem de evidências", "Estratégia de conexão ou implantação", "Entrega rastreável"].map((step, index) => (
+          <article class="reveal rounded-md border border-white/10 bg-white/5 p-6">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-energy-300">Etapa {String(index + 1).padStart(2, "0")}</p>
+            <h3 class="mt-4 text-xl font-semibold text-white">{step}</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-300">Critérios, premissas e documentação são organizados para tomada de decisão e continuidade técnica.</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <SectionHeading
+        eyebrow="Automação aplicada"
+        title="Python, VBA e planilhas inteligentes para organizar dados técnicos sem exibir código falso."
+        description="A automação apoia análise de faturas, relatórios, indicadores e gestão documental, sempre com revisão técnica e rastreabilidade."
+      />
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {["Python", "VBA", "Planilhas inteligentes", "Análise de faturas", "Relatórios", "Gestão documental"].map((item) => (
+          <div class="reveal rounded-md border border-slate-200 bg-slate-50 p-5">
+            <h3 class="text-lg font-semibold text-slate-950">{item}</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">Uso controlado para reduzir retrabalho e apoiar decisões documentadas.</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 px-5 py-24 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <SectionHeading eyebrow="Cases" title="Cenários técnicos com dados anonimizados e sem números inventados." />
+      <div class="mt-10 grid gap-5 lg:grid-cols-2">
+        {cases.slice(0, 2).map((study) => <CaseCard study={study} />)}
+      </div>
+      <a href={withBase("/cases/")} class="mt-8 inline-flex rounded-md bg-navy-950 px-5 py-3 text-sm font-semibold text-white">Ver estrutura completa de cases</a>
+    </div>
+  </section>
+
+  <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-4xl">
+      <SectionHeading eyebrow="FAQ" title="Perguntas frequentes antes do diagnóstico técnico." />
+      <div class="mt-10 grid gap-4">
+        {faqs.map((faq) => (
+          <details class="reveal rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
+            <summary class="cursor-pointer text-lg font-semibold text-slate-950">{faq.question}</summary>
+            <p class="mt-4 text-sm leading-7 text-slate-600">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

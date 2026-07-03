@@ -1,0 +1,52 @@
+---
+import { navItems, servicePages, site } from "@data/site";
+import { withBase } from "@lib/urls";
+const linkedin = import.meta.env.PUBLIC_LINKEDIN_URL || "https://www.linkedin.com/";
+---
+
+<footer class="bg-navy-950 px-5 py-12 text-white sm:px-6 lg:px-8">
+  <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.2fr_.8fr_.8fr_.8fr]">
+    <div>
+      <a href={withBase("/")} class="flex items-center gap-3 rounded-md">
+        <span class="grid h-11 w-11 place-items-center rounded-md border border-energy-300/30 bg-white/8 text-sm font-bold">K</span>
+        <span>
+          <strong class="block text-sm tracking-[0.14em]">{site.legalName}</strong>
+          <span class="block text-[10px] uppercase tracking-[0.18em] text-slate-500">Engenharia & Energia</span>
+        </span>
+      </a>
+      <p class="mt-5 max-w-md text-sm leading-7 text-slate-400">{site.tagline}</p>
+    </div>
+
+    <div>
+      <h2 class="text-sm font-semibold text-white">Navegação</h2>
+      <div class="mt-4 grid gap-3">
+        {navItems.map((item) => (
+          <a href={withBase(item.href)} class="w-fit text-sm text-slate-400 transition hover:text-white">{item.label}</a>
+        ))}
+      </div>
+    </div>
+
+    <div>
+      <h2 class="text-sm font-semibold text-white">Soluções</h2>
+      <div class="mt-4 grid gap-3">
+        {servicePages.map((service) => (
+          <a href={withBase(`/servicos/${service.slug}/`)} class="w-fit text-sm text-slate-400 transition hover:text-white">{service.title}</a>
+        ))}
+      </div>
+    </div>
+
+    <div>
+      <h2 class="text-sm font-semibold text-white">Contato</h2>
+      <div class="mt-4 grid gap-3 text-sm text-slate-400">
+        <a class="w-fit transition hover:text-white" href={`mailto:${site.email}`}>{site.email}</a>
+        <a class="w-fit transition hover:text-white" href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="w-fit transition hover:text-white" href={withBase("/politica-de-privacidade/")}>Privacidade</a>
+        <a class="w-fit transition hover:text-white" href={withBase("/politica-de-cookies/")}>Cookies</a>
+      </div>
+    </div>
+  </div>
+  <div class="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+    <p>© {new Date().getFullYear()} Kairós Engenharia. Todos os direitos reservados.</p>
+    <p>GitHub Pages não permite configurar livremente todos os headers HTTP; a CSP essencial é aplicada por meta tag.</p>
+  </div>
+</footer>

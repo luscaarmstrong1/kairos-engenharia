@@ -1,0 +1,55 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHero from "@components/PageHero.astro";
+import CaseCard from "@components/CaseCard.astro";
+import CtaBand from "@components/CtaBand.astro";
+import { cases } from "@data/site";
+import { withBase } from "@lib/urls";
+
+const filters = ["Todos", "Conexão e regulação", "Projetos elétricos", "Geração distribuída", "Continuidade operacional", "Eletromobilidade", "Inteligência energética"];
+---
+
+<BaseLayout
+  title="Cases Técnicos"
+  description="Cases técnicos anonimizados e cenários de referência em conexão, projetos elétricos, continuidade operacional, eletromobilidade e inteligência energética."
+  path="/cases/"
+>
+  <PageHero
+    eyebrow="Cases"
+    title="Estrutura profissional para cases técnicos sem números inventados."
+    description="Os cases publicados são anonimizados ou ilustrativos quando não houver autorização pública. Não inventamos clientes, potências, prazos, economia ou taxa de aprovação."
+    primaryHref={withBase("/contato/")}
+    primaryLabel="Analisar um caso técnico"
+  />
+
+  <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <div class="flex flex-wrap gap-2" aria-label="Filtros de cases">
+        {filters.map((filter) => (
+          <button type="button" class="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-energy-400" data-case-filter={filter}>
+            {filter}
+          </button>
+        ))}
+      </div>
+      <div class="mt-10 grid gap-5 lg:grid-cols-2" data-case-grid>
+        {cases.map((study) => <CaseCard study={study} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+
+  <script>
+    const buttons = document.querySelectorAll("[data-case-filter]");
+    const cards = document.querySelectorAll("[data-case-card]");
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.getAttribute("data-case-filter");
+        cards.forEach((card) => {
+          const show = filter === "Todos" || card.getAttribute("data-case-card") === filter;
+          card.classList.toggle("hidden", !show);
+        });
+      });
+    });
+  </script>
+</BaseLayout>

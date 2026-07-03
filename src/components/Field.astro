@@ -1,0 +1,25 @@
+---
+type Props = {
+  id: string;
+  label: string;
+  type?: "text" | "email" | "tel" | "url" | "number" | "hidden";
+  placeholder?: string;
+  maxlength?: string;
+};
+
+const { id, label, type = "text", placeholder = "", maxlength } = Astro.props;
+---
+
+<div>
+  <label for={id} class="block text-sm font-semibold text-slate-800">{label}</label>
+  <input
+    id={id}
+    name={id}
+    type={type}
+    placeholder={placeholder}
+    maxlength={maxlength}
+    data-field={id}
+    class="mt-2 w-full rounded-md border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-energy-500 focus:ring-4 focus:ring-energy-400/10"
+  />
+  <p class="mt-2 hidden text-sm font-medium text-red-600" id={`${id}-error`} data-error={id}></p>
+</div>

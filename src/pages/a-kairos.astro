@@ -1,0 +1,66 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHero from "@components/PageHero.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import CtaBand from "@components/CtaBand.astro";
+import { withBase } from "@lib/urls";
+
+const values = [
+  "Rigor técnico antes de promessa comercial",
+  "Responsabilidade documental",
+  "Engenharia baseada em dados verificáveis",
+  "Clareza para decisões executivas",
+  "Atuação B2B com confidencialidade",
+  "Transparência sobre limites técnicos e regulatórios",
+];
+---
+
+<BaseLayout
+  title="A Kairós"
+  description="Conheça o posicionamento, método, missão, visão e valores da Kairós Engenharia."
+  path="/a-kairos/"
+>
+  <PageHero
+    eyebrow="A Kairós"
+    title="A Kairós Engenharia atua onde projetos convencionais deixam de ser suficientes."
+    description="Somos uma consultoria técnica B2B voltada a engenharia elétrica, conexão, regulação e inteligência energética em projetos que exigem evidência, método e responsabilidade."
+    primaryHref={withBase("/contato/")}
+    primaryLabel="Solicitar diagnóstico"
+  />
+
+  <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
+    <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.8fr_1.2fr]">
+      <SectionHeading
+        eyebrow="Posicionamento"
+        title="Boutique técnica para decisões complexas de energia."
+        description="A atuação é desenhada para integradores, indústrias, comércios, hospitais, redes, logística, postos, frotas e empresas que precisam lidar com conexão, demanda, geração ou infraestrutura crítica."
+      />
+      <div class="grid gap-5 sm:grid-cols-2">
+        {[
+          ["Missão", "Transformar problemas elétricos e regulatórios complexos em decisões técnicas claras, documentadas e executáveis."],
+          ["Visão", "Ser referência em engenharia elétrica aplicada ao mercado de energia, conectando dados, regulação e infraestrutura."],
+          ["Método", "Diagnóstico, modelagem de evidências, estratégia de conexão ou implantação e entrega rastreável."],
+          ["Responsabilidade", "A comunicação técnica preserva limites profissionais e evita promessa de aprovação ou resultado sem base."],
+        ].map(([title, text]) => (
+          <article class="reveal rounded-md border border-slate-200 bg-white p-6 shadow-crisp">
+            <h2 class="text-lg font-semibold text-slate-950">{title}</h2>
+            <p class="mt-3 text-sm leading-7 text-slate-600">{text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 px-5 py-24 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <SectionHeading eyebrow="Valores" title="Critério técnico, dados e transparência em cada entrega." />
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {values.map((value) => (
+          <div class="reveal rounded-md border border-slate-200 bg-white p-5 text-sm font-semibold leading-7 text-slate-700 shadow-crisp">{value}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

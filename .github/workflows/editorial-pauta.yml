@@ -1,0 +1,44 @@
+name: Pauta editorial semanal
+
+on:
+  schedule:
+    - cron: "0 12 * * 1"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  pauta:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Abrir issue de pauta
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toISOString().slice(0, 10);
+            const title = `Pauta técnica semanal - ${date}`;
+            const body = [
+              "Checklist editorial para conteúdos da Kairós Engenharia:",
+              "",
+              "- [ ] Tema técnico definido",
+              "- [ ] Categoria selecionada: Regulação, Geração distribuída, Engenharia elétrica, Eletromobilidade, Inteligência energética ou Projetos e infraestrutura",
+              "- [ ] Fontes primárias listadas",
+              "- [ ] Afirmações regulatórias revisadas por humano",
+              "- [ ] Status inicial em Markdown como `draft` ou `review`",
+              "- [ ] Publicar apenas após revisão humana (`published`)",
+              "",
+              "Sugestões de pauta:",
+              "- Auditoria de parecer de acesso: erros comuns de documentação",
+              "- Aumento de carga para operações críticas",
+              "- Viabilidade técnica de hubs de recarga",
+              "- Indicadores de inteligência energética a partir de faturas"
+            ].join("\n");
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+              labels: ["conteudo", "pauta"]
+            });

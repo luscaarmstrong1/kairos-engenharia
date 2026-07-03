@@ -1,0 +1,72 @@
+---
+import { withBase } from "@lib/urls";
+---
+
+<section class="relative z-10 bg-white px-5 py-10 text-slate-900 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-7xl rounded-md border border-slate-200 bg-slate-50 p-5 shadow-crisp sm:p-7">
+    <div class="grid gap-6 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.18em] text-energy-600">Triagem rápida</p>
+        <h2 class="mt-3 text-balance text-2xl font-semibold tracking-normal text-slate-950">Comece com três respostas e avance para o diagnóstico técnico.</h2>
+      </div>
+      <form class="grid gap-4 sm:grid-cols-3" data-triage-form data-contact-url={withBase("/contato/")}>
+        <label class="block text-sm font-semibold text-slate-800">
+          Perfil
+          <select name="perfil" class="mt-2 w-full rounded-md border border-slate-200 bg-white px-3 py-3 text-sm">
+            <option value="">Selecione</option>
+            <option>Integrador</option>
+            <option>Indústria</option>
+            <option>Comércio</option>
+            <option>Hospital ou instituição</option>
+            <option>Condomínio</option>
+            <option>Posto de combustível</option>
+            <option>Outro</option>
+          </select>
+        </label>
+        <label class="block text-sm font-semibold text-slate-800">
+          Desafio
+          <select name="desafio" class="mt-2 w-full rounded-md border border-slate-200 bg-white px-3 py-3 text-sm">
+            <option value="">Selecione</option>
+            <option>Parecer de acesso ou inversão de fluxo</option>
+            <option>Projeto fotovoltaico</option>
+            <option>Subestação ou média tensão</option>
+            <option>Aumento de carga</option>
+            <option>Gerador e continuidade operacional</option>
+            <option>Hub de recarga</option>
+            <option>Análise de fatura</option>
+            <option>Outro</option>
+          </select>
+        </label>
+        <label class="block text-sm font-semibold text-slate-800">
+          Urgência
+          <select name="prazo" class="mt-2 w-full rounded-md border border-slate-200 bg-white px-3 py-3 text-sm">
+            <option value="">Selecione</option>
+            <option>Até 7 dias</option>
+            <option>Até 30 dias</option>
+            <option>Em planejamento</option>
+          </select>
+        </label>
+        <button type="submit" class="rounded-md bg-navy-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-navy-800 sm:col-span-3">
+          Continuar para formulário completo →
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  // @ts-nocheck
+  document.querySelector("[data-triage-form]")?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const params = new URLSearchParams();
+    for (const key of ["perfil", "desafio", "prazo"]) {
+      const value = String(data.get(key) || "");
+      if (value) params.set(key, value);
+    }
+    sessionStorage.setItem("kairos-triage", params.toString());
+    const contactUrl = form.getAttribute("data-contact-url") || "/contato/";
+    window.location.href = `${contactUrl}?${params.toString()}`;
+  });
+</script>
