@@ -1,4 +1,4 @@
-﻿import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { extname, join } from "node:path";
 
 const dist = join(process.cwd(), "dist");
@@ -29,7 +29,7 @@ for (const file of files(dist).filter((item) => extname(item) === ".html")) {
       join(dist, normalized.replace(/^\//, "")),
     ];
     if (!candidates.some((candidate) => existsSync(candidate))) {
-      failures.push(`${file}: link interno nÃ£o encontrado: ${raw}`);
+      failures.push(`${file}: link interno não encontrado: ${raw}`);
     }
   }
 }

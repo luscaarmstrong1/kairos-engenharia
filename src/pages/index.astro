@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import QuickTriage from "@components/QuickTriage.astro";
 import SectionHeading from "@components/SectionHeading.astro";
@@ -8,18 +8,61 @@ import CtaBand from "@components/CtaBand.astro";
 import { cases, faqs, profileSolutions, servicePages } from "@data/site";
 import { withBase } from "@lib/urls";
 
+const criticalAreas = [
+  {
+    title: "Restrição de conexão",
+    description:
+      "Análise de estudos, pareceres de acesso, inversão de fluxo, alternativas técnicas e estratégia regulatória perante a distribuidora.",
+  },
+  {
+    title: "Subestação",
+    description:
+      "Estudos, projetos, especificações, adequações, expansão de capacidade e interface técnica com concessionárias.",
+  },
+  {
+    title: "Demanda",
+    description:
+      "Diagnóstico de demanda contratada, ultrapassagens, perfil de carga, correção de enquadramento e redução de custos.",
+  },
+  {
+    title: "Proteção",
+    description:
+      "Estudos de seletividade, coordenação, ajustes, curto-circuito, relés e adequação de proteção elétrica.",
+  },
+  {
+    title: "Geração distribuída",
+    description:
+      "Viabilidade, projeto, homologação, expansão, adequação regulatória e tratativa de restrições de conexão.",
+  },
+  {
+    title: "Backup",
+    description:
+      "Projeto de geradores, QTA, cargas prioritárias, paralelismo momentâneo, continuidade operacional e segurança.",
+  },
+  {
+    title: "Eletromobilidade",
+    description:
+      "Análise de demanda, infraestrutura elétrica, carregadores, eletropostos, proteção e viabilidade de conexão.",
+  },
+  {
+    title: "Gestão documental",
+    description:
+      "Organização técnica, memorial descritivo, ART, formulários, protocolos, evidências e acompanhamento de processos.",
+  },
+];
+
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "InÃ­cio", item: "https://renovera1.github.io/kairos-engenharia/" },
+    { "@type": "ListItem", position: 1, name: "Início", item: "https://renovera1.github.io/kairos-engenharia/" },
   ],
 };
 ---
 
 <BaseLayout
-  title="KairÃ³s Engenharia | Engenharia tÃ©cnico-regulatÃ³ria e inteligÃªncia energÃ©tica"
-  description="Engenharia que transforma restriÃ§Ãµes tÃ©cnicas em decisÃµes viÃ¡veis para conexÃ£o, projetos elÃ©tricos, regulaÃ§Ã£o, dados e eletromobilidade."
+  title="Kairós Engenharia | Engenharia técnico-regulatória e inteligência energética"
+  description="Engenharia que transforma restrições técnicas em decisões viáveis para conexão, projetos elétricos, regulação, dados e eletromobilidade."
   path="/"
   jsonLd={breadcrumbJsonLd}
 >
@@ -30,24 +73,24 @@ const breadcrumbJsonLd = {
     <div class="relative mx-auto grid max-w-7xl gap-12 px-5 pb-20 sm:px-6 lg:grid-cols-[1fr_.9fr] lg:px-8">
       <div class="flex flex-col justify-center">
         <p class="inline-flex w-fit rounded-full border border-energy-300/25 bg-white/7 px-3 py-2 text-xs font-bold uppercase tracking-[0.16em] text-energy-300">
-          Engenharia elÃ©trica, regulaÃ§Ã£o e inteligÃªncia energÃ©tica
+          Engenharia elétrica, regulação e inteligência energética
         </p>
         <h1 class="mt-7 max-w-4xl text-balance text-4xl font-semibold leading-[1.06] tracking-normal text-white sm:text-5xl lg:text-6xl">
-          Engenharia que transforma restriÃ§Ãµes tÃ©cnicas em decisÃµes viÃ¡veis.
+          Engenharia que transforma restrições técnicas em decisões viáveis.
         </h1>
         <p class="mt-7 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-          Projetos elÃ©tricos, conexÃ£o Ã  rede, consultoria tÃ©cnico-regulatÃ³ria e inteligÃªncia energÃ©tica para empresas que precisam gerar, expandir, proteger e operar com seguranÃ§a.
+          Projetos elétricos, conexão à rede, consultoria técnico-regulatória e inteligência energética para empresas que precisam gerar, expandir, proteger e operar com segurança.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row">
           <a href={withBase("/contato/")} class="inline-flex items-center justify-center rounded-md bg-energy-400 px-5 py-3 text-sm font-semibold text-navy-950 transition hover:bg-energy-300" data-track="hero-diagnostico">
-            Solicitar diagnÃ³stico tÃ©cnico <span class="ml-2" aria-hidden="true">â†’</span>
+            Solicitar diagnóstico técnico <span class="ml-2" aria-hidden="true">→</span>
           </a>
           <a href={withBase("/servicos/")} class="inline-flex items-center justify-center rounded-md border border-white/16 bg-white/6 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/12" data-track="hero-solucoes">
-            Conhecer nossas soluÃ§Ãµes
+            Conhecer nossas soluções
           </a>
         </div>
         <div class="mt-5 grid gap-3 sm:grid-cols-3">
-          <a href={withBase("/para-integradores/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Terceirizar engenharia regulatÃ³ria</a>
+          <a href={withBase("/para-integradores/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Terceirizar engenharia regulatória</a>
           <a href={withBase("/servicos/engenharia-projetos-eletricos/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Avaliar infraestrutura e demanda</a>
           <a href={withBase("/servicos/eletromobilidade/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Estudar viabilidade de recarga</a>
         </div>
@@ -55,10 +98,10 @@ const breadcrumbJsonLd = {
       <div class="reveal relative min-h-[520px]">
         <div class="absolute inset-0 rounded-md border border-white/10 bg-white/6 shadow-glow backdrop-blur"></div>
         <div class="screen-grid absolute inset-5 overflow-hidden rounded-md border border-white/12 bg-[#071a2e] p-5">
-          <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500">Mapa tÃ©cnico</p>
-          <h2 class="mt-2 text-xl font-semibold text-white">ConexÃ£o, demanda e risco</h2>
+          <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500">Mapa técnico</p>
+          <h2 class="mt-2 text-xl font-semibold text-white">Conexão, demanda e risco</h2>
           <div class="mt-8 grid gap-4">
-            {["Parecer", "Demanda", "ProteÃ§Ã£o", "Backup", "Recarga"].map((item, index) => (
+            {["Parecer", "Demanda", "Proteção", "Backup", "Recarga"].map((item, index) => (
               <div class="flex items-center justify-between rounded-md border border-white/10 bg-white/5 p-4">
                 <span class="text-sm text-slate-300">{item}</span>
                 <span class="text-xs font-semibold uppercase tracking-[0.14em] text-energy-300">{index % 2 ? "modelar" : "auditar"}</span>
@@ -66,7 +109,7 @@ const breadcrumbJsonLd = {
             ))}
           </div>
           <div class="mt-6 rounded-md border border-white/10 bg-navy-950/70 p-5">
-            <svg viewBox="0 0 520 220" class="h-auto w-full" role="img" aria-label="Diagrama abstrato de curva de carga e conexÃ£o">
+            <svg viewBox="0 0 520 220" class="h-auto w-full" role="img" aria-label="Diagrama abstrato de curva de carga e conexão">
               <path d="M35 184H488M35 134H488M35 84H488" stroke="rgba(226,232,240,.13)" />
               <path d="M42 168C95 130 126 70 180 112C231 151 244 174 300 119C350 70 389 82 444 132C464 151 480 161 494 164" fill="none" stroke="#2DD4BF" stroke-width="6" stroke-linecap="round" />
               <path d="M44 188C118 174 154 155 230 176C308 198 360 160 490 146" fill="none" stroke="#94A3B8" stroke-width="3" stroke-dasharray="7 8" stroke-linecap="round" />
@@ -81,7 +124,7 @@ const breadcrumbJsonLd = {
 
   <section class="bg-white px-5 py-12 text-slate-900 sm:px-6 lg:px-8">
     <div class="mx-auto grid max-w-7xl gap-3 sm:grid-cols-4">
-      {["Engenharia de acesso", "Projetos elÃ©tricos estratÃ©gicos", "RegulaÃ§Ã£o", "Dados e automaÃ§Ã£o"].map((item) => (
+      {["Engenharia de acesso", "Projetos elétricos estratégicos", "Regulação", "Dados e automação"].map((item) => (
         <div class="rounded-md border border-slate-200 bg-slate-50 px-4 py-4 text-sm font-semibold text-slate-700">{item}</div>
       ))}
     </div>
@@ -91,14 +134,14 @@ const breadcrumbJsonLd = {
     <div class="mx-auto max-w-7xl">
       <SectionHeading
         eyebrow="Onde projetos convencionais deixam de ser suficientes"
-        title="A KairÃ³s entra quando conexÃ£o, demanda, proteÃ§Ã£o e regulaÃ§Ã£o precisam ser tratados como sistema."
-        description="O trabalho separa hipÃ³tese, evidÃªncia e decisÃ£o em cenÃ¡rios de restriÃ§Ã£o de conexÃ£o, subestaÃ§Ã£o, geraÃ§Ã£o distribuÃ­da, backup e eletromobilidade."
+        title="A Kairós entra quando conexão, demanda, proteção e regulação precisam ser tratados como sistema."
+        description="O trabalho separa hipótese, evidência e decisão em cenários de restrição de conexão, subestação, geração distribuída, backup e eletromobilidade."
       />
       <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {["RestriÃ§Ã£o de conexÃ£o", "SubestaÃ§Ã£o", "Demanda", "ProteÃ§Ã£o", "GeraÃ§Ã£o distribuÃ­da", "Backup", "Eletromobilidade", "GestÃ£o documental"].map((item) => (
+        {criticalAreas.map((item) => (
           <div class="reveal rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
-            <h3 class="text-lg font-semibold text-slate-950">{item}</h3>
-            <p class="mt-3 text-sm leading-7 text-slate-600">AnÃ¡lise tÃ©cnica, premissas verificÃ¡veis e documentaÃ§Ã£o proporcional ao risco.</p>
+            <h3 class="text-lg font-semibold text-slate-950">{item.title}</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
           </div>
         ))}
       </div>
@@ -108,8 +151,8 @@ const breadcrumbJsonLd = {
   <section class="bg-slate-50 px-5 py-24 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
       <SectionHeading
-        eyebrow="SoluÃ§Ãµes por perfil"
-        title="Abordagens diferentes para integradores, operaÃ§Ãµes crÃ­ticas, indÃºstria e mobilidade elÃ©trica."
+        eyebrow="Soluções por perfil"
+        title="Abordagens diferentes para integradores, operações críticas, indústria e mobilidade elétrica."
       />
       <div class="mt-10 grid gap-5 lg:grid-cols-4">
         {profileSolutions.map((solution) => (
@@ -121,7 +164,7 @@ const breadcrumbJsonLd = {
 
   <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
-      <SectionHeading eyebrow="ServiÃ§os" title="Quatro frentes tÃ©cnicas para reduzir incerteza antes do investimento." />
+      <SectionHeading eyebrow="Serviços" title="Quatro frentes técnicas para reduzir incerteza antes do investimento." />
       <div class="mt-10 grid gap-5 lg:grid-cols-2">
         {servicePages.map((service) => (
           <ServiceCard title={service.title} description={service.description} href={`/servicos/${service.slug}/`} eyebrow={service.eyebrow} />
@@ -132,13 +175,13 @@ const breadcrumbJsonLd = {
 
   <section class="bg-navy-950 px-5 py-24 text-white sm:px-6 lg:px-8">
     <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.8fr_1.2fr]">
-      <SectionHeading dark eyebrow="MÃ©todo de trabalho" title="DiagnÃ³stico, evidÃªncia, estratÃ©gia e entrega rastreÃ¡vel." description="A metodologia evita promessa genÃ©rica e organiza a decisÃ£o com clareza tÃ©cnica." />
+      <SectionHeading dark eyebrow="Método de trabalho" title="Diagnóstico, evidência, estratégia e entrega rastreável." description="A metodologia evita promessa genérica e organiza a decisão com clareza técnica." />
       <div class="grid gap-4 sm:grid-cols-2">
-        {["DiagnÃ³stico tÃ©cnico", "Modelagem de evidÃªncias", "EstratÃ©gia de conexÃ£o ou implantaÃ§Ã£o", "Entrega rastreÃ¡vel"].map((step, index) => (
+        {["Diagnóstico técnico", "Modelagem de evidências", "Estratégia de conexão ou implantação", "Entrega rastreável"].map((step, index) => (
           <article class="reveal rounded-md border border-white/10 bg-white/5 p-6">
             <p class="text-xs font-bold uppercase tracking-[0.16em] text-energy-300">Etapa {String(index + 1).padStart(2, "0")}</p>
             <h3 class="mt-4 text-xl font-semibold text-white">{step}</h3>
-            <p class="mt-3 text-sm leading-7 text-slate-300">CritÃ©rios, premissas e documentaÃ§Ã£o sÃ£o organizados para tomada de decisÃ£o e continuidade tÃ©cnica.</p>
+            <p class="mt-3 text-sm leading-7 text-slate-300">Critérios, premissas e documentação são organizados para tomada de decisão e continuidade técnica.</p>
           </article>
         ))}
       </div>
@@ -148,15 +191,15 @@ const breadcrumbJsonLd = {
   <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
       <SectionHeading
-        eyebrow="AutomaÃ§Ã£o aplicada"
-        title="Python, VBA e planilhas inteligentes para organizar dados tÃ©cnicos sem exibir cÃ³digo falso."
-        description="A automaÃ§Ã£o apoia anÃ¡lise de faturas, relatÃ³rios, indicadores e gestÃ£o documental, sempre com revisÃ£o tÃ©cnica e rastreabilidade."
+        eyebrow="Automação aplicada"
+        title="Python, VBA e planilhas inteligentes para organizar dados técnicos sem exibir código falso."
+        description="A automação apoia análise de faturas, relatórios, indicadores e gestão documental, sempre com revisão técnica e rastreabilidade."
       />
       <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {["Python", "VBA", "Planilhas inteligentes", "AnÃ¡lise de faturas", "RelatÃ³rios", "GestÃ£o documental"].map((item) => (
+        {["Python", "VBA", "Planilhas inteligentes", "Análise de faturas", "Relatórios", "Gestão documental"].map((item) => (
           <div class="reveal rounded-md border border-slate-200 bg-slate-50 p-5">
             <h3 class="text-lg font-semibold text-slate-950">{item}</h3>
-            <p class="mt-3 text-sm leading-7 text-slate-600">Uso controlado para reduzir retrabalho e apoiar decisÃµes documentadas.</p>
+            <p class="mt-3 text-sm leading-7 text-slate-600">Uso controlado para reduzir retrabalho e apoiar decisões documentadas.</p>
           </div>
         ))}
       </div>
@@ -165,7 +208,7 @@ const breadcrumbJsonLd = {
 
   <section class="bg-slate-50 px-5 py-24 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
-      <SectionHeading eyebrow="Cases" title="CenÃ¡rios tÃ©cnicos com dados anonimizados e sem nÃºmeros inventados." />
+      <SectionHeading eyebrow="Cases" title="Cenários técnicos com dados anonimizados e sem números inventados." />
       <div class="mt-10 grid gap-5 lg:grid-cols-2">
         {cases.slice(0, 2).map((study) => <CaseCard study={study} />)}
       </div>
@@ -175,7 +218,7 @@ const breadcrumbJsonLd = {
 
   <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-4xl">
-      <SectionHeading eyebrow="FAQ" title="Perguntas frequentes antes do diagnÃ³stico tÃ©cnico." />
+      <SectionHeading eyebrow="FAQ" title="Perguntas frequentes antes do diagnóstico técnico." />
       <div class="mt-10 grid gap-4">
         {faqs.map((faq) => (
           <details class="reveal rounded-md border border-slate-200 bg-white p-5 shadow-crisp">

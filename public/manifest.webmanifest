@@ -1,7 +1,7 @@
-﻿{
-  "name": "KairÃ³s Engenharia",
-  "short_name": "KairÃ³s",
-  "description": "Engenharia elÃ©trica, consultoria tÃ©cnico-regulatÃ³ria e inteligÃªncia energÃ©tica.",
+{
+  "name": "Kairós Engenharia",
+  "short_name": "Kairós",
+  "description": "Engenharia elétrica, consultoria técnico-regulatória e inteligência energética.",
   "start_url": "/kairos-engenharia/",
   "scope": "/kairos-engenharia/",
   "display": "standalone",

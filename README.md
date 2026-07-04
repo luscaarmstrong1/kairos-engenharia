@@ -1,6 +1,6 @@
-﻿# KairÃ³s Engenharia
+# Kairós Engenharia
 
-Site institucional premium da KairÃ³s Engenharia, publicado em:
+Site institucional premium da Kairós Engenharia, publicado em:
 
 https://renovera1.github.io/kairos-engenharia/
 
@@ -52,9 +52,9 @@ base: "/kairos-engenharia"
 - `/rss.xml`
 - `/sitemap.xml`
 
-## VariÃ¡veis pÃºblicas
+## Variáveis públicas
 
-Copie `.env.example` e configure somente valores pÃºblicos:
+Copie `.env.example` e configure somente valores públicos:
 
 - `PUBLIC_FORM_ENDPOINT`
 - `PUBLIC_WHATSAPP_NUMBER`
@@ -63,19 +63,19 @@ Copie `.env.example` e configure somente valores pÃºblicos:
 - `PUBLIC_GA_MEASUREMENT_ID`
 - `PUBLIC_TURNSTILE_SITE_KEY`
 
-Segredos, tokens, webhooks privados e credenciais de CRM devem ficar no endpoint externo, nÃ£o no GitHub Pages.
+Segredos, tokens, webhooks privados e credenciais de CRM devem ficar no endpoint externo, não no GitHub Pages.
 
-## ConteÃºdo
+## Conteúdo
 
-- ServiÃ§os, cases, rotas e FAQ: `src/data/site.ts`
+- Serviços, cases, rotas e FAQ: `src/data/site.ts`
 - Blog: `src/content/blog`
 - Componentes: `src/components`
 - Layout e SEO: `src/layouts/BaseLayout.astro`
 - Auditoria: `AUDIT.md`
 
-## AutomaÃ§Ã£o
+## Automação
 
 - Deploy GitHub Pages com lint, typecheck, testes, e2e, build e auditoria de links.
 - Dependabot semanal.
 - CodeQL.
-- Issue semanal de pauta editorial com checklist de fontes e revisÃ£o humana.
+- Issue semanal de pauta editorial com checklist de fontes e revisão humana.
