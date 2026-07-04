@@ -1,81 +1,67 @@
 # Kairós Engenharia
 
-Site institucional premium da Kairós Engenharia, publicado em:
+## Objetivo do projeto
 
-https://luscaarmstrong1.github.io/kairos-engenharia/
+Site institucional da Kairós Engenharia, com apresentação profissional de engenharia, regulação e inteligência energética.
 
-## Stack
+## Problema que resolve
+
+Organiza o posicionamento técnico da marca em uma presença pública clara, acessível e verificável.
+
+## Demonstração visual
+
+![Screenshot desktop](docs/screenshots/home-desktop.png)
+
+![Screenshot mobile](docs/screenshots/home-mobile.png)
+
+## Tecnologias utilizadas
 
 - Astro
 - TypeScript
 - Tailwind CSS
-- Markdown Content Collections
 - Vitest
 - Playwright
+- GitHub Actions
+- GitHub Pages
 
-## Scripts
+## Recursos principais
+
+- Página institucional responsiva
+- Conteúdo técnico de marca
+- Estrutura estática com build Astro
+- Scripts de auditoria, testes e validação de links
+
+## Acesso público
+
+GitHub Pages: https://luscaarmstrong1.github.io/kairos-engenharia/
+
+## Como executar localmente
+
+Pré-requisitos: Node.js compatível com o projeto e o gerenciador indicado pelo lockfile (`package-lock.json` ou `pnpm-lock.yaml`).
 
 ```bash
-pnpm install
-pnpm dev
-pnpm lint
-pnpm typecheck
-pnpm test
-pnpm test:e2e
-pnpm build
-pnpm audit:links
+npm install
+npm run build
 ```
 
-O `astro.config.mjs` usa a base do GitHub Pages:
+Quando houver scripts específicos no `package.json`, use também `npm run dev`, `npm run test`, `npm run lint` ou os comandos equivalentes documentados no próprio arquivo.
 
-```js
-base: "/kairos-engenharia"
-```
+## Estrutura do projeto
 
-## Rotas
+- `src/`, `app/` ou `apps/`: código da interface, conforme o framework do repositório.
+- `public/`: assets estáticos publicados com a aplicação.
+- `docs/screenshots/`: capturas reais da página publicada.
+- `.github/workflows/`: automações de build/deploy quando presentes.
+- `scripts/`: rotinas auxiliares de build, auditoria ou validação quando presentes.
 
-- `/`
-- `/servicos/`
-- `/servicos/engenharia-projetos-eletricos/`
-- `/servicos/consultoria-regulatoria/`
-- `/servicos/inteligencia-energetica/`
-- `/servicos/eletromobilidade/`
-- `/para-integradores/`
-- `/cases/`
-- `/conteudos/`
-- `/conteudos/[slug]/`
-- `/a-kairos/`
-- `/contato/`
-- `/politica-de-privacidade/`
-- `/politica-de-cookies/`
-- `/404/`
-- `/rss.xml`
-- `/sitemap.xml`
+## Limitações e avisos técnicos
 
-## Variáveis públicas
+Este repositório é uma demonstração técnica ou produto em evolução. O conteúdo não substitui projeto executivo, estudo de conexão, validação regulatória, parecer técnico, proposta comercial definitiva ou análise jurídica. Funcionalidades, cálculos e textos devem ser revisados antes de uso profissional.
 
-Copie `.env.example` e configure somente valores públicos:
+## Privacidade e segurança
 
-- `PUBLIC_FORM_ENDPOINT`
-- `PUBLIC_WHATSAPP_NUMBER`
-- `PUBLIC_CALENDAR_URL`
-- `PUBLIC_LINKEDIN_URL`
-- `PUBLIC_GA_MEASUREMENT_ID`
-- `PUBLIC_TURNSTILE_SITE_KEY`
+Não inclua tokens, chaves, credenciais, dados pessoais sensíveis ou arquivos `.env` em commits. Em demonstrações públicas, use dados fictícios ou anonimizados. Quando houver `.env.example`, trate-o apenas como referência de configuração.
 
-Segredos, tokens, webhooks privados e credenciais de CRM devem ficar no endpoint externo, não no GitHub Pages.
+## Status
 
-## Conteúdo
-
-- Serviços, cases, rotas e FAQ: `src/data/site.ts`
-- Blog: `src/content/blog`
-- Componentes: `src/components`
-- Layout e SEO: `src/layouts/BaseLayout.astro`
-- Auditoria: `AUDIT.md`
-
-## Automação
-
-- Deploy GitHub Pages com lint, typecheck, testes, e2e, build e auditoria de links.
-- Dependabot semanal.
-- CodeQL.
-- Issue semanal de pauta editorial com checklist de fontes e revisão humana.
+Site institucional em evolução.
