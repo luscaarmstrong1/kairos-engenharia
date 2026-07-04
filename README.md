@@ -2,7 +2,7 @@
 
 Site institucional premium da Kairós Engenharia, publicado em:
 
-https://renovera1.github.io/kairos-engenharia/
+https://luscaarmstrong1.github.io/kairos-engenharia/
 
 ## Stack
 

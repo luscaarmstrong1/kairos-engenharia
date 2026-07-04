@@ -58,8 +58,8 @@ Os CTAs principais são "Solicitar diagnóstico técnico", "Conhecer nossas solu
 ## 9. Regras técnicas importantes
 
 - O site é Astro com base pública `/kairos-engenharia`.
-- O GitHub Pages deve publicar em `https://renovera1.github.io/kairos-engenharia/`.
-- O repositório correto é `renovera1/kairos-engenharia`.
+- Após a migração manual da conta/repositório, o GitHub Pages deve publicar em `https://luscaarmstrong1.github.io/kairos-engenharia/`.
+- O repositório previsto após a migração é `luscaarmstrong1/kairos-engenharia`; até lá, a transferência do proprietário no GitHub é uma ação manual.
 - O projeto não deve compartilhar assets, conteúdo ou configuração com outros sites.
 - O HTML declara `<meta charset="UTF-8">`.
 - Arquivos de texto devem permanecer em UTF-8.
@@ -67,7 +67,7 @@ Os CTAs principais são "Solicitar diagnóstico técnico", "Conhecer nossas solu
 ## 10. Pendências identificadas
 
 - Não há dados públicos confirmados no repositório sobre endereço físico, CNPJ, equipe, telefone direto ou portfólio nominal de clientes.
-- A decisão de criar ou renomear chats/projetos na plataforma não está disponível tecnicamente nesta sessão.
+- A migração efetiva do proprietário GitHub para `luscaarmstrong1` depende de ação manual na conta/repositório.
 
 ## 11. Histórico resumido das melhorias realizadas
 
@@ -76,3 +76,5 @@ Os CTAs principais são "Solicitar diagnóstico técnico", "Conhecer nossas solu
 - Correção de textos corrompidos por mojibake CP-1252/UTF-8.
 - Revisão do bloco de áreas críticas com descrições específicas por serviço.
 - Manutenção da publicação via GitHub Pages por workflow.
+- Criação do chat lateral exclusivo `Kairós Engenharia — Site Institucional`.
+- Preparação de URLs, metadados e documentação para a identidade GitHub `luscaarmstrong1`.

@@ -11,6 +11,6 @@ describe("routes and SEO helpers", () => {
 
   it("gera URLs com base do GitHub Pages", () => {
     expect(withBase("/contato/")).toBe("/kairos-engenharia/contato/");
-    expect(absoluteUrl("/servicos/")).toBe("https://renovera1.github.io/kairos-engenharia/servicos/");
+    expect(absoluteUrl("/servicos/")).toBe("https://luscaarmstrong1.github.io/kairos-engenharia/servicos/");
   });
 });

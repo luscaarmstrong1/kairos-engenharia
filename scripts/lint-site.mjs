@@ -3,7 +3,7 @@ import { join, relative } from "node:path";
 
 const root = process.cwd();
 const ignored = new Set([".git", "node_modules", "dist", ".astro", "test-results", "playwright-report"]);
-const allowedRepoPattern = /renovera1|kairos-engenharia|github\.io\/kairos-engenharia/i;
+const allowedRepoPattern = /luscaarmstrong1|kairos-engenharia|github\.io\/kairos-engenharia/i;
 const badEncoding = /\u00c3|\ufffd|\u00e2\u20ac|\u00e2\u20a2|\u00e2\u2020\u2019/;
 const findings = [];
 

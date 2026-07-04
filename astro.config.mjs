@@ -2,7 +2,7 @@
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://renovera1.github.io",
+  site: "https://luscaarmstrong1.github.io",
   base: "/kairos-engenharia",
   trailingSlash: "always",
   integrations: [

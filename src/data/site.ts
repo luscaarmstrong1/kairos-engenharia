@@ -4,8 +4,8 @@ export const site = {
   name: "Kairós Engenharia",
   legalName: "KAIRÓS ENGENHARIA",
   tagline: "Engenharia Elétrica, Consultoria Técnico-Regulatória e Inteligência Energética.",
-  url: "https://renovera1.github.io/kairos-engenharia",
-  repositoryUrl: "https://github.com/renovera1/kairos-engenharia",
+  url: "https://luscaarmstrong1.github.io/kairos-engenharia",
+  repositoryUrl: "https://github.com/luscaarmstrong1/kairos-engenharia",
   email: "contato@kairosengenharia.com.br",
   defaultDescription:
     "Projetos elétricos, conexão à rede, consultoria técnico-regulatória e inteligência energética para empresas que precisam gerar, expandir, proteger e operar com segurança.",

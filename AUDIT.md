@@ -4,9 +4,9 @@ Data: 2026-07-03
 
 ## Contexto auditado
 
-Repositório: `renovera1/kairos-engenharia`
+Repositório previsto após migração: `luscaarmstrong1/kairos-engenharia`
 
-URL técnica mantida: `https://renovera1.github.io/kairos-engenharia/`
+URL pública prevista após migração: `https://luscaarmstrong1.github.io/kairos-engenharia/`
 
 ## Problemas encontrados
 
