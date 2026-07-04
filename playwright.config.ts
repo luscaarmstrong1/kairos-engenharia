@@ -1,4 +1,4 @@
-import { defineConfig, devices } from "@playwright/test";
+﻿import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./e2e",
@@ -9,8 +9,8 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   webServer: {
-    command: "pnpm dev --port 4321",
-    url: "http://127.0.0.1:4321/renovera-projetos-eletricos/",
+    command: "pnpm exec astro preview --host 127.0.0.1 --port 4321",
+    url: "http://127.0.0.1:4321/kairos-engenharia/",
     reuseExistingServer: true,
     timeout: 120000,
   },

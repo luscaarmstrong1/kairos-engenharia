@@ -1,9 +1,9 @@
-import { defineConfig } from "astro/config";
+﻿import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: "https://renovera1.github.io",
-  base: "/renovera-projetos-eletricos",
+  base: "/kairos-engenharia",
   trailingSlash: "always",
   integrations: [
     sitemap({

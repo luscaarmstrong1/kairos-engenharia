@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://renovera1.github.io/renovera-projetos-eletricos/sitemap.xml
+Sitemap: https://renovera1.github.io/kairos-engenharia/sitemap.xml

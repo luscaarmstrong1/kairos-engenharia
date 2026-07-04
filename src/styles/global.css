@@ -1,4 +1,4 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -7,7 +7,7 @@
   font-style: normal;
   font-weight: 400 800;
   font-display: swap;
-  src: url("/renovera-projetos-eletricos/fonts/inter-latin.woff2") format("woff2");
+  src: url("/kairos-engenharia/fonts/inter-latin.woff2") format("woff2");
 }
 
 :root {

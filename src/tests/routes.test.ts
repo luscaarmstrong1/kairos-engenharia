@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+﻿import { describe, expect, it } from "vitest";
 import { allRoutes, servicePages } from "../data/site";
 import { absoluteUrl, withBase } from "../lib/urls";
 
@@ -10,7 +10,7 @@ describe("routes and SEO helpers", () => {
   });
 
   it("gera URLs com base do GitHub Pages", () => {
-    expect(withBase("/contato/")).toBe("/renovera-projetos-eletricos/contato/");
-    expect(absoluteUrl("/servicos/")).toBe("https://renovera1.github.io/renovera-projetos-eletricos/servicos/");
+    expect(withBase("/contato/")).toBe("/kairos-engenharia/contato/");
+    expect(absoluteUrl("/servicos/")).toBe("https://renovera1.github.io/kairos-engenharia/servicos/");
   });
 });

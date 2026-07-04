@@ -1,8 +1,8 @@
-# Kairós Engenharia
+﻿# KairÃ³s Engenharia
 
-Site institucional premium da Kairós Engenharia, publicado em:
+Site institucional premium da KairÃ³s Engenharia, publicado em:
 
-https://renovera1.github.io/renovera-projetos-eletricos/
+https://renovera1.github.io/kairos-engenharia/
 
 ## Stack
 
@@ -29,7 +29,7 @@ pnpm audit:links
 O `astro.config.mjs` usa a base do GitHub Pages:
 
 ```js
-base: "/renovera-projetos-eletricos"
+base: "/kairos-engenharia"
 ```
 
 ## Rotas
@@ -52,9 +52,9 @@ base: "/renovera-projetos-eletricos"
 - `/rss.xml`
 - `/sitemap.xml`
 
-## Variáveis públicas
+## VariÃ¡veis pÃºblicas
 
-Copie `.env.example` e configure somente valores públicos:
+Copie `.env.example` e configure somente valores pÃºblicos:
 
 - `PUBLIC_FORM_ENDPOINT`
 - `PUBLIC_WHATSAPP_NUMBER`
@@ -63,19 +63,19 @@ Copie `.env.example` e configure somente valores públicos:
 - `PUBLIC_GA_MEASUREMENT_ID`
 - `PUBLIC_TURNSTILE_SITE_KEY`
 
-Segredos, tokens, webhooks privados e credenciais de CRM devem ficar no endpoint externo, não no GitHub Pages.
+Segredos, tokens, webhooks privados e credenciais de CRM devem ficar no endpoint externo, nÃ£o no GitHub Pages.
 
-## Conteúdo
+## ConteÃºdo
 
-- Serviços, cases, rotas e FAQ: `src/data/site.ts`
+- ServiÃ§os, cases, rotas e FAQ: `src/data/site.ts`
 - Blog: `src/content/blog`
 - Componentes: `src/components`
 - Layout e SEO: `src/layouts/BaseLayout.astro`
 - Auditoria: `AUDIT.md`
 
-## Automação
+## AutomaÃ§Ã£o
 
 - Deploy GitHub Pages com lint, typecheck, testes, e2e, build e auditoria de links.
 - Dependabot semanal.
 - CodeQL.
-- Issue semanal de pauta editorial com checklist de fontes e revisão humana.
+- Issue semanal de pauta editorial com checklist de fontes e revisÃ£o humana.
