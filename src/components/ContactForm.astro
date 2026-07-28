@@ -27,14 +27,14 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
   novalidate
 >
   <div class="grid gap-5 sm:grid-cols-2">
-    <Field id="nome" label="Nome" />
-    <Field id="empresa" label="Empresa" />
-    <Field id="cargo" label="Cargo" />
-    <Field id="email" label="E-mail corporativo" type="email" />
-    <Field id="telefone" label="Telefone" placeholder="(11) 99999-9999" />
+    <Field id="nome" label="Nome" maxlength="80" />
+    <Field id="empresa" label="Empresa" maxlength="120" />
+    <Field id="cargo" label="Cargo" maxlength="80" />
+    <Field id="email" label="E-mail corporativo" type="email" maxlength="120" />
+    <Field id="telefone" label="Telefone" placeholder="(11) 99999-9999" maxlength="15" />
     <Field id="estado" label="Estado" placeholder="UF" maxlength="2" />
-    <Field id="concessionaria" label="Concessionária" />
-    <Field id="potencia" label="Potência estimada" placeholder="Ex.: 75 kW, 500 kVA, em estudo" />
+    <Field id="concessionaria" label="Concessionária" maxlength="100" />
+    <Field id="potencia" label="Potência estimada" placeholder="Ex.: 75 kW, 500 kVA, em estudo" maxlength="80" />
 
     <SelectField id="perfil" label="Perfil de cliente" options={profiles} />
     <SelectField id="desafio" label="Principal desafio" options={challenges} />
@@ -47,8 +47,8 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
 
     <div class="sm:col-span-2">
       <label for="mensagem" class="block text-sm font-semibold text-slate-800">Mensagem</label>
-      <textarea id="mensagem" name="mensagem" rows="5" data-field="mensagem" class="mt-2 w-full resize-none rounded-md border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-energy-500 focus:ring-4 focus:ring-energy-400/10" placeholder="Inclua contexto técnico, prazo, documentos existentes ou restrição recebida."></textarea>
-      <p class="mt-2 hidden text-sm font-medium text-red-600" data-error="mensagem"></p>
+      <textarea id="mensagem" name="mensagem" rows="5" maxlength="1600" data-field="mensagem" class="mt-2 w-full resize-none rounded-md border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-energy-500 focus:ring-4 focus:ring-energy-400/10" placeholder="Inclua contexto técnico, prazo, documentos existentes ou restrição recebida."></textarea>
+      <p class="mt-2 hidden text-sm font-medium text-red-600" id="mensagem-error" data-error="mensagem"></p>
     </div>
   </div>
 
@@ -63,12 +63,12 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
       <input id="lgpd" name="lgpd" type="checkbox" data-field="lgpd" class="mt-1 h-4 w-4 rounded border-slate-300 text-energy-600" />
       <span>Autorizo o contato da Kairós Engenharia para retorno sobre esta solicitação e declaro ciência sobre o tratamento dos meus dados para essa finalidade.</span>
     </label>
-    <p class="mt-2 hidden text-sm font-medium text-red-600" data-error="lgpd"></p>
+    <p class="mt-2 hidden text-sm font-medium text-red-600" id="lgpd-error" data-error="lgpd"></p>
   </div>
 
   <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-    <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-md bg-navy-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-navy-800">
-      Enviar solicitação
+    <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-md bg-navy-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-navy-800 disabled:cursor-not-allowed disabled:opacity-70" data-submit-label="Enviar solicitação">
+      <span data-submit-text>Enviar solicitação</span>
       <span aria-hidden="true">→</span>
     </button>
     {calendarUrl && (
@@ -136,6 +136,9 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const feedback = form.querySelector("[data-feedback]");
+      const submit = form.querySelector("button[type='submit']");
+      const submitText = form.querySelector("[data-submit-text]");
+      const defaultSubmitText = submit?.getAttribute("data-submit-label") || "Enviar solicitação";
       feedback?.classList.add("hidden");
       const raw = readForm(form);
       const errors = validateLead(raw);
@@ -145,6 +148,13 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
       if (Object.keys(errors).length) return;
 
       const endpoint = form.getAttribute("data-endpoint") || "";
+      if (endpoint && !/^https:\/\//i.test(endpoint)) {
+        if (feedback) {
+          feedback.textContent = "Endpoint de envio inválido. Use uma URL HTTPS para proteger os dados do formulário.";
+          feedback.classList.remove("hidden");
+        }
+        return;
+      }
       const payload = {
         ...Object.fromEntries(Object.entries(raw).map(([key, value]) => [key, typeof value === "string" ? sanitizeText(value) : value])),
         leadScore: scoreLead(raw),
@@ -162,6 +172,9 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
       }
 
       try {
+        submit?.setAttribute("disabled", "true");
+        form.setAttribute("aria-busy", "true");
+        if (submitText) submitText.textContent = "Enviando...";
         const response = await fetch(endpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -179,6 +192,10 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
           feedback.textContent = "Não foi possível concluir o envio. Verifique o endpoint configurado ou tente novamente.";
           feedback.classList.remove("hidden");
         }
+      } finally {
+        submit?.removeAttribute("disabled");
+        form.removeAttribute("aria-busy");
+        if (submitText) submitText.textContent = defaultSubmitText;
       }
     });
   });

@@ -49,3 +49,11 @@ Motivo: o PDF prioriza SEO, rotas reais, HTML semântico, blog em Markdown, RSS,
 - Analytics depende de `PUBLIC_GA_MEASUREMENT_ID` e consentimento de cookies.
 - Turnstile depende de `PUBLIC_TURNSTILE_SITE_KEY` e validação no endpoint seguro.
 - Integração com CRM e e-mail de confirmação deve ficar no backend externo, não no GitHub Pages.
+
+## Auditoria premium aplicada em 2026-07-22
+
+- Atualização transitiva de dependências dentro dos ranges declarados para reduzir vulnerabilidades altas reportadas por `pnpm audit`.
+- Ajuste do carregamento da fonte Inter para remover aviso de build e preservar o base path do GitHub Pages.
+- Revisão da CSP em meta tag para manter restrições compatíveis com GitHub Pages sem bloquear endpoint HTTPS externo de formulário. `frame-ancestors` permanece pendente de header real em hospedagem que permita configuração de resposta.
+- Formulário reforçado com limites de tamanho, validação de UF, bloqueio de endpoint não HTTPS, estado de envio, `aria-busy` e associação correta de mensagens de erro.
+- Menu móvel aprimorado para fechar por link, Escape e clique fora, reduzindo risco de navegação presa em telas pequenas.

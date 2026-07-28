@@ -11,7 +11,7 @@ function isActive(href: string) {
 }
 ---
 
-<header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-navy-950/90 text-white shadow-[0_18px_50px_rgba(0,0,0,.14)] backdrop-blur-xl">
+<header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-navy-950/90 text-white shadow-[0_18px_50px_rgba(0,0,0,.14)] backdrop-blur-xl" data-site-header>
   <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
     <a href={withBase("/")} class="flex min-w-0 items-center gap-3 rounded-md" aria-label="Kairós Engenharia - Página inicial">
       <span class="grid h-11 w-11 shrink-0 place-items-center rounded-md border border-energy-300/30 bg-white/8 text-sm font-bold tracking-tight text-white shadow-glow">
@@ -81,16 +81,24 @@ function isActive(href: string) {
 
 <script>
   // @ts-nocheck
+  const header = document.querySelector("[data-site-header]");
   const button = document.querySelector("[data-menu-button]");
   const menu = document.querySelector("[data-mobile-menu]");
   const openIcon = document.querySelector("[data-menu-icon-open]");
   const closeIcon = document.querySelector("[data-menu-icon-close]");
-  button?.addEventListener("click", () => {
-    const isOpen = button.getAttribute("aria-expanded") === "true";
-    button.setAttribute("aria-expanded", String(!isOpen));
-    button.setAttribute("aria-label", isOpen ? "Abrir menu" : "Fechar menu");
-    menu?.classList.toggle("hidden", isOpen);
-    openIcon?.classList.toggle("hidden", !isOpen);
-    closeIcon?.classList.toggle("hidden", isOpen);
+  function setMenu(open) {
+    button?.setAttribute("aria-expanded", String(open));
+    button?.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+    menu?.classList.toggle("hidden", !open);
+    openIcon?.classList.toggle("hidden", open);
+    closeIcon?.classList.toggle("hidden", !open);
+  }
+  button?.addEventListener("click", () => setMenu(button.getAttribute("aria-expanded") !== "true"));
+  menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setMenu(false);
+  });
+  document.addEventListener("click", (event) => {
+    if (button?.getAttribute("aria-expanded") === "true" && header && !header.contains(event.target)) setMenu(false);
   });
 </script>

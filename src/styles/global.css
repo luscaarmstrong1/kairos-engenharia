@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400 800;
-  font-display: swap;
-  src: url("/kairos-engenharia/fonts/inter-latin.woff2") format("woff2");
-}
-
 :root {
   color-scheme: light;
   font-synthesis: none;

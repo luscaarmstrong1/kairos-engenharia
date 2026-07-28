@@ -24,6 +24,8 @@ const {
 } = Astro.props;
 
 const canonical = absoluteUrl(path);
+const fontUrl = withBase("/fonts/inter-latin.woff2");
+const faviconUrl = absoluteUrl("/favicon.svg");
 const pageTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -50,7 +52,7 @@ const jsonPayload = [organizationJsonLd, serviceJsonLd, ...(Array.isArray(jsonLd
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' http://127.0.0.1:* http://localhost:* ws://127.0.0.1:* ws://localhost:* https://www.google-analytics.com; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https: http://127.0.0.1:* http://localhost:* ws://127.0.0.1:* ws://localhost:*; frame-src https://challenges.cloudflare.com; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests;"
     />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#061525" />
@@ -60,7 +62,7 @@ const jsonPayload = [organizationJsonLd, serviceJsonLd, ...(Array.isArray(jsonLd
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={absoluteUrl("/favicon.svg")} />
+    <meta property="og:image" content={faviconUrl} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
@@ -68,6 +70,7 @@ const jsonPayload = [organizationJsonLd, serviceJsonLd, ...(Array.isArray(jsonLd
     <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
     <link rel="manifest" href={withBase("/manifest.webmanifest")} />
     <title>{pageTitle}</title>
+    <style is:inline set:html={`@font-face{font-family:"Inter";font-style:normal;font-weight:400 800;font-display:swap;src:url("${fontUrl}") format("woff2");}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonPayload)} />
   </head>
   <body class="bg-white text-slate-900">

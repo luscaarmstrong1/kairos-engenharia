@@ -24,7 +24,11 @@ export function formatPhone(value: string): string {
 }
 
 export function sanitizeText(value: string): string {
-  return value.replace(/[<>]/g, "").replace(/\s+/g, " ").trim();
+  return value
+    .replace(/[<>]/g, "")
+    .replace(/[\u0000-\u001F\u007F]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 export function scoreLead(form: Pick<LeadForm, "perfil" | "desafio" | "potencia" | "prazo" | "empresa" | "mensagem">): "alta" | "media" | "baixa" {
@@ -57,11 +61,12 @@ export function validateLead(form: LeadForm): Record<string, string> {
   if (!sanitizeText(form.empresa)) errors.empresa = "Informe a empresa.";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(form.email.trim())) errors.email = "Informe um e-mail corporativo válido.";
   if (form.telefone.replace(/\D/g, "").length < 10) errors.telefone = "Informe um telefone brasileiro válido.";
-  if (!sanitizeText(form.estado)) errors.estado = "Informe o estado.";
+  if (!/^[A-Za-z]{2}$/.test(form.estado.trim())) errors.estado = "Informe a UF com duas letras.";
   if (!sanitizeText(form.perfil)) errors.perfil = "Selecione o perfil de cliente.";
   if (!sanitizeText(form.desafio)) errors.desafio = "Selecione o principal desafio.";
   if (!sanitizeText(form.prazo)) errors.prazo = "Selecione o prazo.";
   if (sanitizeText(form.mensagem).length < 20) errors.mensagem = "Descreva o contexto com pelo menos 20 caracteres.";
+  if (sanitizeText(form.mensagem).length > 1600) errors.mensagem = "Resuma o contexto em até 1600 caracteres.";
   if (!form.lgpd) errors.lgpd = "É necessário autorizar o contato para enviar sua solicitação.";
   if (form.website && form.website.trim()) errors.website = "Falha na validação anti-spam.";
   return errors;

@@ -34,6 +34,12 @@ describe("form utilities", () => {
     expect(errors.lgpd).toBeTruthy();
   });
 
+  it("valida UF e limite da mensagem", () => {
+    const errors = validateLead({ ...valid, estado: "Minas", mensagem: "x".repeat(1601) });
+    expect(errors.estado).toBe("Informe a UF com duas letras.");
+    expect(errors.mensagem).toBe("Resuma o contexto em até 1600 caracteres.");
+  });
+
   it("calcula prioridade alta para sinais críticos", () => {
     expect(scoreLead(valid)).toBe("alta");
   });
