@@ -55,6 +55,16 @@ test("links internos, externos e WhatsApp sao validos", async ({ page }) => {
   expect(href).toBeTruthy();
 });
 
+test("conteudos tecnicos exibem cards e navegam para artigo", async ({ page }) => {
+  await page.goto(`${base}/conteudos/`);
+  await expect(page.getByRole("heading", { name: "Conteúdos técnicos" }).first()).toBeVisible();
+  await expect(page.getByText(/Conteúdo técnico com revisão humana/i)).toBeVisible();
+  await expect(page.getByText("Regulação").first()).toBeVisible();
+  await page.getByRole("link", { name: /Ler artigo/ }).first().click();
+  await expect(page).toHaveURL(/\/kairos-engenharia\/conteudos\//);
+  await expect(page.getByText(/Este conteúdo|Conteúdo técnico/i).last()).toBeVisible();
+});
+
 test("pagina de pericias e quesitos carrega com CTA correto", async ({ page }) => {
   await page.goto(`${base}/servicos/pericias-quesitos-pareceres/`);
   await expect(page.getByRole("heading", { name: /Perícias, Quesitos e Pareceres Técnicos/i }).first()).toBeVisible();

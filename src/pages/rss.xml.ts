@@ -13,7 +13,7 @@ export async function GET(context: APIContext) {
       title: post.data.title,
       description: post.data.description,
       pubDate: post.data.pubDate,
-      link: `/kairos-engenharia/conteudos/${post.id}/`,
+      link: `/kairos-engenharia${post.data.slug}`,
     })),
   });
 }

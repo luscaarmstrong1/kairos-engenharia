@@ -7,19 +7,22 @@ import { absoluteUrl } from "@lib/urls";
 
 export async function getStaticPaths() {
   const posts = (await getCollection("blog")).filter((post) => post.data.status === "published");
-  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+  return posts.map((post) => ({
+    params: { slug: post.data.slug.replace(/^\/conteudos\//, "").replace(/\/$/, "") },
+    props: { post },
+  }));
 }
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const path = `/conteudos/${post.id}/`;
+const path = post.data.slug;
 const articleJsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: post.data.title,
   description: post.data.description,
-  datePublished: post.data.pubDate.toISOString(),
-  dateModified: (post.data.updatedDate || post.data.pubDate).toISOString(),
+  datePublished: post.data.date.toISOString(),
+  dateModified: (post.data.updatedDate || post.data.date).toISOString(),
   author: { "@type": "Organization", name: "Kairós Engenharia" },
   mainEntityOfPage: absoluteUrl(path),
 };
@@ -29,7 +32,7 @@ const articleJsonLd = {
   <PageHero eyebrow={post.data.category} title={post.data.title} description={post.data.description} />
   <article class="bg-white px-5 py-20 sm:px-6 lg:px-8">
     <div class="prose prose-slate mx-auto max-w-3xl prose-headings:tracking-normal prose-a:text-energy-700">
-      <p class="text-sm font-semibold text-slate-500">{post.data.readTime} · {post.data.pubDate.toLocaleDateString("pt-BR")}</p>
+      <p class="text-sm font-semibold text-slate-500">{post.data.readingTime} · {post.data.date.toLocaleDateString("pt-BR")}</p>
       <Content />
     </div>
   </article>

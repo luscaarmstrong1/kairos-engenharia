@@ -63,6 +63,7 @@ Os CTAs principais são "Solicitar diagnóstico técnico", "Conhecer nossas solu
 - O site é Astro com base pública `/kairos-engenharia`.
 - Após a migração manual da conta/repositório, o GitHub Pages deve publicar em `https://luscaarmstrong1.github.io/kairos-engenharia/`.
 - O repositório previsto após a migração é `luscaarmstrong1/kairos-engenharia`; até lá, a transferência do proprietário no GitHub é uma ação manual.
+- O repositório, o deploy, os conteúdos e as decisões técnicas da Kairós Engenharia são independentes da Prospecta Nicho.
 - O projeto não deve compartilhar assets, conteúdo ou configuração com outros sites.
 - O HTML declara `<meta charset="UTF-8">`.
 - Arquivos de texto devem permanecer em UTF-8.
@@ -82,3 +83,4 @@ Os CTAs principais são "Solicitar diagnóstico técnico", "Conhecer nossas solu
 - Criação do chat lateral exclusivo `Kairós Engenharia — Site Institucional`.
 - Preparação de URLs, metadados e documentação para a identidade GitHub `luscaarmstrong1`.
 - Revisão de densidade da home, ampliação das áreas de atuação e criação da frente de perícias, quesitos e pareceres técnicos.
+- Expansão da seção `/conteudos` com seis artigos técnicos em Markdown, cards detalhados, filtros por categoria e links internos para serviços da Kairós.

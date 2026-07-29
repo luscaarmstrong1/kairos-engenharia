@@ -16,9 +16,14 @@ const blog = defineCollection({
       "Projetos e infraestrutura",
     ]),
     status: z.enum(["draft", "review", "published"]),
+    slug: z.string(),
+    date: z.coerce.date(),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
+    readingTime: z.string(),
     readTime: z.string(),
+    summary: z.string(),
+    complement: z.string(),
   }),
 });
 
