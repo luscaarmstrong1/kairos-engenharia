@@ -17,51 +17,55 @@ const intelligenceChips = ["Python", "VBA", "Planilhas inteligentes", "Dashboard
 
 const practiceAreas = [
   {
-    title: "Conexão, GD e parecer de acesso",
-    description: "Pareceres, inversão de fluxo, conexão, potência e tratativas com distribuidoras.",
-    tags: ["Parecer", "GD", "Distribuidora"],
+    title: "Conexão, geração distribuída e parecer de acesso",
+    description:
+      "Apoio técnico em conexão, orçamentos, pareceres, inversão de fluxo, alternativas, aumento de carga e tratativas com distribuidoras.",
+    tags: ["GD", "Parecer de acesso", "Inversão de fluxo"],
     href: "/servicos/consultoria-regulatoria/",
   },
   {
     title: "Engenharia e projetos elétricos",
-    description: "Fotovoltaico, BT/MT, subestações, demanda, proteção, geradores e infraestrutura.",
-    tags: ["BT/MT", "Proteção", "Geradores"],
+    description:
+      "Projetos e revisões para BT/MT, fotovoltaico, subestações, entrada de energia, proteção, seletividade, quadros e geradores.",
+    tags: ["BT/MT", "Subestações", "Proteção"],
     href: "/servicos/engenharia-projetos-eletricos/",
   },
   {
     title: "Consultoria técnico-regulatória",
-    description: "Normas, evidências, contestações técnicas e estratégia regulatória no setor elétrico.",
-    tags: ["Normas", "ANEEL", "Estratégia"],
+    description:
+      "Análise técnica e normativa de documentos de distribuidoras, prazos, exigências, contestações e evidências.",
+    tags: ["Regulação", "Distribuidoras", "ANEEL"],
     href: "/servicos/consultoria-regulatoria/",
   },
   {
-    title: "Perícias, quesitos e assistência técnica",
-    description: "Quesitos, laudos, pareceres, assistência técnica e evidências em engenharia elétrica.",
+    title: "Perícias, quesitos e pareceres técnicos",
+    description:
+      "Quesitos, análise de laudos, pareceres técnicos, matriz de evidências e assistência técnica em engenharia elétrica.",
     tags: ["Quesitos", "Laudos", "Evidências"],
     href: "/servicos/pericias-quesitos-pareceres/",
   },
   {
-    title: "Inteligência energética e faturas",
-    description: "Demanda, tarifas, consumo, indicadores, dashboards e decisão energética.",
-    tags: ["Faturas", "Demanda", "Dados"],
+    title: "Inteligência energética e análise de faturas",
+    description: "Consumo, demanda, faturas, enquadramento tarifário, indicadores, dashboards e decisão energética.",
+    tags: ["Faturas", "Demanda", "Indicadores"],
     href: "/servicos/inteligencia-energetica/",
   },
   {
     title: "Eletromobilidade e novas cargas",
-    description: "Eletropostos, hubs, frotas, condomínios, demanda, proteção e infraestrutura.",
-    tags: ["Recarga", "Frotas", "Viabilidade"],
+    description: "Viabilidade e projeto para eletropostos, hubs, frotas, condomínios, postos e novas cargas conectadas à rede.",
+    tags: ["Recarga", "Eletropostos", "Novas cargas"],
     href: "/servicos/eletromobilidade/",
   },
   {
     title: "Backup, continuidade e operações críticas",
-    description: "Geradores, QTA, cargas prioritárias, paralelismo e continuidade operacional.",
-    tags: ["QTA", "Backup", "Cargas críticas"],
+    description: "Análise e projetos com geradores, QTA, cargas prioritárias, continuidade, proteção e confiabilidade elétrica.",
+    tags: ["Geradores", "QTA", "Operação crítica"],
     href: "/servicos/engenharia-projetos-eletricos/",
   },
   {
     title: "Automação técnica e gestão documental",
-    description: "Python, VBA, planilhas, documentos, protocolos, evidências e análises padronizadas.",
-    tags: ["Python", "VBA", "Documentos"],
+    description: "Planilhas inteligentes, Python, VBA, dashboards, documentos, formulários, protocolos e evidências.",
+    tags: ["Python", "VBA", "Dashboards"],
     href: "/servicos/inteligencia-energetica/",
   },
 ];
@@ -110,7 +114,7 @@ const breadcrumbJsonLd = {
 ---
 
 <BaseLayout
-  title="Kairós Engenharia | Engenharia técnica para energia, conexão e regulação"
+  title="Kairós Engenharia | Engenharia elétrica para energia, conexão e regulação"
   description="Engenharia elétrica, conexão à rede, geração distribuída, regulação, perícias técnicas, quesitos, inteligência energética e eletromobilidade para empresas e integradores."
   path="/"
   jsonLd={breadcrumbJsonLd}
@@ -125,24 +129,28 @@ const breadcrumbJsonLd = {
           Engenharia elétrica • Regulação • Perícia técnica • Inteligência energética
         </p>
         <h1 class="mt-7 max-w-4xl text-balance text-4xl font-semibold leading-[1.06] tracking-normal text-white sm:text-5xl lg:text-6xl">
-          Engenharia técnica para decisões seguras em energia, conexão e regulação.
+          Engenharia elétrica para decisões seguras em energia, conexão e regulação.
         </h1>
         <p class="mt-7 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-          Projetos elétricos, conexão à rede, geração distribuída, perícias técnicas, inteligência energética e suporte técnico-regulatório para empresas, integradores e operações críticas.
+          A Kairós Engenharia atua em projetos elétricos, geração distribuída, análise de conexão, consultoria técnico-regulatória, perícias, quesitos técnicos, inteligência energética e infraestrutura para novas cargas.
+        </p>
+        <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-400">
+          Transformamos documentos, projetos, faturas, pareceres, medições e normas em diagnósticos claros, tecnicamente fundamentados e prontos para orientar decisões.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row">
           <a href={withBase("/contato/")} class="inline-flex items-center justify-center rounded-md bg-energy-400 px-5 py-3 text-sm font-semibold text-navy-950 transition hover:bg-energy-300" data-track="hero-diagnostico">
             Solicitar diagnóstico técnico <span class="ml-2" aria-hidden="true">→</span>
           </a>
           <a href="#areas" class="inline-flex items-center justify-center rounded-md border border-white/16 bg-white/6 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/12" data-track="hero-areas">
-            Ver áreas de atuação
+            Conhecer áreas de atuação
           </a>
         </div>
-        <div class="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        <div class="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
           <a href={withBase("/servicos/consultoria-regulatoria/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Parecer de acesso e inversão de fluxo</a>
-          <a href={withBase("/servicos/engenharia-projetos-eletricos/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Projetos elétricos e subestações</a>
-          <a href={withBase("/servicos/pericias-quesitos-pareceres/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Quesitos técnicos e perícias</a>
-          <a href={withBase("/servicos/eletromobilidade/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Eletromobilidade e novas cargas</a>
+          <a href={withBase("/servicos/engenharia-projetos-eletricos/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Projetos BT/MT</a>
+          <a href={withBase("/servicos/pericias-quesitos-pareceres/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Perícias e quesitos técnicos</a>
+          <a href={withBase("/servicos/eletromobilidade/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Eletromobilidade</a>
+          <a href={withBase("/servicos/inteligencia-energetica/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Inteligência energética</a>
         </div>
       </div>
       <div class="reveal relative min-h-[470px]">
@@ -182,8 +190,8 @@ const breadcrumbJsonLd = {
     <div class="mx-auto max-w-7xl">
       <SectionHeading
         eyebrow="Áreas de atuação"
-        title="Projetos, conexão, regulação, perícias e dados energéticos."
-        description="Foco em evidência, viabilidade e decisão antes de investir, implantar ou contestar."
+        title="Áreas de atuação"
+        description="Atuação técnica em energia, conexão, infraestrutura elétrica, regulação, perícias e dados energéticos, com foco em clareza, rastreabilidade e viabilidade."
       />
       <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {practiceAreas.map((area) => (

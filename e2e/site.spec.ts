@@ -4,10 +4,10 @@ const base = "/kairos-engenharia";
 
 test("navega entre paginas e nao cria overflow horizontal", async ({ page }, testInfo) => {
   await page.goto(`${base}/`);
-  await expect(page.getByRole("heading", { name: /Engenharia técnica para decisões seguras/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Engenharia elétrica para decisões seguras/i })).toBeVisible();
   await page.screenshot({ path: `test-results/screenshots/home-${testInfo.project.name}.png`, fullPage: true });
   await page.getByRole("link", { name: /Servi/i }).first().click();
-  await expect(page.getByRole("heading", { name: /Soluções técnicas para reduzir incerteza/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Soluções técnicas" }).first()).toBeVisible();
   const overflow = await page.evaluate(() => document.body.scrollWidth > window.innerWidth + 1);
   expect(overflow).toBe(false);
 });

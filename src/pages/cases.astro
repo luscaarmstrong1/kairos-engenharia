@@ -6,25 +6,25 @@ import CtaBand from "@components/CtaBand.astro";
 import { cases } from "@data/site";
 import { withBase } from "@lib/urls";
 
-const filters = ["Todos", "Conexão e regulação", "Projetos elétricos", "Geração distribuída", "Continuidade operacional", "Eletromobilidade", "Inteligência energética"];
+const filters = ["Todos", "Conexão e regulação", "Projetos elétricos", "Perícia técnica", "Inteligência energética", "Eletromobilidade", "Geração distribuída"];
 ---
 
 <BaseLayout
-  title="Cases Técnicos"
-  description="Cases técnicos anonimizados e cenários de referência em conexão, projetos elétricos, continuidade operacional, eletromobilidade e inteligência energética."
+  title="Cenários de referência"
+  description="Exemplos anonimizados de problemas técnicos que orientam a forma de atuação da Kairós Engenharia, sem identificação de clientes ou promessa de resultado."
   path="/cases/"
 >
   <PageHero
-    eyebrow="Cases"
-    title="Estrutura profissional para cases técnicos sem números inventados."
-    description="Os cases publicados são anonimizados ou ilustrativos quando não houver autorização pública. Não inventamos clientes, potências, prazos, economia ou taxa de aprovação."
+    eyebrow="Cenários de referência"
+    title="Problemas técnicos anonimizados, tratados com método e evidência."
+    description="Exemplos anonimizados de problemas técnicos que orientam a forma de atuação da Kairós Engenharia, sem identificação de clientes, números inventados ou promessa de resultado."
     primaryHref={withBase("/contato/")}
     primaryLabel="Analisar um caso técnico"
   />
 
   <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
-      <div class="flex flex-wrap gap-2" aria-label="Filtros de cases">
+      <div class="flex flex-wrap gap-2" aria-label="Filtros de cenários">
         {filters.map((filter) => (
           <button type="button" class="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-energy-400" data-case-filter={filter}>
             {filter}

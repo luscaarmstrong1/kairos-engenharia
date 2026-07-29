@@ -65,3 +65,10 @@ Motivo: o PDF prioriza SEO, rotas reais, HTML semântico, blog em Markdown, RSS,
 - Criação da rota `/servicos/pericias-quesitos-pareceres/` com seções de atuação, entregáveis, método e aviso de escopo.
 - Atualização de triagem e formulário com perfis jurídicos/técnicos e desafios como quesitos, laudos, danos elétricos, consumo, medição e demanda contratada.
 - Página de serviços reorganizada em seis frentes técnicas, mantendo `/para-integradores/` como rota dedicada.
+
+## Revisão de copy técnica e cenários aplicada em 2026-07-29
+
+- Hero atualizado para posicionar a Kairós como engenharia elétrica para decisões seguras em energia, conexão e regulação.
+- Áreas de atuação, soluções técnicas e FAQ revisadas com redação mais específica e sem promessa de aprovação, economia ou êxito pericial.
+- Página de perícias ampliada com abertura técnica, atuação, quesitos, análise de laudos, parecer técnico e matriz de evidências.
+- Página `/cases/` renomeada na comunicação para "Cenários de referência" e ampliada para seis cenários anonimizados.

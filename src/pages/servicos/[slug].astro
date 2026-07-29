@@ -13,23 +13,33 @@ export function getStaticPaths() {
 const { service } = Astro.props;
 const path = `/servicos/${service.slug}/`;
 const isForensic = service.slug === "pericias-quesitos-pareceres";
+const forensicIntro = [
+  "Questões técnicas envolvendo energia elétrica costumam exigir mais do que uma leitura superficial de documentos. Faturas, fotos, medições, diagramas, laudos, notificações, histórico de consumo e normas aplicáveis precisam ser organizados de forma lógica para que a discussão técnica seja clara, objetiva e verificável.",
+  "A Kairós Engenharia atua na estruturação dessa análise, elaborando quesitos técnicos, pareceres, memórias de cálculo, matrizes de evidências e revisões de documentos. O objetivo é apoiar partes interessadas, assistentes técnicos, advogados e empresas com uma visão técnica fundamentada em engenharia elétrica.",
+];
 const forensicGroups = [
   {
     title: "Quando atuamos",
     items: [
       "danos elétricos",
+      "variação ou qualidade de energia",
       "consumo elevado",
-      "irregularidade de medição",
+      "consumo incompatível com o histórico",
+      "medição de energia",
       "demanda contratada",
+      "ultrapassagem de demanda",
       "geração distribuída",
-      "parecer de acesso",
       "inversão de fluxo",
+      "parecer de acesso",
+      "indeferimento de conexão",
       "instalações elétricas",
       "subestações",
-      "proteção",
-      "qualidade de energia",
+      "proteção elétrica",
       "faturas",
       "responsabilidade técnica",
+      "análise de laudos",
+      "divergências com concessionárias",
+      "documentação técnica incompleta ou contraditória",
     ],
   },
   {
@@ -55,6 +65,36 @@ const forensicGroups = [
       "formulação dos quesitos",
       "análise técnica",
       "entrega rastreável",
+    ],
+  },
+];
+const forensicDetailSections = [
+  {
+    title: "Elaboração de quesitos técnicos",
+    paragraphs: [
+      "Os quesitos são perguntas técnicas que orientam a perícia e ajudam a esclarecer pontos relevantes da controvérsia. Uma boa formulação deve ser objetiva, tecnicamente pertinente e capaz de conduzir a respostas verificáveis.",
+      "A Kairós elabora quesitos em linguagem técnica adequada, considerando o contexto do caso, os documentos disponíveis, as normas aplicáveis e os pontos que precisam ser esclarecidos.",
+    ],
+  },
+  {
+    title: "Análise de laudos e documentos",
+    paragraphs: [
+      "Laudos técnicos podem conter premissas incompletas, ausência de medições, conclusões sem memória de cálculo, análise limitada de documentos ou omissão de elementos relevantes.",
+      "A Kairós avalia laudos, fotos, faturas, medições, relatórios, projetos, diagramas, notificações, documentos de distribuidoras e registros operacionais.",
+    ],
+  },
+  {
+    title: "Parecer técnico",
+    paragraphs: [
+      "O parecer técnico organiza a análise de engenharia em documento estruturado, com linguagem clara, premissas explícitas, evidências, limitações e conclusões técnicas.",
+      "Ele pode apoiar manifestação administrativa, avaliação interna, negociação, análise de risco, contestação técnica ou o trabalho de assistentes técnicos e advogados.",
+    ],
+  },
+  {
+    title: "Matriz de evidências",
+    paragraphs: [
+      "A matriz de evidências organiza os documentos do caso e relaciona cada fato técnico a uma evidência específica, evitando que a análise fique dispersa.",
+      "Essa organização facilita a leitura do caso, reduz redundâncias e aumenta a rastreabilidade da análise.",
     ],
   },
 ];
@@ -88,6 +128,9 @@ const breadcrumbJsonLd = {
           title="Perguntas, evidências e pareceres compreensíveis."
           description="O trabalho transforma documentos, medições, faturas, projetos e eventos elétricos em evidências organizadas, perguntas objetivas e leitura técnica rastreável."
         />
+        <div class="mt-8 grid gap-4 text-base leading-8 text-slate-700 lg:grid-cols-2">
+          {forensicIntro.map((paragraph) => <p class="rounded-md border border-slate-200 bg-slate-50 p-5">{paragraph}</p>)}
+        </div>
         <div class="mt-10 grid gap-5 lg:grid-cols-3">
           {forensicGroups.map((group) => (
             <article class="reveal rounded-md border border-slate-200 bg-white p-6 shadow-crisp">
@@ -95,6 +138,16 @@ const breadcrumbJsonLd = {
               <ul class="mt-5 grid gap-3 text-sm leading-6 text-slate-600">
                 {group.items.map((item) => <li class="rounded-md bg-slate-50 px-3 py-2">{item}</li>)}
               </ul>
+            </article>
+          ))}
+        </div>
+        <div class="mt-12 grid gap-5 lg:grid-cols-2">
+          {forensicDetailSections.map((section) => (
+            <article class="reveal rounded-md border border-slate-200 bg-white p-6 shadow-crisp">
+              <h2 class="text-xl font-semibold text-slate-950">{section.title}</h2>
+              <div class="mt-4 grid gap-3 text-sm leading-7 text-slate-600">
+                {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+              </div>
             </article>
           ))}
         </div>
