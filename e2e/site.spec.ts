@@ -4,10 +4,10 @@ const base = "/kairos-engenharia";
 
 test("navega entre paginas e nao cria overflow horizontal", async ({ page }, testInfo) => {
   await page.goto(`${base}/`);
-  await expect(page.getByRole("heading", { name: /Engenharia que transforma/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Engenharia técnica para decisões seguras/i })).toBeVisible();
   await page.screenshot({ path: `test-results/screenshots/home-${testInfo.project.name}.png`, fullPage: true });
   await page.getByRole("link", { name: /Servi/i }).first().click();
-  await expect(page.getByRole("heading", { name: /Engenharia, conex/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Soluções técnicas para reduzir incerteza/i })).toBeVisible();
   const overflow = await page.evaluate(() => document.body.scrollWidth > window.innerWidth + 1);
   expect(overflow).toBe(false);
 });
@@ -53,4 +53,12 @@ test("links internos, externos e WhatsApp sao validos", async ({ page }) => {
   await expect(floating).toBeVisible();
   const href = await floating.getAttribute("href");
   expect(href).toBeTruthy();
+});
+
+test("pagina de pericias e quesitos carrega com CTA correto", async ({ page }) => {
+  await page.goto(`${base}/servicos/pericias-quesitos-pareceres/`);
+  await expect(page.getByRole("heading", { name: /Perícias, Quesitos e Pareceres Técnicos/i }).first()).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Quando atuamos" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Entregáveis" })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Enviar documentos para análise técnica/i }).first()).toHaveAttribute("href", `${base}/contato/`);
 });

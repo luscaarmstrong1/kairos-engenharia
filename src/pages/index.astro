@@ -1,53 +1,102 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import QuickTriage from "@components/QuickTriage.astro";
 import SectionHeading from "@components/SectionHeading.astro";
-import ServiceCard from "@components/ServiceCard.astro";
-import CaseCard from "@components/CaseCard.astro";
 import CtaBand from "@components/CtaBand.astro";
-import { cases, faqs, profileSolutions, servicePages } from "@data/site";
+import { cases, faqs, profileSolutions } from "@data/site";
 import { withBase } from "@lib/urls";
 
-const criticalAreas = [
+const keyAreas = [
+  "Conexão e GD",
+  "Projetos elétricos",
+  "Regulação",
+  "Perícias e quesitos",
+  "Inteligência energética",
+  "Eletromobilidade",
+];
+const intelligenceChips = ["Python", "VBA", "Planilhas inteligentes", "Dashboards técnicos"];
+
+const practiceAreas = [
   {
-    title: "Restrição de conexão",
-    description:
-      "Análise de estudos, pareceres de acesso, inversão de fluxo, alternativas técnicas e estratégia regulatória perante a distribuidora.",
+    title: "Conexão, GD e parecer de acesso",
+    description: "Pareceres, inversão de fluxo, conexão, potência e tratativas com distribuidoras.",
+    tags: ["Parecer", "GD", "Distribuidora"],
+    href: "/servicos/consultoria-regulatoria/",
   },
   {
-    title: "Subestação",
-    description:
-      "Estudos, projetos, especificações, adequações, expansão de capacidade e interface técnica com concessionárias.",
+    title: "Engenharia e projetos elétricos",
+    description: "Fotovoltaico, BT/MT, subestações, demanda, proteção, geradores e infraestrutura.",
+    tags: ["BT/MT", "Proteção", "Geradores"],
+    href: "/servicos/engenharia-projetos-eletricos/",
   },
   {
-    title: "Demanda",
-    description:
-      "Diagnóstico de demanda contratada, ultrapassagens, perfil de carga, correção de enquadramento e redução de custos.",
+    title: "Consultoria técnico-regulatória",
+    description: "Normas, evidências, contestações técnicas e estratégia regulatória no setor elétrico.",
+    tags: ["Normas", "ANEEL", "Estratégia"],
+    href: "/servicos/consultoria-regulatoria/",
   },
   {
-    title: "Proteção",
-    description:
-      "Estudos de seletividade, coordenação, ajustes, curto-circuito, relés e adequação de proteção elétrica.",
+    title: "Perícias, quesitos e assistência técnica",
+    description: "Quesitos, laudos, pareceres, assistência técnica e evidências em engenharia elétrica.",
+    tags: ["Quesitos", "Laudos", "Evidências"],
+    href: "/servicos/pericias-quesitos-pareceres/",
   },
   {
-    title: "Geração distribuída",
-    description:
-      "Viabilidade, projeto, homologação, expansão, adequação regulatória e tratativa de restrições de conexão.",
+    title: "Inteligência energética e faturas",
+    description: "Demanda, tarifas, consumo, indicadores, dashboards e decisão energética.",
+    tags: ["Faturas", "Demanda", "Dados"],
+    href: "/servicos/inteligencia-energetica/",
   },
   {
-    title: "Backup",
-    description:
-      "Projeto de geradores, QTA, cargas prioritárias, paralelismo momentâneo, continuidade operacional e segurança.",
+    title: "Eletromobilidade e novas cargas",
+    description: "Eletropostos, hubs, frotas, condomínios, demanda, proteção e infraestrutura.",
+    tags: ["Recarga", "Frotas", "Viabilidade"],
+    href: "/servicos/eletromobilidade/",
   },
   {
-    title: "Eletromobilidade",
-    description:
-      "Análise de demanda, infraestrutura elétrica, carregadores, eletropostos, proteção e viabilidade de conexão.",
+    title: "Backup, continuidade e operações críticas",
+    description: "Geradores, QTA, cargas prioritárias, paralelismo e continuidade operacional.",
+    tags: ["QTA", "Backup", "Cargas críticas"],
+    href: "/servicos/engenharia-projetos-eletricos/",
   },
   {
-    title: "Gestão documental",
-    description:
-      "Organização técnica, memorial descritivo, ART, formulários, protocolos, evidências e acompanhamento de processos.",
+    title: "Automação técnica e gestão documental",
+    description: "Python, VBA, planilhas, documentos, protocolos, evidências e análises padronizadas.",
+    tags: ["Python", "VBA", "Documentos"],
+    href: "/servicos/inteligencia-energetica/",
+  },
+];
+
+const methodSteps = [
+  {
+    title: "Diagnóstico técnico",
+    text: "Leitura do problema, documentos, restrições e objetivo.",
+  },
+  {
+    title: "Organização de evidências",
+    text: "Estruturação de dados, faturas, projetos, medições e normas.",
+  },
+  {
+    title: "Estratégia técnica",
+    text: "Cenários, riscos, alternativas, quesitos e premissas.",
+  },
+  {
+    title: "Entrega rastreável",
+    text: "Relatório, parecer, memorial, matriz ou documentação técnica.",
+  },
+];
+
+const forensicCards = [
+  {
+    title: "Elaboração de quesitos técnicos",
+    text: "Perguntas objetivas para temas de energia, GD, danos, consumo, demanda e instalações.",
+  },
+  {
+    title: "Análise de laudos e pareceres",
+    text: "Leitura técnica de laudos, medições, faturas, projetos, fotos e diagramas.",
+  },
+  {
+    title: "Assistência técnica e evidências",
+    text: "Matriz de evidências, linha do tempo, normas, cálculos e subsídios técnicos.",
   },
 ];
 
@@ -61,48 +110,49 @@ const breadcrumbJsonLd = {
 ---
 
 <BaseLayout
-  title="Kairós Engenharia | Engenharia técnico-regulatória e inteligência energética"
-  description="Engenharia que transforma restrições técnicas em decisões viáveis para conexão, projetos elétricos, regulação, dados e eletromobilidade."
+  title="Kairós Engenharia | Engenharia técnica para energia, conexão e regulação"
+  description="Engenharia elétrica, conexão à rede, geração distribuída, regulação, perícias técnicas, quesitos, inteligência energética e eletromobilidade para empresas e integradores."
   path="/"
   jsonLd={breadcrumbJsonLd}
 >
   <section class="relative isolate overflow-hidden bg-navy-950 pt-32 text-white">
     <div class="absolute inset-0 bg-hero-grid bg-[size:42px_42px] opacity-70" aria-hidden="true"></div>
     <div class="noise"></div>
-    <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white to-transparent" aria-hidden="true"></div>
-    <div class="relative mx-auto grid max-w-7xl gap-12 px-5 pb-20 sm:px-6 lg:grid-cols-[1fr_.9fr] lg:px-8">
+    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" aria-hidden="true"></div>
+    <div class="relative mx-auto grid max-w-7xl gap-12 px-5 pb-20 sm:px-6 lg:grid-cols-[1fr_.82fr] lg:px-8">
       <div class="flex flex-col justify-center">
         <p class="inline-flex w-fit rounded-full border border-energy-300/25 bg-white/7 px-3 py-2 text-xs font-bold uppercase tracking-[0.16em] text-energy-300">
-          Engenharia elétrica, regulação e inteligência energética
+          Engenharia elétrica • Regulação • Perícia técnica • Inteligência energética
         </p>
         <h1 class="mt-7 max-w-4xl text-balance text-4xl font-semibold leading-[1.06] tracking-normal text-white sm:text-5xl lg:text-6xl">
-          Engenharia que transforma restrições técnicas em decisões viáveis.
+          Engenharia técnica para decisões seguras em energia, conexão e regulação.
         </h1>
         <p class="mt-7 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-          Projetos elétricos, conexão à rede, consultoria técnico-regulatória e inteligência energética para empresas que precisam gerar, expandir, proteger e operar com segurança.
+          Projetos elétricos, conexão à rede, geração distribuída, perícias técnicas, inteligência energética e suporte técnico-regulatório para empresas, integradores e operações críticas.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row">
           <a href={withBase("/contato/")} class="inline-flex items-center justify-center rounded-md bg-energy-400 px-5 py-3 text-sm font-semibold text-navy-950 transition hover:bg-energy-300" data-track="hero-diagnostico">
             Solicitar diagnóstico técnico <span class="ml-2" aria-hidden="true">→</span>
           </a>
-          <a href={withBase("/servicos/")} class="inline-flex items-center justify-center rounded-md border border-white/16 bg-white/6 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/12" data-track="hero-solucoes">
-            Conhecer nossas soluções
+          <a href="#areas" class="inline-flex items-center justify-center rounded-md border border-white/16 bg-white/6 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/12" data-track="hero-areas">
+            Ver áreas de atuação
           </a>
         </div>
-        <div class="mt-5 grid gap-3 sm:grid-cols-3">
-          <a href={withBase("/para-integradores/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Terceirizar engenharia regulatória</a>
-          <a href={withBase("/servicos/engenharia-projetos-eletricos/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Avaliar infraestrutura e demanda</a>
-          <a href={withBase("/servicos/eletromobilidade/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Estudar viabilidade de recarga</a>
+        <div class="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          <a href={withBase("/servicos/consultoria-regulatoria/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Parecer de acesso e inversão de fluxo</a>
+          <a href={withBase("/servicos/engenharia-projetos-eletricos/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Projetos elétricos e subestações</a>
+          <a href={withBase("/servicos/pericias-quesitos-pareceres/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Quesitos técnicos e perícias</a>
+          <a href={withBase("/servicos/eletromobilidade/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Eletromobilidade e novas cargas</a>
         </div>
       </div>
-      <div class="reveal relative min-h-[520px]">
+      <div class="reveal relative min-h-[470px]">
         <div class="absolute inset-0 rounded-md border border-white/10 bg-white/6 shadow-glow backdrop-blur"></div>
         <div class="screen-grid absolute inset-5 overflow-hidden rounded-md border border-white/12 bg-[#071a2e] p-5">
           <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500">Mapa técnico</p>
-          <h2 class="mt-2 text-xl font-semibold text-white">Conexão, demanda e risco</h2>
-          <div class="mt-8 grid gap-4">
-            {["Parecer", "Demanda", "Proteção", "Backup", "Recarga"].map((item, index) => (
-              <div class="flex items-center justify-between rounded-md border border-white/10 bg-white/5 p-4">
+          <h2 class="mt-2 text-xl font-semibold text-white">Evidência, viabilidade e decisão</h2>
+          <div class="mt-8 grid gap-3">
+            {["Conexão", "Demanda", "Proteção", "Perícia", "Regulação", "Recarga"].map((item, index) => (
+              <div class="flex items-center justify-between rounded-md border border-white/10 bg-white/5 px-4 py-3">
                 <span class="text-sm text-slate-300">{item}</span>
                 <span class="text-xs font-semibold uppercase tracking-[0.14em] text-energy-300">{index % 2 ? "modelar" : "auditar"}</span>
               </div>
@@ -120,103 +170,133 @@ const breadcrumbJsonLd = {
     </div>
   </section>
 
-  <QuickTriage />
-
-  <section class="bg-white px-5 py-12 text-slate-900 sm:px-6 lg:px-8">
-    <div class="mx-auto grid max-w-7xl gap-3 sm:grid-cols-4">
-      {["Engenharia de acesso", "Projetos elétricos estratégicos", "Regulação", "Dados e automação"].map((item) => (
+  <section class="bg-white px-5 py-10 text-slate-900 sm:px-6 lg:px-8">
+    <div class="mx-auto grid max-w-7xl gap-3 sm:grid-cols-2 lg:grid-cols-6">
+      {keyAreas.map((item) => (
         <div class="rounded-md border border-slate-200 bg-slate-50 px-4 py-4 text-sm font-semibold text-slate-700">{item}</div>
       ))}
     </div>
   </section>
 
-  <section class="bg-white px-5 pb-24 sm:px-6 lg:px-8">
+  <section id="areas" class="bg-white px-5 pb-20 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
       <SectionHeading
-        eyebrow="Onde projetos convencionais deixam de ser suficientes"
-        title="A Kairós entra quando conexão, demanda, proteção e regulação precisam ser tratados como sistema."
-        description="O trabalho separa hipótese, evidência e decisão em cenários de restrição de conexão, subestação, geração distribuída, backup e eletromobilidade."
+        eyebrow="Áreas de atuação"
+        title="Projetos, conexão, regulação, perícias e dados energéticos."
+        description="Foco em evidência, viabilidade e decisão antes de investir, implantar ou contestar."
       />
-      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {criticalAreas.map((item) => (
-          <div class="reveal rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
-            <h3 class="text-lg font-semibold text-slate-950">{item.title}</h3>
-            <p class="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+      <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        {practiceAreas.map((area) => (
+          <article class="reveal flex h-full flex-col rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
+            <h3 class="text-lg font-semibold text-slate-950">{area.title}</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">{area.description}</p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              {area.tags.map((tag) => <span class="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-bold text-slate-600">{tag}</span>)}
+            </div>
+            <a href={withBase(area.href)} class="mt-auto pt-6 text-sm font-semibold text-energy-700">Ver detalhes <span aria-hidden="true">→</span></a>
+          </article>
+        ))}
+      </div>
+      <div class="mt-8 rounded-md border border-slate-200 bg-slate-50 p-6">
+        <div class="grid gap-5 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+          <div>
+            <h3 class="text-xl font-semibold text-slate-950">Dados, automação e inteligência energética</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">
+              Automação aplicada a faturas, indicadores, documentação e rotinas técnicas, com revisão de engenharia.
+            </p>
           </div>
-        ))}
+          <div class="flex flex-wrap gap-2 lg:justify-end">
+            {intelligenceChips.map((chip) => <span class="rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700">{chip}</span>)}
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-slate-50 px-5 py-24 sm:px-6 lg:px-8">
+  <section class="bg-slate-50 px-5 py-20 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
       <SectionHeading
-        eyebrow="Soluções por perfil"
-        title="Abordagens diferentes para integradores, operações críticas, indústria e mobilidade elétrica."
+        eyebrow="Perfis atendidos"
+        title="Engenharia para quem precisa decidir com base técnica."
       />
-      <div class="mt-10 grid gap-5 lg:grid-cols-4">
+      <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
         {profileSolutions.map((solution) => (
-          <ServiceCard title={solution.title} description={solution.text} href={solution.href} eyebrow="Perfil" />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-7xl">
-      <SectionHeading eyebrow="Serviços" title="Quatro frentes técnicas para reduzir incerteza antes do investimento." />
-      <div class="mt-10 grid gap-5 lg:grid-cols-2">
-        {servicePages.map((service) => (
-          <ServiceCard title={service.title} description={service.description} href={`/servicos/${service.slug}/`} eyebrow={service.eyebrow} />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-navy-950 px-5 py-24 text-white sm:px-6 lg:px-8">
-    <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.8fr_1.2fr]">
-      <SectionHeading dark eyebrow="Método de trabalho" title="Diagnóstico, evidência, estratégia e entrega rastreável." description="A metodologia evita promessa genérica e organiza a decisão com clareza técnica." />
-      <div class="grid gap-4 sm:grid-cols-2">
-        {["Diagnóstico técnico", "Modelagem de evidências", "Estratégia de conexão ou implantação", "Entrega rastreável"].map((step, index) => (
-          <article class="reveal rounded-md border border-white/10 bg-white/5 p-6">
-            <p class="text-xs font-bold uppercase tracking-[0.16em] text-energy-300">Etapa {String(index + 1).padStart(2, "0")}</p>
-            <h3 class="mt-4 text-xl font-semibold text-white">{step}</h3>
-            <p class="mt-3 text-sm leading-7 text-slate-300">Critérios, premissas e documentação são organizados para tomada de decisão e continuidade técnica.</p>
+          <article class="reveal rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
+            <h3 class="text-lg font-semibold text-slate-950">{solution.title}</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">{solution.text}</p>
+            <a href={withBase(solution.href)} class="mt-5 inline-flex text-sm font-semibold text-energy-700">Ver rota <span class="ml-2" aria-hidden="true">→</span></a>
           </article>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-7xl">
-      <SectionHeading
-        eyebrow="Automação aplicada"
-        title="Python, VBA e planilhas inteligentes para organizar dados técnicos sem exibir código falso."
-        description="A automação apoia análise de faturas, relatórios, indicadores e gestão documental, sempre com revisão técnica e rastreabilidade."
-      />
-      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {["Python", "VBA", "Planilhas inteligentes", "Análise de faturas", "Relatórios", "Gestão documental"].map((item) => (
-          <div class="reveal rounded-md border border-slate-200 bg-slate-50 p-5">
-            <h3 class="text-lg font-semibold text-slate-950">{item}</h3>
-            <p class="mt-3 text-sm leading-7 text-slate-600">Uso controlado para reduzir retrabalho e apoiar decisões documentadas.</p>
-          </div>
+  <section class="bg-navy-950 px-5 py-20 text-white sm:px-6 lg:px-8">
+    <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.72fr_1.28fr]">
+      <SectionHeading dark eyebrow="Método" title="Diagnóstico, evidência, estratégia e entrega rastreável." />
+      <div class="grid gap-4 sm:grid-cols-2">
+        {methodSteps.map((step, index) => (
+          <article class="reveal rounded-md border border-white/10 bg-white/5 p-6">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-energy-300">Etapa {String(index + 1).padStart(2, "0")}</p>
+            <h3 class="mt-4 text-xl font-semibold text-white">{step.title}</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-300">{step.text}</p>
+          </article>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="bg-slate-50 px-5 py-24 sm:px-6 lg:px-8">
+  <section class="bg-white px-5 py-20 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
-      <SectionHeading eyebrow="Cases" title="Cenários técnicos com dados anonimizados e sem números inventados." />
-      <div class="mt-10 grid gap-5 lg:grid-cols-2">
-        {cases.slice(0, 2).map((study) => <CaseCard study={study} />)}
+      <div class="grid gap-10 lg:grid-cols-[.82fr_1.18fr] lg:items-start">
+        <div>
+          <SectionHeading
+            eyebrow="Perícias, quesitos e evidências técnicas"
+        title="Documentos técnicos convertidos em perguntas, evidências e pareceres."
+        description="Apoio para medições, faturas, projetos e eventos elétricos, dentro dos limites profissionais."
+          />
+          <p class="mt-6 rounded-md border border-slate-200 bg-slate-50 p-4 text-sm leading-7 text-slate-600">
+            A atuação é técnica. Demandas jurídicas devem ser conduzidas por advogado habilitado.
+          </p>
+        </div>
+        <div class="grid gap-4">
+          {forensicCards.map((card) => (
+            <article class="reveal rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
+              <h3 class="text-lg font-semibold text-slate-950">{card.title}</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">{card.text}</p>
+            </article>
+          ))}
+          <a href={withBase("/servicos/pericias-quesitos-pareceres/")} class="inline-flex w-fit rounded-md bg-navy-950 px-5 py-3 text-sm font-semibold text-white">Conhecer apoio pericial técnico <span class="ml-2" aria-hidden="true">→</span></a>
+        </div>
       </div>
-      <a href={withBase("/cases/")} class="mt-8 inline-flex rounded-md bg-navy-950 px-5 py-3 text-sm font-semibold text-white">Ver estrutura completa de cases</a>
     </div>
   </section>
 
-  <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
+  <section class="bg-slate-50 px-5 py-20 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <SectionHeading
+        eyebrow="Cenários de referência"
+        title="Exemplos anonimizados de problemas técnicos que orientam a forma de atuação."
+      />
+      <div class="mt-10 grid gap-5 lg:grid-cols-3">
+        {cases.slice(0, 3).map((study) => (
+          <article class="reveal rounded-md border border-slate-200 bg-white p-6 shadow-crisp">
+            <div class="flex flex-wrap gap-2">
+              <span class="rounded-full bg-energy-400/12 px-3 py-1 text-xs font-bold text-energy-700">{study.category}</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">{study.label}</span>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-slate-950">{study.title}</h3>
+            <p class="mt-4 text-sm leading-7 text-slate-600">{study.challenge}</p>
+            <p class="mt-4 text-sm font-semibold text-slate-800">{study.impact}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title="Envie o problema técnico para uma leitura inicial." label="Solicitar diagnóstico técnico" />
+
+  <section class="bg-white px-5 pb-24 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-4xl">
       <SectionHeading eyebrow="FAQ" title="Perguntas frequentes antes do diagnóstico técnico." />
       <div class="mt-10 grid gap-4">
@@ -229,6 +309,4 @@ const breadcrumbJsonLd = {
       </div>
     </div>
   </section>
-
-  <CtaBand />
 </BaseLayout>

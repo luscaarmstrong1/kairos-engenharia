@@ -7,6 +7,7 @@ describe("routes and SEO helpers", () => {
     expect(allRoutes).toContain("/para-integradores/");
     expect(allRoutes).toContain("/politica-de-privacidade/");
     expect(servicePages.map((service) => service.slug)).toContain("consultoria-regulatoria");
+    expect(servicePages.map((service) => service.slug)).toContain("pericias-quesitos-pareceres");
   });
 
   it("gera URLs com base do GitHub Pages", () => {

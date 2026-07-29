@@ -34,13 +34,19 @@ export function sanitizeText(value: string): string {
 export function scoreLead(form: Pick<LeadForm, "perfil" | "desafio" | "potencia" | "prazo" | "empresa" | "mensagem">): "alta" | "media" | "baixa" {
   const highSignals = [
     "Parecer de acesso ou inversão de fluxo",
+    "Quesitos técnicos para perícia",
+    "Análise de laudo técnico",
+    "Danos elétricos",
     "Hospital ou instituição",
     "Indústria",
+    "Perito ou assistente técnico",
     "Até 7 dias",
   ];
   const mediumSignals = [
     "Projeto fotovoltaico",
     "Aumento de carga",
+    "Demanda contratada",
+    "Consumo ou medição",
     "Hub de recarga",
     "Análise de fatura",
     "Até 30 dias",

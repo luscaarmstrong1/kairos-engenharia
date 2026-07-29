@@ -39,7 +39,15 @@ const serviceJsonLd = {
   "@type": "ProfessionalService",
   name: site.name,
   url: site.url,
-  serviceType: "Engenharia elétrica e consultoria técnico-regulatória",
+  serviceType: [
+    "Engenharia elétrica",
+    "Consultoria técnico-regulatória",
+    "Perícias técnicas",
+    "Elaboração de quesitos",
+    "Projetos elétricos",
+    "Inteligência energética",
+    "Eletromobilidade",
+  ],
   areaServed: "Brasil",
 };
 const jsonPayload = [organizationJsonLd, serviceJsonLd, ...(Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [])];

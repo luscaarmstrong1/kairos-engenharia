@@ -4,8 +4,24 @@ import SelectField from "@components/SelectField.astro";
 const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || "";
 const turnstile = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || "";
 const calendarUrl = import.meta.env.PUBLIC_CALENDAR_URL || "";
-const profiles = ["Integrador", "Indústria", "Comércio", "Hospital ou instituição", "Condomínio", "Posto de combustível", "Outro"];
+const profiles = [
+  "Integrador",
+  "Indústria",
+  "Comércio",
+  "Hospital ou instituição",
+  "Condomínio",
+  "Posto de combustível",
+  "Escritório jurídico",
+  "Perito ou assistente técnico",
+  "Consumidor empresarial",
+  "Outro",
+];
 const challenges = [
+  "Quesitos técnicos para perícia",
+  "Análise de laudo técnico",
+  "Danos elétricos",
+  "Consumo ou medição",
+  "Demanda contratada",
   "Parecer de acesso ou inversão de fluxo",
   "Projeto fotovoltaico",
   "Subestação ou média tensão",

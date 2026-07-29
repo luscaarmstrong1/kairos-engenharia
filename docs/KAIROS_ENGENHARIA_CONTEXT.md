@@ -14,6 +14,7 @@ O site apresenta os serviços da Kairós Engenharia, qualifica demandas técnica
 - Consultoria técnico-regulatória.
 - Inteligência energética.
 - Eletromobilidade.
+- Perícias, quesitos e pareceres técnicos em engenharia elétrica.
 - Restrição de conexão.
 - Subestação.
 - Demanda.
@@ -28,6 +29,7 @@ O site apresenta os serviços da Kairós Engenharia, qualifica demandas técnica
 - Indústrias e comércios com demanda, subestação, aumento de carga ou geração distribuída.
 - Hospitais e operações críticas com necessidade de backup, geradores e confiabilidade elétrica.
 - Postos, frotas e operações de mobilidade elétrica.
+- Escritórios, peritos, assistentes técnicos e partes interessadas que precisam organizar evidências, quesitos e pareceres técnicos em engenharia elétrica.
 
 ## 5. Tom de voz e diferenciais
 
@@ -42,6 +44,7 @@ A identidade atual usa base visual escura em azul-marinho, acentos em verde/teal
 - Home.
 - Serviços.
 - Páginas individuais de serviços.
+- Página de perícias, quesitos e pareceres técnicos.
 - Para integradores.
 - Cases.
 - Conteúdos.
@@ -78,3 +81,4 @@ Os CTAs principais são "Solicitar diagnóstico técnico", "Conhecer nossas solu
 - Manutenção da publicação via GitHub Pages por workflow.
 - Criação do chat lateral exclusivo `Kairós Engenharia — Site Institucional`.
 - Preparação de URLs, metadados e documentação para a identidade GitHub `luscaarmstrong1`.
+- Revisão de densidade da home, ampliação das áreas de atuação e criação da frente de perícias, quesitos e pareceres técnicos.

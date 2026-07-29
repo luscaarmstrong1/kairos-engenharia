@@ -57,3 +57,11 @@ Motivo: o PDF prioriza SEO, rotas reais, HTML semântico, blog em Markdown, RSS,
 - Revisão da CSP em meta tag para manter restrições compatíveis com GitHub Pages sem bloquear endpoint HTTPS externo de formulário. `frame-ancestors` permanece pendente de header real em hospedagem que permita configuração de resposta.
 - Formulário reforçado com limites de tamanho, validação de UF, bloqueio de endpoint não HTTPS, estado de envio, `aria-busy` e associação correta de mensagens de erro.
 - Menu móvel aprimorado para fechar por link, Escape e clique fora, reduzindo risco de navegação presa em telas pequenas.
+
+## Revisão de densidade e serviços aplicada em 2026-07-28
+
+- Home condensada para priorizar hero, faixa de áreas-chave, áreas de atuação, perfis, método, perícias, cenários de referência, CTA e FAQ curta.
+- Inclusão da frente "Perícias, Quesitos e Pareceres Técnicos" sem prometer êxito, atuação jurídica ou resultado em distribuidora.
+- Criação da rota `/servicos/pericias-quesitos-pareceres/` com seções de atuação, entregáveis, método e aviso de escopo.
+- Atualização de triagem e formulário com perfis jurídicos/técnicos e desafios como quesitos, laudos, danos elétricos, consumo, medição e demanda contratada.
+- Página de serviços reorganizada em seis frentes técnicas, mantendo `/para-integradores/` como rota dedicada.

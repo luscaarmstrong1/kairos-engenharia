@@ -6,50 +6,66 @@ import ServiceCard from "@components/ServiceCard.astro";
 import CtaBand from "@components/CtaBand.astro";
 import { servicePages } from "@data/site";
 import { withBase } from "@lib/urls";
+
+const serviceCards = [
+  ...servicePages.map((service) => ({
+    title: service.title,
+    description: service.description,
+    href: `/servicos/${service.slug}/`,
+    eyebrow: service.eyebrow,
+  })),
+  {
+    title: "Suporte Técnico para Integradores",
+    description:
+      "Auditoria de projetos, padronização documental, suporte white label, revisão de pareceres e engenharia regulatória.",
+    href: "/para-integradores/",
+    eyebrow: "Integradores",
+  },
+];
 ---
 
 <BaseLayout
-  title="Serviços"
-  description="Serviços de engenharia elétrica, consultoria técnico-regulatória, inteligência energética e eletromobilidade para projetos complexos."
+  title="Soluções técnicas"
+  description="Serviços de engenharia elétrica, regulação, perícias técnicas, quesitos, inteligência energética, eletromobilidade e suporte para integradores."
   path="/servicos/"
 >
   <PageHero
     eyebrow="Serviços"
-    title="Engenharia, conexão, dados e infraestrutura para decisões técnicas seguras."
-    description="A Kairós estrutura evidências, projetos e estratégias sem prometer aprovação ou resultado fora do controle técnico."
+    title="Soluções técnicas para reduzir incerteza antes da decisão."
+    description="Serviços estruturados para reduzir incerteza técnica, regulatória e operacional antes de decisões de investimento, implantação ou contestação."
     primaryHref={withBase("/contato/")}
     primaryLabel="Solicitar diagnóstico técnico"
-    secondaryHref={withBase("/para-integradores/")}
-    secondaryLabel="Sou integrador"
+    secondaryHref={withBase("/servicos/pericias-quesitos-pareceres/")}
+    secondaryLabel="Ver perícias e quesitos"
   />
 
   <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
       <SectionHeading
-        eyebrow="Frentes de atuação"
-        title="Profundidade técnica sem promessas comerciais vazias."
-        description="Cada serviço deixa explícito o que pode ser analisado, documentado e conduzido, respeitando escopo contratado e responsabilidade técnica."
+        eyebrow="Soluções técnicas"
+        title="Engenharia, regulação, perícia técnica, dados e infraestrutura."
+        description="Cada frente explicita o que pode ser analisado, documentado e conduzido, respeitando escopo contratado, evidências disponíveis e responsabilidade técnica."
       />
-      <div class="mt-10 grid gap-5 lg:grid-cols-2">
-        {servicePages.map((service) => (
-          <ServiceCard title={service.title} description={service.description} href={`/servicos/${service.slug}/`} eyebrow={service.eyebrow} />
+      <div class="mt-10 grid gap-5 lg:grid-cols-3">
+        {serviceCards.map((service) => (
+          <ServiceCard title={service.title} description={service.description} href={service.href} eyebrow={service.eyebrow} />
         ))}
       </div>
     </div>
   </section>
 
-  <section class="bg-slate-50 px-5 py-24 sm:px-6 lg:px-8">
+  <section class="bg-slate-50 px-5 py-20 sm:px-6 lg:px-8">
     <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.8fr_1.2fr]">
       <SectionHeading
         eyebrow="Como ler o escopo"
         title="O site informa capacidades técnicas, não substitui proposta comercial."
-        description="Serviços como projeto executivo, laudo, ART, estudo especializado ou acompanhamento de obra dependem de escopo real contratado, documentos disponíveis e responsabilidade definida."
+        description="Projeto executivo, laudo, ART, parecer, estudo especializado ou acompanhamento dependem de escopo real contratado, documentos disponíveis e responsabilidade definida."
       />
       <div class="grid gap-4 sm:grid-cols-2">
-        {["Sem garantia de aprovação", "Sem números inventados", "Sem cliente fictício", "Com evidência rastreável"].map((item) => (
+        {["Sem garantia de aprovação", "Sem promessa pericial", "Sem números inventados", "Com evidência rastreável"].map((item) => (
           <div class="reveal rounded-md border border-slate-200 bg-white p-6 shadow-crisp">
             <h2 class="text-lg font-semibold text-slate-950">{item}</h2>
-            <p class="mt-3 text-sm leading-7 text-slate-600">A comunicação técnica preserva limites profissionais e evita promessas incompatíveis com regulação ou contexto de rede.</p>
+            <p class="mt-3 text-sm leading-7 text-slate-600">A comunicação técnica preserva limites profissionais e evita promessas incompatíveis com regulação, contexto de rede ou demanda pericial.</p>
           </div>
         ))}
       </div>
