@@ -77,7 +77,7 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
   <div class="mt-6">
     <label class="flex items-start gap-3 text-sm leading-6 text-slate-600" for="lgpd">
       <input id="lgpd" name="lgpd" type="checkbox" data-field="lgpd" class="mt-1 h-4 w-4 rounded border-slate-300 text-energy-600" />
-      <span>Autorizo o contato da Kairós Engenharia para retorno sobre esta solicitação e declaro ciência sobre o tratamento dos meus dados para essa finalidade.</span>
+      <span>Autorizo o contato da Conexium Engenharia para retorno sobre esta solicitação e declaro ciência sobre o tratamento dos meus dados para essa finalidade.</span>
     </label>
     <p class="mt-2 hidden text-sm font-medium text-red-600" id="lgpd-error" data-error="lgpd"></p>
   </div>
@@ -132,7 +132,7 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
   }
 
   document.querySelectorAll("[data-contact-form]").forEach((form) => {
-    const urlParams = new URLSearchParams(window.location.search || sessionStorage.getItem("kairos-triage") || "");
+    const urlParams = new URLSearchParams(window.location.search || sessionStorage.getItem("conexium-triage") || "");
     for (const key of ["perfil", "desafio", "prazo"]) {
       const value = urlParams.get(key);
       const field = form.querySelector(`[data-field="${key}"]`);
@@ -146,7 +146,7 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
       event.currentTarget.value = event.currentTarget.value.toUpperCase().slice(0, 2);
     });
     form.addEventListener("input", () => {
-      window.dispatchEvent(new CustomEvent("kairos:analytics", { detail: { name: "form_start" } }));
+      window.dispatchEvent(new CustomEvent("conexium:analytics", { detail: { name: "form_start" } }));
     }, { once: true });
 
     form.addEventListener("submit", async (event) => {
@@ -198,11 +198,11 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
         });
         if (!response.ok) throw new Error("Falha no endpoint");
         if (feedback) {
-          feedback.textContent = "Solicitação enviada com segurança. A equipe retornará pelo contato informado.";
+          feedback.textContent = "Obrigado pelo contato. A equipe técnica da Conexium Engenharia recebeu sua solicitação e retornará após análise inicial das informações enviadas.";
           feedback.classList.remove("hidden");
         }
         form.reset();
-        window.dispatchEvent(new CustomEvent("kairos:analytics", { detail: { name: "form_submit", score: payload.leadScore } }));
+        window.dispatchEvent(new CustomEvent("conexium:analytics", { detail: { name: "form_submit", score: payload.leadScore } }));
       } catch {
         if (feedback) {
           feedback.textContent = "Não foi possível concluir o envio. Verifique o endpoint configurado ou tente novamente.";

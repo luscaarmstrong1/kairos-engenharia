@@ -1,9 +1,12 @@
-﻿import { defineConfig } from "astro/config";
+import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
+const siteUrl = process.env.PUBLIC_SITE_URL || "https://conexiumengenharia.com.br";
+const basePath = process.env.PUBLIC_BASE_PATH || "/kairos-engenharia";
+
 export default defineConfig({
-  site: "https://luscaarmstrong1.github.io",
-  base: "/kairos-engenharia",
+  site: siteUrl,
+  base: basePath,
   trailingSlash: "always",
   integrations: [
     sitemap({

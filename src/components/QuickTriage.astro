@@ -73,7 +73,7 @@ import { withBase } from "@lib/urls";
       const value = String(data.get(key) || "");
       if (value) params.set(key, value);
     }
-    sessionStorage.setItem("kairos-triage", params.toString());
+    sessionStorage.setItem("conexium-triage", params.toString());
     const contactUrl = form.getAttribute("data-contact-url") || "/contato/";
     window.location.href = `${contactUrl}?${params.toString()}`;
   });

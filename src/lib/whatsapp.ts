@@ -9,9 +9,9 @@ export function whatsappMessageForPath(pathname: string): string {
     return "Olá, preciso estudar a viabilidade de infraestrutura de recarga.";
   }
   if (pathname.includes("para-integradores")) {
-    return "Olá, gostaria de estruturar uma parceria técnica com a Kairós Engenharia.";
+    return "Olá, gostaria de estruturar uma parceria técnica com a Conexium Engenharia.";
   }
-  return "Olá, gostaria de solicitar um diagnóstico técnico com a Kairós Engenharia.";
+  return "Olá, gostaria de solicitar um diagnóstico técnico com a Conexium Engenharia.";
 }
 
 export function buildWhatsAppUrl(number: string | undefined, message: string): string {

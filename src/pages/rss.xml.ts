@@ -6,14 +6,14 @@ import { site } from "@data/site";
 export async function GET(context: APIContext) {
   const posts = (await getCollection("blog")).filter((post) => post.data.status === "published");
   return rss({
-    title: "Kairós Engenharia - Conteúdos Técnicos",
+    title: "Conexium Engenharia - Conteúdos Técnicos",
     description: site.defaultDescription,
     site: context.site ?? site.url,
     items: posts.map((post) => ({
       title: post.data.title,
       description: post.data.description,
       pubDate: post.data.pubDate,
-      link: `/kairos-engenharia${post.data.slug}`,
+      link: post.data.slug,
     })),
   });
 }

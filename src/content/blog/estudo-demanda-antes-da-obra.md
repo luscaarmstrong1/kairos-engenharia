@@ -37,13 +37,13 @@ Esses sinais indicam que a decisão precisa ir além de uma soma simples de pot�
 
 Um estudo consistente avalia carga existente, carga prevista, simultaneidade, regime de operação, demanda medida, demanda contratada, cabos, quadros, proteção, transformador, entrada de energia e condições de atendimento.
 
-Quando a expansão envolve geração distribuída ou conexão à rede, o estudo pode se relacionar com [consultoria técnico-regulatória](/kairos-engenharia/servicos/consultoria-regulatoria/). Quando envolve obra, adequação ou projeto executivo, o caminho natural está em [engenharia e projetos elétricos](/kairos-engenharia/servicos/engenharia-projetos-eletricos/).
+Quando a expansão envolve geração distribuída ou conexão à rede, o estudo pode se relacionar com [consultoria técnico-regulatória](https://conexiumengenharia.com.br/servicos/consultoria-regulatoria/). Quando envolve obra, adequação ou projeto executivo, o caminho natural está em [engenharia e projetos elétricos](https://conexiumengenharia.com.br/servicos/engenharia-projetos-eletricos/).
 
 ## Dados históricos ajudam a reduzir incerteza
 
 Faturas e medições ajudam a separar carga instalada de demanda real. Uma instalação pode ter muitas cargas, mas nem todas operam simultaneamente. Em outros casos, a demanda medida revela picos que não aparecem em uma lista de equipamentos.
 
-Por isso, projetos de expansão podem se beneficiar de [inteligência energética](/kairos-engenharia/servicos/inteligencia-energetica/), especialmente quando a decisão envolve contrato, modalidade tarifária, consumo, ultrapassagem ou cenários de crescimento.
+Por isso, projetos de expansão podem se beneficiar de [inteligência energética](https://conexiumengenharia.com.br/servicos/inteligencia-energetica/), especialmente quando a decisão envolve contrato, modalidade tarifária, consumo, ultrapassagem ou cenários de crescimento.
 
 ## Conclusão
 
@@ -51,4 +51,4 @@ O estudo de demanda deve vir antes da obra quando a decisão envolve risco técn
 
 Este conteúdo é informativo e não substitui vistoria, medições, projeto elétrico ou análise específica da instalação.
 
-Para avaliar demanda, expansão ou adequação de infraestrutura elétrica, fale com a Kairós pela página de [contato](/kairos-engenharia/contato/).
+Para avaliar demanda, expansão ou adequação de infraestrutura elétrica, fale com a Conexium pela página de [contato](https://conexiumengenharia.com.br/contato/).

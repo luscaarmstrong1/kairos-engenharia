@@ -37,13 +37,13 @@ Sem essa triagem, o projeto pode superdimensionar o sistema ou deixar cargas rea
 
 A continuidade operacional depende de dispositivos de transferência, quadros, cabos, proteções, aterramento, seletividade e lógica de operação. Um QTA, por exemplo, precisa ser compatível com o arranjo da instalação, o tipo de carga e a estratégia de manobra.
 
-Também é necessário avaliar se as proteções mantêm coordenação adequada em diferentes modos de operação. Uma falha nesse ponto pode interromper circuitos importantes ou dificultar a identificação de defeitos. A Kairós trata esses temas dentro de [engenharia e projetos elétricos](/kairos-engenharia/servicos/engenharia-projetos-eletricos/), especialmente em instalações com baixa e média tensão, subestações, quadros e cargas sensíveis.
+Também é necessário avaliar se as proteções mantêm coordenação adequada em diferentes modos de operação. Uma falha nesse ponto pode interromper circuitos importantes ou dificultar a identificação de defeitos. A Conexium trata esses temas dentro de [engenharia e projetos elétricos](https://conexiumengenharia.com.br/servicos/engenharia-projetos-eletricos/), especialmente em instalações com baixa e média tensão, subestações, quadros e cargas sensíveis.
 
 ## Operação real importa
 
 O projeto deve considerar como a equipe irá testar, acionar, abastecer, manter e registrar o funcionamento do sistema. Procedimentos simples, etiquetas claras, diagramas atualizados e documentação técnica reduzem dependência de memória operacional.
 
-Em operações com consumo relevante, também pode ser útil cruzar dados de faturas, demanda e perfil de carga com a estratégia de backup. Essa leitura se conecta à [inteligência energética](/kairos-engenharia/servicos/inteligencia-energetica/) quando a decisão envolve histórico de demanda, custos, ultrapassagens ou crescimento previsto.
+Em operações com consumo relevante, também pode ser útil cruzar dados de faturas, demanda e perfil de carga com a estratégia de backup. Essa leitura se conecta à [inteligência energética](https://conexiumengenharia.com.br/servicos/inteligencia-energetica/) quando a decisão envolve histórico de demanda, custos, ultrapassagens ou crescimento previsto.
 
 ## Conclusão
 
@@ -51,4 +51,4 @@ Projetos com geradores ficam mais robustos quando começam pelas cargas crítica
 
 Este conteúdo é informativo e não substitui projeto elétrico, ART, laudo ou análise específica da instalação.
 
-Para avaliar continuidade operacional, geradores ou cargas críticas, converse com a Kairós pela página de [contato](/kairos-engenharia/contato/).
+Para avaliar continuidade operacional, geradores ou cargas críticas, converse com a Conexium pela página de [contato](https://conexiumengenharia.com.br/contato/).

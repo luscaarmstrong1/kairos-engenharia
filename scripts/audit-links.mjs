@@ -2,7 +2,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { extname, join } from "node:path";
 
 const dist = join(process.cwd(), "dist");
-const base = "/kairos-engenharia";
+const base = process.env.PUBLIC_BASE_PATH || "/kairos-engenharia";
 const failures = [];
 
 function files(dir) {

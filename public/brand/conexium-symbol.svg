@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Símbolo Conexium Engenharia">
+  <rect width="96" height="96" rx="18" fill="#061525"/>
+  <path d="M22 61 39 34h18l17 27" fill="none" stroke="#2DD4BF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M30 61h36" stroke="#D6B46A" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="39" cy="34" r="6" fill="#F8FAFC"/>
+  <circle cx="57" cy="34" r="6" fill="#F8FAFC"/>
+  <circle cx="22" cy="61" r="6" fill="#2DD4BF"/>
+  <circle cx="74" cy="61" r="6" fill="#2DD4BF"/>
+</svg>

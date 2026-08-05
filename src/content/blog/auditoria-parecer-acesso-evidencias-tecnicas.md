@@ -36,13 +36,13 @@ Essa organização reduz o risco de respostas genéricas e ajuda a concentrar a 
 
 Uma boa matriz de evidências conecta cada ponto do parecer a documentos, dados, cálculos ou perguntas objetivas. Se a distribuidora menciona limitação de rede, por exemplo, a auditoria pode verificar qual elemento foi indicado, se há relação clara com a potência solicitada e se existem informações mínimas para entender a conclusão.
 
-Quando o assunto envolve geração distribuída, também é importante avaliar características do sistema, critérios de proteção, controle de exportação quando aplicável, potência instalada, carga local e compatibilidade documental. Esse trabalho dialoga diretamente com a [consultoria técnico-regulatória](/kairos-engenharia/servicos/consultoria-regulatoria/) e com a retaguarda de [engenharia e projetos elétricos](/kairos-engenharia/servicos/engenharia-projetos-eletricos/).
+Quando o assunto envolve geração distribuída, também é importante avaliar características do sistema, critérios de proteção, controle de exportação quando aplicável, potência instalada, carga local e compatibilidade documental. Esse trabalho dialoga diretamente com a [consultoria técnico-regulatória](https://conexiumengenharia.com.br/servicos/consultoria-regulatoria/) e com a retaguarda de [engenharia e projetos elétricos](https://conexiumengenharia.com.br/servicos/engenharia-projetos-eletricos/).
 
 ## Quando envolver apoio pericial ou jurídico
 
 Alguns casos ficam restritos ao ciclo administrativo com a distribuidora. Outros podem exigir apoio técnico para assistentes, peritos, consumidores, integradores ou advogados. Nesses contextos, a engenharia deve produzir subsídios claros sem substituir atividades jurídicas.
 
-A atuação técnica pode envolver linha do tempo, quesitos, matriz de inconsistências, memória de cálculo, análise documental e parecer especializado. Quando houver discussão formal ou processo, a frente jurídica deve ser conduzida por profissional habilitado, enquanto a Kairós pode apoiar nos limites da [perícia, quesitos e pareceres técnicos](/kairos-engenharia/servicos/pericias-quesitos-pareceres/).
+A atuação técnica pode envolver linha do tempo, quesitos, matriz de inconsistências, memória de cálculo, análise documental e parecer especializado. Quando houver discussão formal ou processo, a frente jurídica deve ser conduzida por profissional habilitado, enquanto a Conexium pode apoiar nos limites da [perícia, quesitos e pareceres técnicos](https://conexiumengenharia.com.br/servicos/pericias-quesitos-pareceres/).
 
 ## Conclusão
 
@@ -50,4 +50,4 @@ Auditar um parecer de acesso é transformar um documento potencialmente complexo
 
 > Conteúdo técnico com revisão humana antes de qualquer publicação regulatória. Este artigo tem caráter informativo e não substitui análise individual do caso, projeto específico, parecer técnico formal ou orientação jurídica quando aplicável.
 
-Para avaliar um parecer, uma restrição de conexão ou uma resposta de distribuidora, fale com a Kairós pela página de [contato](/kairos-engenharia/contato/).
+Para avaliar um parecer, uma restrição de conexão ou uma resposta de distribuidora, fale com a Conexium pela página de [contato](https://conexiumengenharia.com.br/contato/).

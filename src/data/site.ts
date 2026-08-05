@@ -1,12 +1,23 @@
-export const basePath = "/kairos-engenharia";
+export const basePath = import.meta.env.PUBLIC_BASE_PATH || "/kairos-engenharia";
 
 export const site = {
-  name: "Kairós Engenharia",
-  legalName: "KAIRÓS ENGENHARIA",
-  tagline: "Engenharia Elétrica, Consultoria Técnico-Regulatória e Inteligência Energética.",
-  url: "https://luscaarmstrong1.github.io/kairos-engenharia",
+  name: "Conexium Engenharia",
+  legalName: "CONEXIUM ENGENHARIA",
+  tagline: "Engenharia, conexão e inteligência técnica para o setor elétrico.",
+  description:
+    "A Conexium Engenharia atua em projetos elétricos, conexão à rede, geração distribuída, consultoria técnico-regulatória, perícias, quesitos técnicos, inteligência energética e infraestrutura para novas cargas.",
+  institutionalDescription:
+    "A Conexium Engenharia é uma marca técnica especializada em soluções de engenharia elétrica para empresas, integradores, consumidores e operações críticas. A atuação combina análise técnica, leitura normativa, organização de evidências, projetos elétricos e inteligência energética para apoiar decisões em conexão à rede, geração distribuída, infraestrutura elétrica, perícias, eletromobilidade e regulação.",
+  institutionalNotice:
+    "A Conexium Engenharia é uma marca técnica utilizada por Renovera Energias Renováveis Ltda. Os serviços são prestados conforme escopo técnico contratado, com emissão de ART quando aplicável.",
+  technicalNotice:
+    "A Conexium Engenharia presta serviços técnicos de engenharia, consultoria e análise documental. Os conteúdos publicados têm caráter informativo e não substituem análise individual do caso concreto, projeto específico, parecer técnico formal ou orientação jurídica quando aplicável.",
+  forensicNotice:
+    "A atuação em perícias, quesitos e pareceres é de natureza técnica, limitada ao campo da engenharia elétrica. Demandas jurídicas, peticionamento e estratégia processual devem ser conduzidos por advogado habilitado.",
+  url: import.meta.env.PUBLIC_SITE_URL || "https://conexiumengenharia.com.br",
   repositoryUrl: "https://github.com/luscaarmstrong1/kairos-engenharia",
-  email: "contato@kairosengenharia.com.br",
+  email: "contato@conexiumengenharia.com.br",
+  directEmail: "lucas@conexiumengenharia.com.br",
   defaultDescription:
     "Engenharia elétrica, conexão à rede, geração distribuída, regulação, perícias técnicas, quesitos, inteligência energética e eletromobilidade para empresas e integradores.",
 };
@@ -15,9 +26,10 @@ export const navItems = [
   { label: "Início", href: "/" },
   { label: "Serviços", href: "/servicos/" },
   { label: "Integradores", href: "/para-integradores/" },
+  { label: "Perícias e Quesitos", href: "/servicos/pericias-quesitos-pareceres/" },
   { label: "Cenários", href: "/cases/" },
   { label: "Conteúdos", href: "/conteudos/" },
-  { label: "A Kairós", href: "/a-kairos/" },
+  { label: "A Conexium", href: "/a-conexium/" },
   { label: "Contato", href: "/contato/" },
 ];
 
@@ -56,7 +68,7 @@ export const servicePages = [
       "Estratégia técnico-administrativa sem promessa de aprovação",
     ],
     note:
-      "A Kairós estrutura evidências, auditorias e estratégias proporcionais ao contexto técnico e regulatório. A decisão final depende da distribuidora e do contexto de rede.",
+      "A Conexium estrutura evidências, auditorias e estratégias proporcionais ao contexto técnico e regulatório. A decisão final depende da distribuidora e do contexto de rede.",
   },
   {
     title: "Perícias, Quesitos e Pareceres Técnicos",
@@ -76,7 +88,7 @@ export const servicePages = [
       "Assistência técnica pericial dentro dos limites profissionais aplicáveis",
     ],
     note:
-      "A Kairós presta apoio técnico de engenharia. Atividades jurídicas, peticionamento, representação processual e estratégia jurídica devem ser conduzidas por advogado habilitado.",
+      "A Conexium presta apoio técnico de engenharia. Atividades jurídicas, peticionamento, representação processual e estratégia jurídica devem ser conduzidas por advogado habilitado.",
   },
   {
     title: "Inteligência Energética",
@@ -232,9 +244,9 @@ export const cases = [
 
 export const faqs = [
   {
-    question: "A Kairós garante aprovação junto à distribuidora?",
+    question: "A Conexium garante aprovação junto à distribuidora?",
     answer:
-      "Não. A Kairós não promete aprovação ou resultado. O trabalho é técnico e busca organizar documentos, analisar premissas, identificar inconsistências e apresentar alternativas fundamentadas para apoiar a tomada de decisão.",
+      "Não. A Conexium não promete aprovação ou resultado. O trabalho é técnico e busca organizar documentos, analisar premissas, identificar inconsistências e apresentar alternativas fundamentadas para apoiar a tomada de decisão.",
   },
   {
     question: "O que é auditoria de parecer de acesso?",
@@ -242,19 +254,19 @@ export const faqs = [
       "É a análise técnica do parecer ou orçamento emitido pela distribuidora, verificando premissas, ponto de conexão, carga, geração, alternativas, justificativas técnicas, normas aplicáveis e possíveis inconsistências.",
   },
   {
-    question: "A Kairós elabora quesitos para perícia?",
+    question: "A Conexium elabora quesitos para perícia?",
     answer:
-      "Sim. A Kairós pode elaborar quesitos técnicos, analisar laudos, organizar evidências e apoiar assistentes técnicos, advogados e partes interessadas em temas de engenharia elétrica.",
+      "Sim. A Conexium pode elaborar quesitos técnicos, analisar laudos, organizar evidências e apoiar assistentes técnicos, advogados e partes interessadas em temas de engenharia elétrica.",
   },
   {
-    question: "A Kairós atua como perito judicial?",
+    question: "A Conexium atua como perito judicial?",
     answer:
-      "A atuação como perito judicial depende de nomeação pelo juízo. A Kairós atua tecnicamente em pareceres, quesitos, assistência técnica e análise de documentos, respeitando os limites profissionais e legais aplicáveis.",
+      "A atuação como perito judicial depende de nomeação pelo juízo. A Conexium atua tecnicamente em pareceres, quesitos, assistência técnica e análise de documentos, respeitando os limites profissionais e legais aplicáveis.",
   },
   {
     question: "Atendem projetos fora de Minas Gerais?",
     answer:
-      "Sim. A Kairós pode atuar em projetos e análises técnicas em diferentes estados, especialmente quando o trabalho envolver documentos digitais, pareceres, faturas, projetos, laudos, normas e tratativas técnicas.",
+      "Sim. A Conexium pode atuar em projetos e análises técnicas em diferentes estados, especialmente quando o trabalho envolver documentos digitais, pareceres, faturas, projetos, laudos, normas e tratativas técnicas.",
   },
 ];
 
@@ -265,7 +277,7 @@ export const allRoutes = [
   "/para-integradores/",
   "/cases/",
   "/conteudos/",
-  "/a-kairos/",
+  "/a-conexium/",
   "/contato/",
   "/politica-de-privacidade/",
   "/politica-de-cookies/",

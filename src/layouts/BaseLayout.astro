@@ -3,7 +3,7 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import FloatingActions from "@components/FloatingActions.astro";
 import CookieConsent from "@components/CookieConsent.astro";
-import { site } from "@data/site";
+import { basePath, site } from "@data/site";
 import { absoluteUrl, withBase } from "@lib/urls";
 import "../styles/global.css";
 
@@ -18,14 +18,14 @@ type Props = {
 const {
   title,
   description = site.defaultDescription,
-  path = Astro.url.pathname.replace("/kairos-engenharia", "") || "/",
+  path = Astro.url.pathname.replace(basePath, "") || "/",
   ogType = "website",
   jsonLd,
 } = Astro.props;
 
 const canonical = absoluteUrl(path);
 const fontUrl = withBase("/fonts/inter-latin.woff2");
-const faviconUrl = absoluteUrl("/favicon.svg");
+const ogImageUrl = absoluteUrl("/brand/conexium-og-image.png");
 const pageTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -33,6 +33,7 @@ const organizationJsonLd = {
   name: site.name,
   url: site.url,
   email: site.email,
+  logo: absoluteUrl("/brand/conexium-logo.svg"),
 };
 const serviceJsonLd = {
   "@context": "https://schema.org",
@@ -49,6 +50,7 @@ const serviceJsonLd = {
     "Eletromobilidade",
   ],
   areaServed: "Brasil",
+  description: site.description,
 };
 const jsonPayload = [organizationJsonLd, serviceJsonLd, ...(Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [])];
 ---
@@ -70,12 +72,14 @@ const jsonPayload = [organizationJsonLd, serviceJsonLd, ...(Array.isArray(jsonLd
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={faviconUrl} />
+    <meta property="og:image" content={ogImageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+    <link rel="icon" type="image/svg+xml" href={withBase("/brand/conexium-favicon.svg")} />
+    <link rel="apple-touch-icon" href={withBase("/brand/conexium-favicon.svg")} />
     <link rel="manifest" href={withBase("/manifest.webmanifest")} />
     <title>{pageTitle}</title>
     <style is:inline set:html={`@font-face{font-family:"Inter";font-style:normal;font-weight:400 800;font-display:swap;src:url("${fontUrl}") format("woff2");}`} />

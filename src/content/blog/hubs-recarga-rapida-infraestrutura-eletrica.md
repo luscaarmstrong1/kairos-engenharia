@@ -37,13 +37,13 @@ Sem essa leitura, a obra pode exigir retrabalho ou ampliação não prevista.
 
 Alguns hubs podem avaliar integração com geração fotovoltaica, armazenamento, controle de demanda ou operação em horários específicos. Essas alternativas dependem do perfil de uso, do orçamento, das normas aplicáveis e das condições de conexão.
 
-A Kairós trata esses projetos em [eletromobilidade e novas cargas](/kairos-engenharia/servicos/eletromobilidade/), com conexão direta a [engenharia e projetos elétricos](/kairos-engenharia/servicos/engenharia-projetos-eletricos/) e, quando há dados de consumo e demanda, a [inteligência energética](/kairos-engenharia/servicos/inteligencia-energetica/).
+A Conexium trata esses projetos em [eletromobilidade e novas cargas](https://conexiumengenharia.com.br/servicos/eletromobilidade/), com conexão direta a [engenharia e projetos elétricos](https://conexiumengenharia.com.br/servicos/engenharia-projetos-eletricos/) e, quando há dados de consumo e demanda, a [inteligência energética](https://conexiumengenharia.com.br/servicos/inteligencia-energetica/).
 
 ## Tratativas com a distribuidora
 
 A necessidade de aumento de carga, mudança de demanda, adequação de entrada ou conexão em média tensão pode envolver documentação técnica e interação com a distribuidora. O caminho depende do porte do projeto, da rede local e das regras aplicáveis.
 
-Quando houver dúvidas regulatórias ou exigências específicas, a análise pode exigir apoio de [consultoria técnico-regulatória](/kairos-engenharia/servicos/consultoria-regulatoria/) para organizar premissas, documentos e alternativas.
+Quando houver dúvidas regulatórias ou exigências específicas, a análise pode exigir apoio de [consultoria técnico-regulatória](https://conexiumengenharia.com.br/servicos/consultoria-regulatoria/) para organizar premissas, documentos e alternativas.
 
 ## Conclusão
 
@@ -51,4 +51,4 @@ Um hub de recarga rápida é um projeto de infraestrutura elétrica, não apenas
 
 Este conteúdo é informativo e não substitui estudo de viabilidade, projeto elétrico, análise da distribuidora ou parecer técnico específico.
 
-Para avaliar um hub de recarga, eletroposto, frota elétrica ou nova carga, fale com a Kairós pela página de [contato](/kairos-engenharia/contato/).
+Para avaliar um hub de recarga, eletroposto, frota elétrica ou nova carga, fale com a Conexium pela página de [contato](https://conexiumengenharia.com.br/contato/).

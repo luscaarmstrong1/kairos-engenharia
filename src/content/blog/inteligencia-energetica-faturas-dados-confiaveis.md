@@ -37,13 +37,13 @@ Sem essa estrutura, comparações mensais podem induzir decisões erradas.
 
 Automação pode acelerar rotinas, reduzir retrabalho e padronizar relatórios. Porém, ela deve operar sobre regras claras e dados validados. Campos inconsistentes, faturas incompletas, alterações de modalidade ou leituras atípicas precisam ser tratados antes de virar indicador.
 
-A Kairós usa essa abordagem em [inteligência energética](/kairos-engenharia/servicos/inteligencia-energetica/), combinando planilhas, scripts, dashboards e revisão técnica. O objetivo é apoiar decisões sobre demanda, enquadramento, novas cargas, geração, expansão e prioridades de engenharia.
+A Conexium usa essa abordagem em [inteligência energética](https://conexiumengenharia.com.br/servicos/inteligencia-energetica/), combinando planilhas, scripts, dashboards e revisão técnica. O objetivo é apoiar decisões sobre demanda, enquadramento, novas cargas, geração, expansão e prioridades de engenharia.
 
 ## Quando cruzar com projeto ou infraestrutura
 
 O histórico energético também ajuda a orientar estudos de demanda, aumento de carga, geradores, eletromobilidade e geração distribuída. Se uma empresa pretende ampliar operação, instalar carregadores ou conectar geração, o passado da fatura pode revelar limites, tendências e riscos.
 
-Quando a análise aponta necessidade de adequação física, o tema passa a dialogar com [engenharia e projetos elétricos](/kairos-engenharia/servicos/engenharia-projetos-eletricos/) e, em novas cargas de recarga, com [eletromobilidade](/kairos-engenharia/servicos/eletromobilidade/).
+Quando a análise aponta necessidade de adequação física, o tema passa a dialogar com [engenharia e projetos elétricos](https://conexiumengenharia.com.br/servicos/engenharia-projetos-eletricos/) e, em novas cargas de recarga, com [eletromobilidade](https://conexiumengenharia.com.br/servicos/eletromobilidade/).
 
 ## Conclusão
 
@@ -51,4 +51,4 @@ Inteligência energética não é apenas visualizar dados. É organizar informa�
 
 Este conteúdo tem caráter informativo e não substitui análise individual de faturas, contrato, projeto ou instalação.
 
-Para estruturar dados energéticos, indicadores ou diagnóstico de faturas, fale com a Kairós pela página de [contato](/kairos-engenharia/contato/).
+Para estruturar dados energéticos, indicadores ou diagnóstico de faturas, fale com a Conexium pela página de [contato](https://conexiumengenharia.com.br/contato/).

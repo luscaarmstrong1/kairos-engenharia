@@ -1,4 +1,4 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
 
-Sitemap: https://luscaarmstrong1.github.io/kairos-engenharia/sitemap.xml
+Sitemap: https://conexiumengenharia.com.br/sitemap.xml

@@ -22,7 +22,7 @@ const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || "";
 <script>
   // @ts-nocheck
   const banner = document.querySelector("[data-cookie-banner]");
-  const consent = localStorage.getItem("kairos-cookie-consent");
+  const consent = localStorage.getItem("conexium-cookie-consent");
   const gaId = banner?.getAttribute("data-ga-id");
 
   function startAnalytics() {
@@ -44,13 +44,13 @@ const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || "";
   if (consent === "accepted") startAnalytics();
 
   document.querySelector("[data-cookie-accept]")?.addEventListener("click", () => {
-    localStorage.setItem("kairos-cookie-consent", "accepted");
+    localStorage.setItem("conexium-cookie-consent", "accepted");
     banner?.classList.add("hidden");
     startAnalytics();
   });
 
   document.querySelector("[data-cookie-decline]")?.addEventListener("click", () => {
-    localStorage.setItem("kairos-cookie-consent", "declined");
+    localStorage.setItem("conexium-cookie-consent", "declined");
     banner?.classList.add("hidden");
   });
 </script>

@@ -7,14 +7,15 @@ const linkedin = import.meta.env.PUBLIC_LINKEDIN_URL || "https://www.linkedin.co
 <footer class="bg-navy-950 px-5 py-12 text-white sm:px-6 lg:px-8">
   <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.2fr_.8fr_.8fr_.8fr]">
     <div>
-      <a href={withBase("/")} class="flex items-center gap-3 rounded-md">
-        <span class="grid h-11 w-11 place-items-center rounded-md border border-energy-300/30 bg-white/8 text-sm font-bold">K</span>
+      <a href={withBase("/")} class="flex items-center gap-3 rounded-md" aria-label={`${site.name} - Página inicial`}>
+        <img src={withBase("/brand/conexium-symbol.svg")} alt="" class="h-11 w-11 rounded-md" width="44" height="44" />
         <span>
           <strong class="block text-sm tracking-[0.14em]">{site.legalName}</strong>
-          <span class="block text-[10px] uppercase tracking-[0.18em] text-slate-500">Engenharia & Energia</span>
+          <span class="block text-[10px] uppercase tracking-[0.18em] text-slate-500">Engenharia & Conexão</span>
         </span>
       </a>
       <p class="mt-5 max-w-md text-sm leading-7 text-slate-400">{site.tagline}</p>
+      <p class="mt-4 max-w-md text-xs leading-6 text-slate-500">{site.institutionalNotice}</p>
     </div>
 
     <div>
@@ -39,14 +40,16 @@ const linkedin = import.meta.env.PUBLIC_LINKEDIN_URL || "https://www.linkedin.co
       <h2 class="text-sm font-semibold text-white">Contato</h2>
       <div class="mt-4 grid gap-3 text-sm text-slate-400">
         <a class="w-fit transition hover:text-white" href={`mailto:${site.email}`}>{site.email}</a>
+        <a class="w-fit transition hover:text-white" href={`mailto:${site.directEmail}`}>{site.directEmail}</a>
         <a class="w-fit transition hover:text-white" href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a class="w-fit transition hover:text-white" href={withBase("/politica-de-privacidade/")}>Privacidade</a>
         <a class="w-fit transition hover:text-white" href={withBase("/politica-de-cookies/")}>Cookies</a>
       </div>
     </div>
   </div>
-  <div class="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-    <p>© {new Date().getFullYear()} Kairós Engenharia. Todos os direitos reservados.</p>
-    <p>GitHub Pages limita headers HTTP; políticas completas devem ser revisadas na hospedagem definitiva.</p>
+  <div class="mx-auto mt-10 grid max-w-7xl gap-4 border-t border-white/10 pt-6 text-xs leading-6 text-slate-500 lg:grid-cols-3">
+    <p>© {new Date().getFullYear()} Conexium Engenharia. Todos os direitos reservados.</p>
+    <p>{site.technicalNotice}</p>
+    <p>{site.forensicNotice}</p>
   </div>
 </footer>

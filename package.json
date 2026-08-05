@@ -1,5 +1,5 @@
 {
-  "name": "kairos-engenharia-site",
+  "name": "conexium-engenharia-site",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -24,7 +24,7 @@
     "@playwright/test": "^1.61.1",
     "autoprefixer": "^10.5.4",
     "lighthouse": "^13.4.1",
-    "postcss": "^8.5.21",
+    "postcss": "^8.5.23",
     "tailwindcss": "^3.4.19",
     "typescript": "^5.9.3",
     "vitest": "^4.1.10"

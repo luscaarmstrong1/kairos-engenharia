@@ -32,19 +32,19 @@ Nesses casos, é importante avaliar:
 - padrão de entrada e medição;
 - documentação exigida pela distribuidora.
 
-Esses pontos fazem parte da atuação de [engenharia e projetos elétricos](/kairos-engenharia/servicos/engenharia-projetos-eletricos/) e da análise de conexão em geração distribuída.
+Esses pontos fazem parte da atuação de [engenharia e projetos elétricos](https://conexiumengenharia.com.br/servicos/engenharia-projetos-eletricos/) e da análise de conexão em geração distribuída.
 
 ## Conexão à rede exige leitura documental
 
 Projetos fotovoltaicos não terminam no dimensionamento elétrico. Eles precisam ser compatíveis com os critérios de conexão, padrões da distribuidora, formulários, diagramas, memoriais e eventuais exigências técnicas.
 
-Quando há parecer de acesso, inversão de fluxo, orçamento de conexão ou restrição técnica, o projeto pode demandar [consultoria técnico-regulatória](/kairos-engenharia/servicos/consultoria-regulatoria/) para organizar premissas, evidências e alternativas. Essa análise não deve prometer aprovação, pois a decisão depende do caso concreto, da rede e da distribuidora.
+Quando há parecer de acesso, inversão de fluxo, orçamento de conexão ou restrição técnica, o projeto pode demandar [consultoria técnico-regulatória](https://conexiumengenharia.com.br/servicos/consultoria-regulatoria/) para organizar premissas, evidências e alternativas. Essa análise não deve prometer aprovação, pois a decisão depende do caso concreto, da rede e da distribuidora.
 
 ## Integradores precisam de retaguarda técnica
 
 Integradores com volume recorrente de projetos podem se beneficiar de checklists, modelos de revisão, padronização documental e suporte técnico para casos fora do padrão. Isso reduz inconsistências e melhora a qualidade das submissões.
 
-Em situações com discussão formal, danos, divergência documental ou necessidade de parecer especializado, também pode haver interface com [perícias, quesitos e pareceres técnicos](/kairos-engenharia/servicos/pericias-quesitos-pareceres/).
+Em situações com discussão formal, danos, divergência documental ou necessidade de parecer especializado, também pode haver interface com [perícias, quesitos e pareceres técnicos](https://conexiumengenharia.com.br/servicos/pericias-quesitos-pareceres/).
 
 ## Conclusão
 
@@ -52,4 +52,4 @@ Projetos fotovoltaicos complexos exigem integração entre engenharia, documenta
 
 > Conteúdo técnico com revisão humana antes de qualquer publicação regulatória. Este artigo tem caráter informativo e não substitui projeto específico, análise de conexão, parecer técnico formal ou avaliação da distribuidora.
 
-Para revisar um projeto fotovoltaico, analisar exigências ou estruturar retaguarda técnica, fale com a Kairós pela página de [contato](/kairos-engenharia/contato/).
+Para revisar um projeto fotovoltaico, analisar exigências ou estruturar retaguarda técnica, fale com a Conexium pela página de [contato](https://conexiumengenharia.com.br/contato/).
