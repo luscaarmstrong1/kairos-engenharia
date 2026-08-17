@@ -4,13 +4,28 @@ const base = process.env.PUBLIC_BASE_PATH || "/kairos-engenharia";
 
 test("navega entre paginas e nao cria overflow horizontal", async ({ page }, testInfo) => {
   await page.goto(`${base}/`);
-  await expect(page.getByRole("heading", { name: /Engenharia elétrica para decisões seguras/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Engenharia elétrica, conexão e inteligência técnica/i })).toBeVisible();
+  await expect(page.getByPlaceholder("Qual desafio técnico você precisa resolver?")).toBeVisible();
+  await expect(page.getByRole("link", { name: /Explorar análise: Parecer de Acesso Auditável/i })).toBeVisible();
   await expect(page.getByRole("banner").getByLabel(/Conexium Engenharia - Página inicial/i)).toBeVisible();
   await page.screenshot({ path: `test-results/screenshots/home-${testInfo.project.name}.png`, fullPage: true });
   await page.getByRole("link", { name: /Servi/i }).first().click();
   await expect(page.getByRole("heading", { name: "Soluções técnicas" }).first()).toBeVisible();
   const overflow = await page.evaluate(() => document.body.scrollWidth > window.innerWidth + 1);
   expect(overflow).toBe(false);
+});
+
+test("showcase da home filtra solucoes tecnicas", async ({ page }) => {
+  await page.goto(`${base}/`);
+  await page.getByRole("button", { name: "Perícias" }).click();
+  await expect(page.getByRole("link", { name: /Ver escopo: Perícias, Quesitos e Evidências/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Explorar análise: Parecer de Acesso Auditável/i })).toBeHidden();
+
+  await page.getByPlaceholder("Qual desafio técnico você precisa resolver?").fill("recarga");
+  await expect(page.getByText(/Nenhuma solução apareceu/i)).toBeVisible();
+
+  await page.locator('[data-showcase-filter="Todos"]').evaluate((element: HTMLElement) => element.click());
+  await expect(page.locator('[data-category="Eletromobilidade"]')).toBeVisible();
 });
 
 test("menu mobile, 404 e rota antiga institucional redirecionam", async ({ page }) => {

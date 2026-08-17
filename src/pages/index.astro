@@ -98,6 +98,82 @@ const integratorChecks = [
   "Padronização de evidências para reduzir retrabalho",
 ];
 
+const showcaseFilters = ["Todos", "Conexão", "Regulação", "Perícias", "Projetos", "Dados", "Eletromobilidade", "Integradores"];
+
+const showcaseSuggestions = [
+  "Parecer de acesso",
+  "Inversão de fluxo",
+  "Quesitos técnicos",
+  "Análise de faturas",
+  "Projeto BT/MT",
+  "Hub de recarga",
+  "Aumento de carga",
+];
+
+const showcaseSolutions = [
+  {
+    title: "Parecer de Acesso Auditável",
+    description:
+      "Transforme respostas de distribuidoras em uma análise técnica clara, rastreável e fundamentada.",
+    tags: ["Conexão", "Blueprint", "Integradores"],
+    category: "Conexão",
+    href: "/servicos/consultoria-regulatoria/",
+    cta: "Explorar análise",
+    variant: "access",
+    featured: true,
+  },
+  {
+    title: "Projetos BT/MT e Infraestrutura",
+    description:
+      "Projetos elétricos estruturados para segurança, aprovação, operação e expansão futura.",
+    tags: ["Projetos", "Corporate", "BT/MT"],
+    category: "Projetos",
+    href: "/servicos/engenharia-projetos-eletricos/",
+    cta: "Ver projetos",
+    variant: "project",
+  },
+  {
+    title: "Perícias, Quesitos e Evidências",
+    description:
+      "Organize laudos, fotos, faturas e medições em perguntas técnicas objetivas e verificáveis.",
+    tags: ["Perícias", "Documental", "Quesitos"],
+    category: "Perícias",
+    href: "/servicos/pericias-quesitos-pareceres/",
+    cta: "Ver escopo",
+    variant: "forensics",
+  },
+  {
+    title: "Inteligência Energética",
+    description:
+      "Faturas, demanda, consumo e indicadores convertidos em leitura técnica para decisão.",
+    tags: ["Dados", "Dashboard", "Faturas"],
+    category: "Dados",
+    href: "/servicos/inteligencia-energetica/",
+    cta: "Analisar dados",
+    variant: "data",
+  },
+  {
+    title: "Eletromobilidade e Novas Cargas",
+    description:
+      "Antes dos carregadores, dimensione demanda, proteção, entrada de energia e capacidade da rede.",
+    tags: ["Recarga", "Infraestrutura", "Novas cargas"],
+    category: "Eletromobilidade",
+    href: "/servicos/eletromobilidade/",
+    cta: "Avaliar viabilidade",
+    variant: "mobility",
+  },
+  {
+    title: "Retaguarda para Integradores",
+    description:
+      "Suporte técnico para reduzir retrabalho, responder exigências e fortalecer entregas de integradores.",
+    tags: ["Integradores", "Bento", "White label"],
+    category: "Integradores",
+    href: "/para-integradores/",
+    cta: "Solicitar apoio",
+    variant: "integrators",
+  },
+];
+
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -113,69 +189,264 @@ const breadcrumbJsonLd = {
   path="/"
   jsonLd={breadcrumbJsonLd}
 >
-  <section class="relative isolate overflow-hidden border-b border-white/10 bg-cx-void pt-32 text-cx-text">
-    <div class="absolute inset-0 bg-hero-grid bg-[size:44px_44px] opacity-55" aria-hidden="true"></div>
-    <div class="absolute -left-36 top-16 h-[520px] w-[520px] rounded-full bg-cx-teal/20 blur-3xl" aria-hidden="true"></div>
-    <div class="absolute right-[-10%] top-8 h-[520px] w-[520px] rounded-full bg-cx-gold/12 blur-3xl" aria-hidden="true"></div>
+  <section class="home-hero-showcase relative isolate min-h-screen overflow-hidden border-b border-white/10 px-4 pb-16 pt-28 text-cx-text sm:pt-32 lg:pt-36">
     <div class="noise"></div>
-    <div class="relative mx-auto grid max-w-7xl gap-12 px-5 pb-20 sm:px-6 lg:grid-cols-[1fr_.82fr] lg:px-8">
-      <div class="flex flex-col justify-center">
-        <p class="eyebrow text-cx-cyan">Engenharia elétrica · Conexão · Regulação · Inteligência técnica</p>
-        <h1 class="h-display mt-7 max-w-4xl text-balance">
-          Engenharia elétrica para decisões seguras em conexão, energia e regulação.
-        </h1>
-        <p class="text-lead mt-7 max-w-2xl">
-          A Conexium Engenharia atua em projetos elétricos, geração distribuída, análise de conexão, consultoria técnico-regulatória, perícias, quesitos técnicos, inteligência energética e infraestrutura para novas cargas.
-        </p>
-        <p class="mt-4 max-w-2xl text-sm leading-7 text-cx-muted">
-          Transformamos documentos, projetos, faturas, pareceres, medições e normas em diagnósticos claros, tecnicamente fundamentados e prontos para orientar decisões.
-        </p>
-        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-          <a href={withBase("/contato/")} class="inline-flex items-center justify-center rounded-full bg-cx-gold px-6 py-3 text-sm font-semibold text-cx-void transition hover:-translate-y-0.5 hover:bg-cx-gold-soft" data-track="hero-diagnostico">
-            Solicitar diagnóstico técnico <span class="ml-2" aria-hidden="true">-&gt;</span>
-          </a>
-          <a href="#areas" class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/6 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-cx-cyan/60 hover:bg-white/10" data-track="hero-areas">
-            Conhecer áreas de atuação
-          </a>
-        </div>
-        <div class="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
-          <a href={withBase("/servicos/consultoria-regulatoria/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-cx-muted transition hover:border-cx-cyan/40 hover:bg-white/10 hover:text-white">Parecer de acesso</a>
-          <a href={withBase("/servicos/engenharia-projetos-eletricos/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-cx-muted transition hover:border-cx-cyan/40 hover:bg-white/10 hover:text-white">Projetos BT/MT</a>
-          <a href={withBase("/servicos/pericias-quesitos-pareceres/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-cx-muted transition hover:border-cx-cyan/40 hover:bg-white/10 hover:text-white">Perícias</a>
-          <a href={withBase("/servicos/eletromobilidade/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-cx-muted transition hover:border-cx-cyan/40 hover:bg-white/10 hover:text-white">Eletromobilidade</a>
-          <a href={withBase("/servicos/inteligencia-energetica/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-cx-muted transition hover:border-cx-cyan/40 hover:bg-white/10 hover:text-white">Inteligência</a>
-        </div>
+    <div class="relative z-10 mx-auto max-w-5xl text-center">
+      <div class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 backdrop-blur-xl">
+        <span class="h-2 w-2 rounded-full bg-cx-cyan shadow-[0_0_18px_rgba(88,224,212,.75)]" aria-hidden="true"></span>
+        <span class="text-[0.68rem] font-semibold uppercase leading-5 tracking-[0.18em] text-white/65">
+          Conexão à rede · Regulação · Perícias · Inteligência energética
+        </span>
       </div>
 
-      <div class="reveal relative min-h-[500px]">
-        <div class="absolute inset-0 rounded-[1rem] border border-white/10 bg-white/6 shadow-glow backdrop-blur"></div>
-        <div class="absolute inset-5 overflow-hidden rounded-[.85rem] border border-white/12 bg-[#071f22] p-5">
-          <div class="flex items-center justify-between gap-4">
-            <div>
-              <p class="eyebrow text-cx-muted-2">Mapa técnico</p>
-              <h2 class="mt-2 text-xl font-semibold text-white">Evidência, viabilidade e decisão</h2>
-            </div>
-            <img src={withBase("/brand/conexium-symbol.svg")} alt="" class="h-12 w-12 animate-[cxFloat_7s_ease-in-out_infinite] opacity-90" width="48" height="48" />
-          </div>
-          <div class="mt-8 grid gap-3">
-            {["Conexão", "Demanda", "Proteção", "Perícia", "Regulação", "Recarga"].map((item, index) => (
-              <div class="flex items-center justify-between rounded-md border border-white/10 bg-white/5 px-4 py-3">
-                <span class="text-sm text-cx-muted">{item}</span>
-                <span class="text-xs font-semibold uppercase text-cx-cyan">{index % 2 ? "modelar" : "auditar"}</span>
-              </div>
-            ))}
-          </div>
-          <div class="mt-6 rounded-md border border-white/10 bg-cx-void/70 p-5">
-            <svg viewBox="0 0 520 220" class="h-auto w-full" role="img" aria-label="Diagrama abstrato de curva de carga e conexão">
-              <path d="M35 184H488M35 134H488M35 84H488" stroke="rgba(226,232,240,.13)" />
-              <path d="M42 168C95 130 126 70 180 112C231 151 244 174 300 119C350 70 389 82 444 132C464 151 480 161 494 164" fill="none" stroke="#58e0d4" stroke-width="6" stroke-linecap="round" />
-              <path d="M44 188C118 174 154 155 230 176C308 198 360 160 490 146" fill="none" stroke="#c9a44e" stroke-width="3" stroke-dasharray="7 8" stroke-linecap="round" />
-            </svg>
-          </div>
+      <h1 class="h-display mx-auto mt-7 max-w-5xl text-balance">
+        Engenharia elétrica, conexão e inteligência técnica em uma única interface de decisão.
+      </h1>
+      <p class="text-lead mx-auto mt-7 max-w-3xl">
+        A Conexium Engenharia organiza projetos, pareceres, faturas, laudos, medições e normas em diagnósticos técnicos claros para empresas, integradores e operações que precisam decidir com segurança.
+      </p>
+
+      <div class="showcase-search-shell mx-auto mt-10 flex max-w-3xl items-center gap-3 rounded-full border border-white/10 bg-white/[.055] p-2 shadow-[0_24px_80px_rgba(0,0,0,.28)] backdrop-blur-2xl transition">
+        <label for="showcase-search" class="sr-only">Buscar desafio técnico</label>
+        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/[.06] text-cx-cyan" aria-hidden="true">
+          <span class="relative h-5 w-5 rounded-full border-2 border-current after:absolute after:-bottom-1 after:-right-1 after:h-2 after:w-2 after:rotate-45 after:rounded-full after:bg-current"></span>
         </div>
+        <input
+          id="showcase-search"
+          data-showcase-search
+          class="min-w-0 flex-1 bg-transparent text-sm text-white placeholder:text-white/40 outline-none"
+          type="search"
+          autocomplete="off"
+          placeholder="Qual desafio técnico você precisa resolver?"
+        />
+        <a
+          href={withBase("/contato/")}
+          class="hidden rounded-full bg-cx-text px-5 py-3 text-xs font-semibold uppercase tracking-[.12em] text-cx-void transition hover:bg-cx-cyan sm:inline-flex"
+          data-track="hero-diagnostico"
+        >
+          Diagnóstico
+        </a>
+      </div>
+
+      <div class="mx-auto mt-4 flex max-w-4xl flex-wrap justify-center gap-2 text-left">
+        {showcaseSuggestions.map((suggestion) => (
+          <button
+            type="button"
+            class="rounded-full border border-white/10 bg-white/[.035] px-3 py-1.5 text-xs font-semibold text-white/52 transition hover:border-cx-cyan/40 hover:text-white"
+            data-showcase-suggestion={suggestion}
+          >
+            {suggestion}
+          </button>
+        ))}
+      </div>
+
+      <div class="mx-auto mt-5 flex max-w-5xl gap-2 overflow-x-auto px-1 pb-2 sm:justify-center" aria-label="Filtrar soluções técnicas">
+        {showcaseFilters.map((filter, index) => (
+          <button
+            type="button"
+            class:list={[
+              "showcase-filter shrink-0 rounded-full border px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[.13em] transition",
+              index === 0
+                ? "is-active border-cx-gold/60 bg-cx-gold/10 text-cx-gold-soft"
+                : "border-white/10 bg-white/[.035] text-white/50 hover:border-cx-cyan/40 hover:text-white",
+            ]}
+            data-showcase-filter={filter}
+            aria-pressed={index === 0 ? "true" : "false"}
+          >
+            {filter}
+          </button>
+        ))}
+      </div>
+
+      <div class="mt-7 flex flex-col justify-center gap-3 sm:hidden">
+        <a href={withBase("/contato/")} class="inline-flex items-center justify-center rounded-full bg-cx-text px-6 py-3 text-sm font-semibold text-cx-void transition hover:bg-cx-cyan">
+          Solicitar diagnóstico técnico <span class="ml-2" aria-hidden="true">-&gt;</span>
+        </a>
+        <a href="#areas" class="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white/75 transition hover:border-cx-cyan/50 hover:text-white">
+          Ver áreas de atuação
+        </a>
       </div>
     </div>
+
+    <div class="relative z-10 mx-auto mt-14 w-[min(100%,1320px)]">
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-6 xl:grid-cols-12">
+        {showcaseSolutions.map((solution, index) => (
+          <article
+            class:list={[
+              "cx-showcase-card reveal group flex min-h-[390px] flex-col p-4",
+              solution.featured ? "md:col-span-6 xl:col-span-5 xl:min-h-[455px]" : "md:col-span-3 xl:min-h-[405px]",
+              index === 1 ? "xl:col-span-4" : "",
+              index === 2 ? "xl:col-span-3" : "",
+              index > 2 ? "xl:col-span-4" : "",
+            ]}
+            style={`--reveal-delay:${index * 60}ms`}
+            data-showcase-card
+            data-category={solution.category}
+            data-search={`${solution.title} ${solution.description} ${solution.tags.join(" ")}`}
+          >
+            <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(88,224,212,.14),transparent_22rem)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+            <a href={withBase(solution.href)} class="relative flex h-full flex-col" aria-label={`${solution.cta}: ${solution.title}`}>
+              <div class:list={["mockup-frame", `mockup-${solution.variant}`]}>
+                <div class="flex h-8 items-center gap-2 border-b border-white/10 bg-white/[.04] px-3">
+                  <span class="h-2 w-2 rounded-full bg-cx-gold-soft"></span>
+                  <span class="h-2 w-2 rounded-full bg-cx-cyan/70"></span>
+                  <span class="h-2 w-2 rounded-full bg-white/25"></span>
+                  <span class="ml-3 h-3 w-28 rounded-full bg-white/10"></span>
+                </div>
+
+                <div class="mockup-canvas">
+                  {solution.variant === "access" && (
+                    <>
+                      <div class="mockup-network">
+                        <span></span><span></span><span></span><span></span>
+                      </div>
+                      <div class="mockup-panel left">
+                        <strong>Premissas</strong>
+                        <i></i><i></i><i></i>
+                      </div>
+                      <div class="mockup-panel right">
+                        <strong>Matriz</strong>
+                        <i></i><i></i>
+                      </div>
+                      <div class="mockup-chart"><span></span><span></span><span></span><span></span><span></span></div>
+                    </>
+                  )}
+
+                  {solution.variant === "project" && (
+                    <>
+                      <div class="mockup-blueprint-lines"></div>
+                      <div class="mockup-diagram">
+                        <span></span><span></span><span></span><span></span><span></span>
+                      </div>
+                      <div class="mockup-stamp">BT/MT</div>
+                    </>
+                  )}
+
+                  {solution.variant === "forensics" && (
+                    <>
+                      <div class="mockup-document">
+                        <strong>Quesitos técnicos</strong>
+                        <i></i><i></i><i></i><i></i>
+                      </div>
+                      <div class="mockup-evidence"><span></span><span></span><span></span></div>
+                    </>
+                  )}
+
+                  {solution.variant === "data" && (
+                    <>
+                      <div class="mockup-kpis"><span>kWh</span><span>kW</span><span>R$</span></div>
+                      <div class="mockup-bars"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                      <div class="mockup-line"></div>
+                    </>
+                  )}
+
+                  {solution.variant === "mobility" && (
+                    <>
+                      <div class="mockup-charge-map">
+                        <span></span><span></span><span></span><span></span>
+                      </div>
+                      <div class="mockup-load-card">Nova carga</div>
+                      <div class="mockup-flow"></div>
+                    </>
+                  )}
+
+                  {solution.variant === "integrators" && (
+                    <div class="mockup-bento">
+                      <span>Revisão</span>
+                      <span>Parecer</span>
+                      <span>Contestação</span>
+                      <span>Checklist</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div class="mt-5 flex items-start gap-3">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[.055]">
+                  <img src={withBase("/brand/conexium-symbol.svg")} alt="" class="h-5 w-5" width="20" height="20" />
+                </div>
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-[.14em] text-cx-gold-soft/70">{solution.category}</p>
+                  <h2 class="mt-2 text-[clamp(1.05rem,1.35vw,1.35rem)] font-medium leading-tight text-cx-text">
+                    {solution.title}
+                  </h2>
+                </div>
+              </div>
+
+              <p class="mt-4 line-clamp-2 text-sm leading-7 text-white/58">{solution.description}</p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                {solution.tags.map((tag) => (
+                  <span class="showcase-tag rounded-full border border-white/10 bg-white/[.035] px-3 py-1 text-[10px] font-semibold uppercase tracking-[.14em] text-white/45 transition">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <span class="mt-auto inline-flex pt-5 text-sm font-medium text-cx-cyan opacity-80 transition group-hover:opacity-100">
+                {solution.cta} <span class="ml-2 transition group-hover:translate-x-1" aria-hidden="true">-&gt;</span>
+              </span>
+            </a>
+          </article>
+        ))}
+      </div>
+      <p class="showcase-empty mt-8 hidden rounded-full border border-white/10 bg-white/[.04] px-5 py-4 text-center text-sm text-cx-muted">
+        Nenhuma solução apareceu para esse filtro. Tente outro termo técnico.
+      </p>
+    </div>
   </section>
+
+  <script is:inline>
+    const searchInput = document.querySelector("[data-showcase-search]");
+    const cards = Array.from(document.querySelectorAll("[data-showcase-card]"));
+    const filters = Array.from(document.querySelectorAll("[data-showcase-filter]"));
+    const suggestions = Array.from(document.querySelectorAll("[data-showcase-suggestion]"));
+    const emptyState = document.querySelector(".showcase-empty");
+    let activeFilter = "Todos";
+
+    function normalize(value) {
+      return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function applyShowcaseFilters() {
+      const query = normalize(searchInput?.value || "");
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const category = card.getAttribute("data-category") || "";
+        const searchable = normalize(card.getAttribute("data-search") || "");
+        const matchesFilter = activeFilter === "Todos" || category === activeFilter || searchable.includes(normalize(activeFilter));
+        const matchesSearch = !query || searchable.includes(query);
+        const isVisible = matchesFilter && matchesSearch;
+
+        card.classList.toggle("hidden", !isVisible);
+        visibleCount += isVisible ? 1 : 0;
+      });
+
+      emptyState?.classList.toggle("hidden", visibleCount > 0);
+    }
+
+    filters.forEach((filter) => {
+      filter.addEventListener("click", () => {
+        activeFilter = filter.getAttribute("data-showcase-filter") || "Todos";
+        filters.forEach((item) => {
+          const isActive = item === filter;
+          item.classList.toggle("is-active", isActive);
+          item.setAttribute("aria-pressed", String(isActive));
+        });
+        applyShowcaseFilters();
+      });
+    });
+
+    suggestions.forEach((suggestion) => {
+      suggestion.addEventListener("click", () => {
+        if (!searchInput) return;
+        searchInput.value = suggestion.getAttribute("data-showcase-suggestion") || "";
+        searchInput.focus();
+        applyShowcaseFilters();
+      });
+    });
+
+    searchInput?.addEventListener("input", applyShowcaseFilters);
+  </script>
 
   <section class="border-b border-white/10 bg-cx-void px-5 py-8 text-cx-text sm:px-6 lg:px-8">
     <div class="mx-auto grid max-w-7xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
