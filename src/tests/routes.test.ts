@@ -7,6 +7,9 @@ describe("routes and SEO helpers", () => {
     expect(allRoutes).toContain("/para-integradores/");
     expect(allRoutes).toContain("/politica-de-privacidade/");
     expect(allRoutes).toContain("/a-conexium/");
+    expect(allRoutes).toContain("/versoes/");
+    expect(allRoutes).toContain("/versao-atual/");
+    expect(allRoutes).toContain("/versao-anterior/");
     expect(servicePages.map((service) => service.slug)).toContain("consultoria-regulatoria");
     expect(servicePages.map((service) => service.slug)).toContain("pericias-quesitos-pareceres");
   });

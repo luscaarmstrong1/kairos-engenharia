@@ -28,6 +28,21 @@ test("showcase da home filtra solucoes tecnicas", async ({ page }) => {
   await expect(page.locator('[data-category="Eletromobilidade"]')).toBeVisible();
 });
 
+test("versoes publicas ficam separadas", async ({ page }) => {
+  await page.goto(`${base}/versoes/`);
+  await expect(page.getByRole("heading", { name: /Duas versões do site/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Acessar versão atual/i })).toHaveAttribute("href", `${base}/versao-atual/`);
+  await expect(page.getByRole("link", { name: /Acessar versão anterior/i })).toHaveAttribute("href", `${base}/versao-anterior/`);
+
+  await page.goto(`${base}/versao-atual/`);
+  await expect(page.getByRole("heading", { name: /Engenharia elétrica, conexão e inteligência técnica/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Explorar análise: Parecer de Acesso Auditável/i })).toBeVisible();
+
+  await page.goto(`${base}/versao-anterior/`);
+  await expect(page.getByRole("heading", { name: /Engenharia elétrica para decisões seguras/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Explorar análise: Parecer de Acesso Auditável/i })).toHaveCount(0);
+});
+
 test("menu mobile, 404 e rota antiga institucional redirecionam", async ({ page }) => {
   await page.goto(`${base}/`);
   const menu = page.getByRole("button", { name: "Abrir menu" });

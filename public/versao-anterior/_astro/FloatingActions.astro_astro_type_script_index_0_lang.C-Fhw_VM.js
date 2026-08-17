@@ -1,0 +1,1 @@
+document.querySelector(`[data-top-button]`)?.addEventListener(`click`,()=>{window.scrollTo({top:0,behavior:`smooth`})});

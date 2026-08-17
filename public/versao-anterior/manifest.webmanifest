@@ -1,0 +1,17 @@
+{
+  "name": "Conexium Engenharia",
+  "short_name": "Conexium",
+  "description": "Engenharia, conexão e inteligência técnica para o setor elétrico.",
+  "start_url": "/kairos-engenharia/versao-anterior/",
+  "scope": "/kairos-engenharia/versao-anterior/",
+  "display": "standalone",
+  "background_color": "#061525",
+  "theme_color": "#061525",
+  "icons": [
+    {
+      "src": "/kairos-engenharia/versao-anterior/brand/conexium-favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ]
+}

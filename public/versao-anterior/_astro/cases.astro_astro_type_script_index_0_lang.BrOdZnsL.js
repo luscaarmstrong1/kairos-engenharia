@@ -1,0 +1,1 @@
+var e=document.querySelectorAll(`[data-case-filter]`),t=document.querySelectorAll(`[data-case-card]`);e.forEach(e=>{e.addEventListener(`click`,()=>{let n=e.getAttribute(`data-case-filter`);t.forEach(e=>{let t=n===`Todos`||e.getAttribute(`data-case-card`)===n;e.classList.toggle(`hidden`,!t)})})});

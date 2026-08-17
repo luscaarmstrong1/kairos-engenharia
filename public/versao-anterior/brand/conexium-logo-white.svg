@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 112" role="img" aria-label="Conexium Engenharia">
+  <rect width="520" height="112" rx="16" fill="#061525"/>
+  <g transform="translate(24 24)">
+    <rect width="64" height="64" rx="14" fill="#0A2037"/>
+    <path d="M15 41 27 22h10l12 19" fill="none" stroke="#2DD4BF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M21 41h22" stroke="#D6B46A" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="27" cy="22" r="4" fill="#F8FAFC"/>
+    <circle cx="37" cy="22" r="4" fill="#F8FAFC"/>
+  </g>
+  <text x="106" y="54" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800" letter-spacing="1">CONEXIUM</text>
+  <text x="108" y="80" fill="#5EEAD4" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="4">ENGENHARIA</text>
+</svg>
