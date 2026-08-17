@@ -3,7 +3,23 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
+  --cx-void: #061314;
+  --cx-abyss: #081f22;
+  --cx-deep: #0b2a2e;
+  --cx-navy: #071f3f;
+  --cx-teal: #0e7c73;
+  --cx-teal-light: #18b6a6;
+  --cx-cyan: #58e0d4;
+  --cx-gold: #c9a44e;
+  --cx-gold-soft: #e0c16d;
+  --cx-text: #f3f7f6;
+  --cx-muted: #9ab1ae;
+  --cx-muted-2: #6f8582;
+  --cx-border: rgba(255, 255, 255, 0.12);
+  --cx-border-strong: rgba(255, 255, 255, 0.22);
+  --cx-surface: rgba(255, 255, 255, 0.045);
+  --cx-surface-strong: rgba(255, 255, 255, 0.075);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -17,8 +33,12 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: #061525;
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(24, 182, 166, 0.12), transparent 28rem),
+    radial-gradient(circle at 80% 0%, rgba(201, 164, 78, 0.08), transparent 24rem),
+    linear-gradient(180deg, var(--cx-void), var(--cx-abyss));
+  color: var(--cx-text);
+  font-family: "Inter", "Satoshi", "General Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 button,
@@ -45,15 +65,145 @@ textarea:focus-visible {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
 }
 
-.reveal {
-  opacity: 1;
-  transform: none;
-  transition:
-    opacity 560ms ease,
-    transform 560ms ease;
+.cx-shell {
+  width: min(100% - 2rem, 1200px);
+  margin-inline: auto;
 }
 
-.reveal.is-visible {
+.cx-section {
+  padding-block: clamp(5rem, 10vw, 9rem);
+  border-top: 1px solid var(--cx-border);
+}
+
+.cx-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--cx-border);
+  border-radius: 1rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025));
+  backdrop-filter: blur(16px);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
+}
+
+.cx-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(24, 182, 166, 0.45);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035));
+}
+
+.cx-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at top left, rgba(24, 182, 166, 0.14), transparent 18rem);
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.cx-card:hover::before {
+  opacity: 1;
+}
+
+.h-display {
+  font-size: clamp(3rem, 7vw, 5.75rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+.h-section {
+  font-size: clamp(2rem, 4vw, 3.75rem);
+  line-height: 1;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+.text-lead {
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  line-height: 1.55;
+  color: var(--cx-muted);
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cx-teal-light);
+}
+
+.content-page {
+  background:
+    linear-gradient(#e2e9e7 1px, transparent 1px),
+    linear-gradient(90deg, #e2e9e7 1px, transparent 1px),
+    #f6f8f7;
+  background-size: 48px 48px;
+  color: #0b1f22;
+}
+
+@keyframes cxRevealUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cxFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes cxPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes cxShine {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+.reveal,
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible,
+[data-reveal].is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -80,6 +230,11 @@ textarea:focus-visible {
   }
 
   .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-reveal] {
     opacity: 1;
     transform: none;
   }

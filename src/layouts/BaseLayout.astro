@@ -85,8 +85,8 @@ const jsonPayload = [organizationJsonLd, serviceJsonLd, ...(Array.isArray(jsonLd
     <style is:inline set:html={`@font-face{font-family:"Inter";font-style:normal;font-weight:400 800;font-display:swap;src:url("${fontUrl}") format("woff2");}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonPayload)} />
   </head>
-  <body class="bg-white text-slate-900">
-    <a href="#conteudo" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-md focus:bg-energy-400 focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-navy-950">
+  <body class="bg-cx-void text-cx-text">
+    <a href="#conteudo" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-md focus:bg-cx-gold focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-cx-void">
       Pular para o conteúdo
     </a>
     <Header currentPath={path} />
@@ -101,12 +101,15 @@ const jsonPayload = [organizationJsonLd, serviceJsonLd, ...(Array.isArray(jsonLd
       const revealObserver = new IntersectionObserver(
         (entries) => {
           for (const entry of entries) {
-            if (entry.isIntersecting) entry.target.classList.add("is-visible");
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
           }
         },
-        { threshold: 0.12 },
+        { rootMargin: "0px 0px -80px 0px", threshold: 0.12 },
       );
-      document.querySelectorAll(".reveal").forEach((node) => revealObserver.observe(node));
+      document.querySelectorAll(".reveal, [data-reveal]").forEach((node) => revealObserver.observe(node));
     </script>
   </body>
 </html>

@@ -22,11 +22,11 @@ const filters = ["Todos", "Conexão e regulação", "Projetos elétricos", "Per�
     primaryLabel="Analisar um caso técnico"
   />
 
-  <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
+  <section class="bg-cx-void px-5 py-24 text-cx-text sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
       <div class="flex flex-wrap gap-2" aria-label="Filtros de cenários">
         {filters.map((filter) => (
-          <button type="button" class="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-energy-400" data-case-filter={filter}>
+          <button type="button" class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-cx-muted transition hover:border-cx-cyan hover:text-white" data-case-filter={filter}>
             {filter}
           </button>
         ))}

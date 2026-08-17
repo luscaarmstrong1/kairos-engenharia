@@ -9,11 +9,14 @@ type Props = {
 const { title, description, href, eyebrow = "Solução" } = Astro.props;
 ---
 
-<article class="reveal rounded-md border border-slate-200 bg-white p-7 shadow-crisp">
-  <p class="text-xs font-bold uppercase tracking-[0.16em] text-energy-600">{eyebrow}</p>
-  <h3 class="mt-4 text-2xl font-semibold tracking-normal text-slate-950">{title}</h3>
-  <p class="mt-4 text-sm leading-7 text-slate-600">{description}</p>
-  <a href={withBase(href)} class="mt-6 inline-flex items-center text-sm font-semibold text-energy-700">
-    Ver detalhes <span class="ml-2" aria-hidden="true">→</span>
+<article class="cx-card reveal flex h-full flex-col p-7">
+  <div class="mb-6 flex h-11 w-11 items-center justify-center rounded-md border border-cx-cyan/25 bg-cx-cyan/10 text-cx-cyan" aria-hidden="true">
+    <span class="h-2.5 w-2.5 rounded-full bg-current shadow-[0_0_18px_rgba(88,224,212,.75)]"></span>
+  </div>
+  <p class="eyebrow text-cx-gold">{eyebrow}</p>
+  <h3 class="mt-4 text-2xl font-semibold tracking-normal text-cx-text">{title}</h3>
+  <p class="mt-4 text-sm leading-7 text-cx-muted">{description}</p>
+  <a href={withBase(href)} class="mt-auto inline-flex items-center pt-6 text-sm font-semibold text-cx-cyan transition hover:text-white">
+    Ver detalhes <span class="ml-2" aria-hidden="true">-&gt;</span>
   </a>
 </article>

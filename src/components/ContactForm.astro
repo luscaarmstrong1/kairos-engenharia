@@ -17,25 +17,23 @@ const profiles = [
   "Outro",
 ];
 const challenges = [
-  "Quesitos técnicos para perícia",
-  "Análise de laudo técnico",
-  "Danos elétricos",
-  "Consumo ou medição",
-  "Demanda contratada",
-  "Parecer de acesso ou inversão de fluxo",
-  "Projeto fotovoltaico",
-  "Subestação ou média tensão",
-  "Aumento de carga",
-  "Gerador e continuidade operacional",
-  "Hub de recarga",
+  "Parecer de acesso",
+  "Inversão de fluxo",
+  "Projeto elétrico",
   "Análise de fatura",
+  "Quesitos técnicos",
+  "Perícia ou laudo",
+  "Eletromobilidade",
+  "Automação e dados",
+  "Aumento de carga",
+  "Continuidade operacional",
   "Outro",
 ];
 const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
 ---
 
 <form
-  class="rounded-md border border-slate-200 bg-white p-6 shadow-crisp sm:p-8"
+  class="rounded-[1rem] border border-slate-200 bg-white p-6 shadow-[0_24px_70px_rgba(8,31,34,.12)] sm:p-8"
   data-contact-form
   data-endpoint={endpoint}
   data-turnstile={turnstile}
@@ -46,14 +44,14 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
     <Field id="nome" label="Nome" maxlength="80" />
     <Field id="empresa" label="Empresa" maxlength="120" />
     <Field id="cargo" label="Cargo" maxlength="80" />
-    <Field id="email" label="E-mail corporativo" type="email" maxlength="120" />
-    <Field id="telefone" label="Telefone" placeholder="(11) 99999-9999" maxlength="15" />
+    <Field id="email" label="E-mail" type="email" maxlength="120" />
+    <Field id="telefone" label="Telefone / WhatsApp" placeholder="(11) 99999-9999" maxlength="15" />
     <Field id="estado" label="Estado" placeholder="UF" maxlength="2" />
     <Field id="concessionaria" label="Concessionária" maxlength="100" />
     <Field id="potencia" label="Potência estimada" placeholder="Ex.: 75 kW, 500 kVA, em estudo" maxlength="80" />
 
     <SelectField id="perfil" label="Perfil de cliente" options={profiles} />
-    <SelectField id="desafio" label="Principal desafio" options={challenges} />
+    <SelectField id="desafio" label="Principal desafio / tipo de demanda" options={challenges} />
     <SelectField id="prazo" label="Prazo" options={deadlines} />
 
     <label class="hidden" aria-hidden="true">
@@ -62,8 +60,8 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
     </label>
 
     <div class="sm:col-span-2">
-      <label for="mensagem" class="block text-sm font-semibold text-slate-800">Mensagem</label>
-      <textarea id="mensagem" name="mensagem" rows="5" maxlength="1600" data-field="mensagem" class="mt-2 w-full resize-none rounded-md border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-energy-500 focus:ring-4 focus:ring-energy-400/10" placeholder="Inclua contexto técnico, prazo, documentos existentes ou restrição recebida."></textarea>
+      <label for="mensagem" class="block text-sm font-semibold text-slate-800">Mensagem / descrição do caso</label>
+      <textarea id="mensagem" name="mensagem" rows="5" maxlength="1600" data-field="mensagem" class="mt-2 w-full resize-none rounded-md border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-cx-teal focus:ring-4 focus:ring-cx-teal/10" placeholder="Inclua contexto técnico, prazo, documentos existentes ou restrição recebida."></textarea>
       <p class="mt-2 hidden text-sm font-medium text-red-600" id="mensagem-error" data-error="mensagem"></p>
     </div>
   </div>
@@ -76,24 +74,24 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
 
   <div class="mt-6">
     <label class="flex items-start gap-3 text-sm leading-6 text-slate-600" for="lgpd">
-      <input id="lgpd" name="lgpd" type="checkbox" data-field="lgpd" class="mt-1 h-4 w-4 rounded border-slate-300 text-energy-600" />
+      <input id="lgpd" name="lgpd" type="checkbox" data-field="lgpd" class="mt-1 h-4 w-4 rounded border-slate-300 text-cx-teal" />
       <span>Autorizo o contato da Conexium Engenharia para retorno sobre esta solicitação e declaro ciência sobre o tratamento dos meus dados para essa finalidade.</span>
     </label>
     <p class="mt-2 hidden text-sm font-medium text-red-600" id="lgpd-error" data-error="lgpd"></p>
   </div>
 
   <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-    <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-md bg-navy-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-navy-800 disabled:cursor-not-allowed disabled:opacity-70" data-submit-label="Enviar solicitação">
-      <span data-submit-text>Enviar solicitação</span>
-      <span aria-hidden="true">→</span>
+    <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-full bg-cx-void px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-cx-deep disabled:cursor-not-allowed disabled:opacity-70" data-submit-label="Enviar solicitação para análise técnica">
+      <span data-submit-text>Enviar solicitação para análise técnica</span>
+      <span aria-hidden="true">-&gt;</span>
     </button>
     {calendarUrl && (
-      <a href={calendarUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-md border border-slate-200 px-5 py-3 text-sm font-semibold text-navy-950 transition hover:bg-slate-50" data-track="calendar">
+      <a href={calendarUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-cx-void transition hover:bg-slate-50" data-track="calendar">
         Agendar conversa técnica
       </a>
     )}
   </div>
-  <p class="mt-5 hidden rounded-md border border-energy-400/30 bg-energy-400/10 px-4 py-3 text-sm font-medium text-navy-900" role="status" aria-live="polite" data-feedback></p>
+  <p class="mt-5 hidden rounded-md border border-cx-teal/20 bg-cx-teal/10 px-4 py-3 text-sm font-medium text-cx-void" role="status" aria-live="polite" data-feedback></p>
 </form>
 
 <script>
@@ -154,7 +152,7 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
       const feedback = form.querySelector("[data-feedback]");
       const submit = form.querySelector("button[type='submit']");
       const submitText = form.querySelector("[data-submit-text]");
-      const defaultSubmitText = submit?.getAttribute("data-submit-label") || "Enviar solicitação";
+      const defaultSubmitText = submit?.getAttribute("data-submit-label") || "Enviar solicitação para análise técnica";
       feedback?.classList.add("hidden");
       const raw = readForm(form);
       const errors = validateLead(raw);

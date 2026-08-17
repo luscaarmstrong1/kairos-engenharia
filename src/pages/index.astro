@@ -5,14 +5,13 @@ import CtaBand from "@components/CtaBand.astro";
 import { cases, faqs, profileSolutions } from "@data/site";
 import { withBase } from "@lib/urls";
 
-const keyAreas = [
-  "Conexão e GD",
-  "Projetos elétricos",
-  "Regulação",
-  "Perícias e quesitos",
-  "Inteligência energética",
-  "Eletromobilidade",
+const credibility = [
+  { value: "BT/MT", label: "Projetos, proteção e infraestrutura elétrica" },
+  { value: "GD", label: "Conexão, parecer de acesso e inversão de fluxo" },
+  { value: "ANEEL", label: "Leitura técnico-regulatória e evidências" },
+  { value: "Perícia", label: "Quesitos, laudos e pareceres técnicos" },
 ];
+
 const intelligenceChips = ["Python", "VBA", "Planilhas inteligentes", "Dashboards técnicos"];
 
 const practiceAreas = [
@@ -71,22 +70,10 @@ const practiceAreas = [
 ];
 
 const methodSteps = [
-  {
-    title: "Diagnóstico técnico",
-    text: "Leitura do problema, documentos, restrições e objetivo.",
-  },
-  {
-    title: "Organização de evidências",
-    text: "Estruturação de dados, faturas, projetos, medições e normas.",
-  },
-  {
-    title: "Estratégia técnica",
-    text: "Cenários, riscos, alternativas, quesitos e premissas.",
-  },
-  {
-    title: "Entrega rastreável",
-    text: "Relatório, parecer, memorial, matriz ou documentação técnica.",
-  },
+  { title: "Diagnóstico técnico", text: "Leitura do problema, documentos, restrições e objetivo." },
+  { title: "Organização de evidências", text: "Estruturação de dados, faturas, projetos, medições e normas." },
+  { title: "Estratégia técnica", text: "Cenários, riscos, alternativas, quesitos e premissas." },
+  { title: "Entrega rastreável", text: "Relatório, parecer, memorial, matriz ou documentação técnica." },
 ];
 
 const forensicCards = [
@@ -104,6 +91,13 @@ const forensicCards = [
   },
 ];
 
+const integratorChecks = [
+  "Revisão de documentação antes de protocolo",
+  "Análise de exigências e restrições da distribuidora",
+  "Alternativas técnicas para conexão, carga e geração",
+  "Padronização de evidências para reduzir retrabalho",
+];
+
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -119,58 +113,63 @@ const breadcrumbJsonLd = {
   path="/"
   jsonLd={breadcrumbJsonLd}
 >
-  <section class="relative isolate overflow-hidden bg-navy-950 pt-32 text-white">
-    <div class="absolute inset-0 bg-hero-grid bg-[size:42px_42px] opacity-70" aria-hidden="true"></div>
+  <section class="relative isolate overflow-hidden border-b border-white/10 bg-cx-void pt-32 text-cx-text">
+    <div class="absolute inset-0 bg-hero-grid bg-[size:44px_44px] opacity-55" aria-hidden="true"></div>
+    <div class="absolute -left-36 top-16 h-[520px] w-[520px] rounded-full bg-cx-teal/20 blur-3xl" aria-hidden="true"></div>
+    <div class="absolute right-[-10%] top-8 h-[520px] w-[520px] rounded-full bg-cx-gold/12 blur-3xl" aria-hidden="true"></div>
     <div class="noise"></div>
-    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" aria-hidden="true"></div>
     <div class="relative mx-auto grid max-w-7xl gap-12 px-5 pb-20 sm:px-6 lg:grid-cols-[1fr_.82fr] lg:px-8">
       <div class="flex flex-col justify-center">
-        <p class="inline-flex w-fit rounded-full border border-energy-300/25 bg-white/7 px-3 py-2 text-xs font-bold uppercase tracking-[0.16em] text-energy-300">
-          Engenharia elétrica • Conexão • Regulação • Inteligência técnica
-        </p>
-        <h1 class="mt-7 max-w-4xl text-balance text-4xl font-semibold leading-[1.06] tracking-normal text-white sm:text-5xl lg:text-6xl">
+        <p class="eyebrow text-cx-cyan">Engenharia elétrica · Conexão · Regulação · Inteligência técnica</p>
+        <h1 class="h-display mt-7 max-w-4xl text-balance">
           Engenharia elétrica para decisões seguras em conexão, energia e regulação.
         </h1>
-        <p class="mt-7 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+        <p class="text-lead mt-7 max-w-2xl">
           A Conexium Engenharia atua em projetos elétricos, geração distribuída, análise de conexão, consultoria técnico-regulatória, perícias, quesitos técnicos, inteligência energética e infraestrutura para novas cargas.
         </p>
-        <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-400">
+        <p class="mt-4 max-w-2xl text-sm leading-7 text-cx-muted">
           Transformamos documentos, projetos, faturas, pareceres, medições e normas em diagnósticos claros, tecnicamente fundamentados e prontos para orientar decisões.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-          <a href={withBase("/contato/")} class="inline-flex items-center justify-center rounded-md bg-energy-400 px-5 py-3 text-sm font-semibold text-navy-950 transition hover:bg-energy-300" data-track="hero-diagnostico">
-            Solicitar diagnóstico técnico <span class="ml-2" aria-hidden="true">→</span>
+          <a href={withBase("/contato/")} class="inline-flex items-center justify-center rounded-full bg-cx-gold px-6 py-3 text-sm font-semibold text-cx-void transition hover:-translate-y-0.5 hover:bg-cx-gold-soft" data-track="hero-diagnostico">
+            Solicitar diagnóstico técnico <span class="ml-2" aria-hidden="true">-&gt;</span>
           </a>
-          <a href="#areas" class="inline-flex items-center justify-center rounded-md border border-white/16 bg-white/6 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/12" data-track="hero-areas">
+          <a href="#areas" class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/6 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-cx-cyan/60 hover:bg-white/10" data-track="hero-areas">
             Conhecer áreas de atuação
           </a>
         </div>
-        <div class="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
-          <a href={withBase("/servicos/consultoria-regulatoria/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Parecer de acesso e inversão de fluxo</a>
-          <a href={withBase("/servicos/engenharia-projetos-eletricos/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Projetos BT/MT</a>
-          <a href={withBase("/servicos/pericias-quesitos-pareceres/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Perícias e quesitos técnicos</a>
-          <a href={withBase("/servicos/eletromobilidade/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Eletromobilidade</a>
-          <a href={withBase("/servicos/inteligencia-energetica/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Inteligência energética</a>
+        <div class="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+          <a href={withBase("/servicos/consultoria-regulatoria/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-cx-muted transition hover:border-cx-cyan/40 hover:bg-white/10 hover:text-white">Parecer de acesso</a>
+          <a href={withBase("/servicos/engenharia-projetos-eletricos/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-cx-muted transition hover:border-cx-cyan/40 hover:bg-white/10 hover:text-white">Projetos BT/MT</a>
+          <a href={withBase("/servicos/pericias-quesitos-pareceres/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-cx-muted transition hover:border-cx-cyan/40 hover:bg-white/10 hover:text-white">Perícias</a>
+          <a href={withBase("/servicos/eletromobilidade/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-cx-muted transition hover:border-cx-cyan/40 hover:bg-white/10 hover:text-white">Eletromobilidade</a>
+          <a href={withBase("/servicos/inteligencia-energetica/")} class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-cx-muted transition hover:border-cx-cyan/40 hover:bg-white/10 hover:text-white">Inteligência</a>
         </div>
       </div>
-      <div class="reveal relative min-h-[470px]">
-        <div class="absolute inset-0 rounded-md border border-white/10 bg-white/6 shadow-glow backdrop-blur"></div>
-        <div class="screen-grid absolute inset-5 overflow-hidden rounded-md border border-white/12 bg-[#071a2e] p-5">
-          <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500">Mapa técnico</p>
-          <h2 class="mt-2 text-xl font-semibold text-white">Evidência, viabilidade e decisão</h2>
+
+      <div class="reveal relative min-h-[500px]">
+        <div class="absolute inset-0 rounded-[1rem] border border-white/10 bg-white/6 shadow-glow backdrop-blur"></div>
+        <div class="absolute inset-5 overflow-hidden rounded-[.85rem] border border-white/12 bg-[#071f22] p-5">
+          <div class="flex items-center justify-between gap-4">
+            <div>
+              <p class="eyebrow text-cx-muted-2">Mapa técnico</p>
+              <h2 class="mt-2 text-xl font-semibold text-white">Evidência, viabilidade e decisão</h2>
+            </div>
+            <img src={withBase("/brand/conexium-symbol.svg")} alt="" class="h-12 w-12 animate-[cxFloat_7s_ease-in-out_infinite] opacity-90" width="48" height="48" />
+          </div>
           <div class="mt-8 grid gap-3">
             {["Conexão", "Demanda", "Proteção", "Perícia", "Regulação", "Recarga"].map((item, index) => (
               <div class="flex items-center justify-between rounded-md border border-white/10 bg-white/5 px-4 py-3">
-                <span class="text-sm text-slate-300">{item}</span>
-                <span class="text-xs font-semibold uppercase tracking-[0.14em] text-energy-300">{index % 2 ? "modelar" : "auditar"}</span>
+                <span class="text-sm text-cx-muted">{item}</span>
+                <span class="text-xs font-semibold uppercase text-cx-cyan">{index % 2 ? "modelar" : "auditar"}</span>
               </div>
             ))}
           </div>
-          <div class="mt-6 rounded-md border border-white/10 bg-navy-950/70 p-5">
+          <div class="mt-6 rounded-md border border-white/10 bg-cx-void/70 p-5">
             <svg viewBox="0 0 520 220" class="h-auto w-full" role="img" aria-label="Diagrama abstrato de curva de carga e conexão">
               <path d="M35 184H488M35 134H488M35 84H488" stroke="rgba(226,232,240,.13)" />
-              <path d="M42 168C95 130 126 70 180 112C231 151 244 174 300 119C350 70 389 82 444 132C464 151 480 161 494 164" fill="none" stroke="#2DD4BF" stroke-width="6" stroke-linecap="round" />
-              <path d="M44 188C118 174 154 155 230 176C308 198 360 160 490 146" fill="none" stroke="#94A3B8" stroke-width="3" stroke-dasharray="7 8" stroke-linecap="round" />
+              <path d="M42 168C95 130 126 70 180 112C231 151 244 174 300 119C350 70 389 82 444 132C464 151 480 161 494 164" fill="none" stroke="#58e0d4" stroke-width="6" stroke-linecap="round" />
+              <path d="M44 188C118 174 154 155 230 176C308 198 360 160 490 146" fill="none" stroke="#c9a44e" stroke-width="3" stroke-dasharray="7 8" stroke-linecap="round" />
             </svg>
           </div>
         </div>
@@ -178,92 +177,101 @@ const breadcrumbJsonLd = {
     </div>
   </section>
 
-  <section class="bg-white px-5 py-10 text-slate-900 sm:px-6 lg:px-8">
-    <div class="mx-auto grid max-w-7xl gap-3 sm:grid-cols-2 lg:grid-cols-6">
-      {keyAreas.map((item) => (
-        <div class="rounded-md border border-slate-200 bg-slate-50 px-4 py-4 text-sm font-semibold text-slate-700">{item}</div>
+  <section class="border-b border-white/10 bg-cx-void px-5 py-8 text-cx-text sm:px-6 lg:px-8">
+    <div class="mx-auto grid max-w-7xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {credibility.map((item) => (
+        <div class="reveal rounded-md border border-white/10 bg-white/5 px-5 py-5">
+          <p class="text-2xl font-semibold text-cx-gold">{item.value}</p>
+          <p class="mt-2 text-sm leading-6 text-cx-muted">{item.label}</p>
+        </div>
       ))}
     </div>
   </section>
 
-  <section id="areas" class="bg-white px-5 pb-20 sm:px-6 lg:px-8">
+  <section id="areas" class="cx-section bg-cx-void px-5 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
       <SectionHeading
+        dark
         eyebrow="Áreas de atuação"
-        title="Áreas de atuação"
-        description="Atuação técnica em energia, conexão, infraestrutura elétrica, regulação, perícias e dados energéticos, com foco em clareza, rastreabilidade e viabilidade."
+        title="Especialidades conectadas para reduzir risco técnico antes da decisão."
+        description="Atuação em energia, conexão, infraestrutura elétrica, regulação, perícias e dados energéticos, com foco em clareza, rastreabilidade e viabilidade."
       />
       <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {practiceAreas.map((area) => (
-          <article class="reveal flex h-full flex-col rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
-            <h3 class="text-lg font-semibold text-slate-950">{area.title}</h3>
-            <p class="mt-3 text-sm leading-6 text-slate-600">{area.description}</p>
+          <article class="cx-card reveal flex h-full flex-col p-5">
+            <h3 class="text-lg font-semibold text-cx-text">{area.title}</h3>
+            <p class="mt-3 text-sm leading-6 text-cx-muted">{area.description}</p>
             <div class="mt-5 flex flex-wrap gap-2">
-              {area.tags.map((tag) => <span class="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-bold text-slate-600">{tag}</span>)}
+              {area.tags.map((tag) => <span class="rounded-full border border-white/10 bg-white/6 px-2.5 py-1 text-[11px] font-bold text-cx-muted">{tag}</span>)}
             </div>
-            <a href={withBase(area.href)} class="mt-auto pt-6 text-sm font-semibold text-energy-700">Ver detalhes <span aria-hidden="true">→</span></a>
+            <a href={withBase(area.href)} class="mt-auto pt-6 text-sm font-semibold text-cx-cyan">Ver detalhes <span aria-hidden="true">-&gt;</span></a>
           </article>
         ))}
       </div>
-      <div class="mt-8 rounded-md border border-slate-200 bg-slate-50 p-6">
+      <div class="reveal mt-8 rounded-[1rem] border border-white/10 bg-white/5 p-6">
         <div class="grid gap-5 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
           <div>
-            <h3 class="text-xl font-semibold text-slate-950">Dados, automação e inteligência energética</h3>
-            <p class="mt-3 text-sm leading-7 text-slate-600">
-              Automação aplicada a faturas, indicadores, documentação e rotinas técnicas, com revisão de engenharia.
+            <h3 class="text-xl font-semibold text-cx-text">Dados, automação e inteligência energética</h3>
+            <p class="mt-3 text-sm leading-7 text-cx-muted">
+              Automação aplicada a faturas, indicadores, documentação e rotinas técnicas, sempre com revisão de engenharia.
             </p>
           </div>
           <div class="flex flex-wrap gap-2 lg:justify-end">
-            {intelligenceChips.map((chip) => <span class="rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700">{chip}</span>)}
+            {intelligenceChips.map((chip) => <span class="rounded-full border border-cx-cyan/25 bg-cx-cyan/10 px-3 py-2 text-xs font-bold text-cx-cyan">{chip}</span>)}
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-slate-50 px-5 py-20 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-7xl">
-      <SectionHeading
-        eyebrow="Perfis atendidos"
-        title="Engenharia para quem precisa decidir com base técnica."
-      />
-      <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
-        {profileSolutions.map((solution) => (
-          <article class="reveal rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
-            <h3 class="text-lg font-semibold text-slate-950">{solution.title}</h3>
-            <p class="mt-3 text-sm leading-6 text-slate-600">{solution.text}</p>
-            <a href={withBase(solution.href)} class="mt-5 inline-flex text-sm font-semibold text-energy-700">Ver rota <span class="ml-2" aria-hidden="true">→</span></a>
-          </article>
+  <section class="bg-[#f6f8f7] px-5 py-20 text-slate-950 sm:px-6 lg:px-8">
+    <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.88fr_1.12fr] lg:items-center">
+      <div class="reveal">
+        <p class="eyebrow text-cx-teal">Para integradores e empresas</p>
+        <h2 class="h-section mt-4 max-w-3xl text-balance">Um apoio técnico discreto para destravar conexão, documentação e viabilidade.</h2>
+        <p class="mt-5 text-base leading-8 text-slate-600">
+          A Conexium atua como camada técnica para revisar premissas, organizar evidências e sustentar decisões em projetos de energia que dependem de distribuidoras, normas e documentação rastreável.
+        </p>
+        <a href={withBase("/para-integradores/")} class="mt-7 inline-flex rounded-full bg-cx-void px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-cx-deep">
+          Ver apoio para integradores <span class="ml-2" aria-hidden="true">-&gt;</span>
+        </a>
+      </div>
+      <div class="grid gap-3">
+        {integratorChecks.map((item) => (
+          <div class="reveal flex gap-4 rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
+            <span class="mt-1 h-2.5 w-2.5 rounded-full bg-cx-teal shadow-[0_0_18px_rgba(14,124,115,.45)]" aria-hidden="true"></span>
+            <p class="text-sm leading-7 text-slate-700">{item}</p>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="bg-navy-950 px-5 py-20 text-white sm:px-6 lg:px-8">
+  <section class="bg-cx-void px-5 py-20 text-cx-text sm:px-6 lg:px-8">
     <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.72fr_1.28fr]">
       <SectionHeading dark eyebrow="Método" title="Diagnóstico, evidência, estratégia e entrega rastreável." />
       <div class="grid gap-4 sm:grid-cols-2">
         {methodSteps.map((step, index) => (
-          <article class="reveal rounded-md border border-white/10 bg-white/5 p-6">
-            <p class="text-xs font-bold uppercase tracking-[0.16em] text-energy-300">Etapa {String(index + 1).padStart(2, "0")}</p>
+          <article class="cx-card reveal p-6">
+            <p class="eyebrow text-cx-gold">Etapa {String(index + 1).padStart(2, "0")}</p>
             <h3 class="mt-4 text-xl font-semibold text-white">{step.title}</h3>
-            <p class="mt-3 text-sm leading-7 text-slate-300">{step.text}</p>
+            <p class="mt-3 text-sm leading-7 text-cx-muted">{step.text}</p>
           </article>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="bg-white px-5 py-20 sm:px-6 lg:px-8">
+  <section class="bg-[#f6f8f7] px-5 py-20 text-slate-950 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
       <div class="grid gap-10 lg:grid-cols-[.82fr_1.18fr] lg:items-start">
         <div>
           <SectionHeading
             eyebrow="Perícias, quesitos e evidências técnicas"
-        title="Documentos técnicos convertidos em perguntas, evidências e pareceres."
-        description="Apoio para medições, faturas, projetos e eventos elétricos, dentro dos limites profissionais."
+            title="Documentos técnicos convertidos em perguntas, evidências e pareceres."
+            description="Apoio para medições, faturas, projetos e eventos elétricos, dentro dos limites profissionais."
           />
-          <p class="mt-6 rounded-md border border-slate-200 bg-slate-50 p-4 text-sm leading-7 text-slate-600">
+          <p class="reveal mt-6 rounded-md border border-slate-200 bg-white p-4 text-sm leading-7 text-slate-600 shadow-crisp">
             A atuação é técnica. Demandas jurídicas devem ser conduzidas por advogado habilitado.
           </p>
         </div>
@@ -274,28 +282,47 @@ const breadcrumbJsonLd = {
               <p class="mt-3 text-sm leading-7 text-slate-600">{card.text}</p>
             </article>
           ))}
-          <a href={withBase("/servicos/pericias-quesitos-pareceres/")} class="inline-flex w-fit rounded-md bg-navy-950 px-5 py-3 text-sm font-semibold text-white">Conhecer apoio pericial técnico <span class="ml-2" aria-hidden="true">→</span></a>
+          <a href={withBase("/servicos/pericias-quesitos-pareceres/")} class="inline-flex w-fit rounded-full bg-cx-void px-5 py-3 text-sm font-semibold text-white transition hover:bg-cx-deep">Conhecer apoio pericial técnico <span class="ml-2" aria-hidden="true">-&gt;</span></a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-slate-50 px-5 py-20 sm:px-6 lg:px-8">
+  <section class="bg-cx-void px-5 py-20 text-cx-text sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
       <SectionHeading
+        dark
         eyebrow="Cenários de referência"
-        title="Exemplos anonimizados de problemas técnicos que orientam a forma de atuação."
+        title="Problemas técnicos anonimizados, apresentados como cenários de decisão."
       />
       <div class="mt-10 grid gap-5 lg:grid-cols-3">
-        {cases.slice(0, 3).map((study) => (
-          <article class="reveal rounded-md border border-slate-200 bg-white p-6 shadow-crisp">
+        {cases.slice(0, 3).map((study, index) => (
+          <article class:list={["cx-card reveal p-6", index === 0 ? "lg:col-span-2" : ""]}>
             <div class="flex flex-wrap gap-2">
-              <span class="rounded-full bg-energy-400/12 px-3 py-1 text-xs font-bold text-energy-700">{study.category}</span>
-              <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">{study.label}</span>
+              <span class="rounded-full border border-cx-cyan/25 bg-cx-cyan/10 px-3 py-1 text-xs font-bold text-cx-cyan">{study.category}</span>
+              <span class="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-xs font-semibold text-cx-muted">{study.label}</span>
             </div>
-            <h3 class="mt-5 text-xl font-semibold text-slate-950">{study.title}</h3>
-            <p class="mt-4 text-sm leading-7 text-slate-600">{study.challenge}</p>
-            <p class="mt-4 text-sm font-semibold text-slate-800">{study.impact}</p>
+            <h3 class="mt-5 text-xl font-semibold text-cx-text">{study.title}</h3>
+            <p class="mt-4 text-sm leading-7 text-cx-muted">{study.challenge}</p>
+            <p class="mt-4 text-sm font-semibold text-cx-text">{study.impact}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#f6f8f7] px-5 py-20 text-slate-950 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <SectionHeading
+        eyebrow="Perfis atendidos"
+        title="Engenharia para quem precisa decidir com base técnica."
+      />
+      <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
+        {profileSolutions.map((solution) => (
+          <article class="reveal rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
+            <h3 class="text-lg font-semibold text-slate-950">{solution.title}</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">{solution.text}</p>
+            <a href={withBase(solution.href)} class="mt-5 inline-flex text-sm font-semibold text-cx-teal">Ver rota <span class="ml-2" aria-hidden="true">-&gt;</span></a>
           </article>
         ))}
       </div>
@@ -304,14 +331,14 @@ const breadcrumbJsonLd = {
 
   <CtaBand title="Envie o problema técnico para uma leitura inicial." label="Solicitar diagnóstico técnico" />
 
-  <section class="bg-white px-5 pb-24 sm:px-6 lg:px-8">
+  <section class="bg-cx-void px-5 pb-24 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-4xl">
-      <SectionHeading eyebrow="FAQ" title="Perguntas frequentes antes do diagnóstico técnico." />
+      <SectionHeading dark eyebrow="FAQ" title="Perguntas frequentes antes do diagnóstico técnico." />
       <div class="mt-10 grid gap-4">
         {faqs.map((faq) => (
-          <details class="reveal rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
-            <summary class="cursor-pointer text-lg font-semibold text-slate-950">{faq.question}</summary>
-            <p class="mt-4 text-sm leading-7 text-slate-600">{faq.answer}</p>
+          <details class="cx-card reveal p-5">
+            <summary class="cursor-pointer text-lg font-semibold text-cx-text">{faq.question}</summary>
+            <p class="mt-4 text-sm leading-7 text-cx-muted">{faq.answer}</p>
           </details>
         ))}
       </div>

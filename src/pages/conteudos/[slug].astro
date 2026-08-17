@@ -30,8 +30,8 @@ const articleJsonLd = {
 
 <BaseLayout title={post.data.title} description={post.data.description} path={path} ogType="article" jsonLd={articleJsonLd}>
   <PageHero eyebrow={post.data.category} title={post.data.title} description={post.data.description} />
-  <article class="bg-white px-5 py-20 sm:px-6 lg:px-8">
-    <div class="prose prose-slate mx-auto max-w-3xl prose-headings:tracking-normal prose-a:text-energy-700">
+  <article class="content-page bg-[#f8faf9] px-5 py-20 sm:px-6 lg:px-8">
+    <div class="prose prose-slate mx-auto max-w-3xl prose-headings:tracking-normal prose-a:text-cx-teal">
       <p class="text-sm font-semibold text-slate-500">{post.data.readingTime} · {post.data.date.toLocaleDateString("pt-BR")}</p>
       <Content />
     </div>
