@@ -147,10 +147,9 @@ const demandTypes = [
 
       if (!endpoint) {
         if (feedback) {
-          feedback.textContent = "Solicitação recebida com sucesso. A equipe técnica da Conexium Engenharia entrará em contato em breve.";
-          feedback.classList.remove("hidden");
+          feedback.className = "mt-4 block rounded-lg border border-[#C79A3B]/40 bg-[#001F1A] px-4 py-3 text-xs font-medium text-[#F7F4EC]";
+          feedback.innerHTML = `O canal de envio automático direto está em manutenção técnica. Por favor, envie sua demanda diretamente para o e-mail oficial: <a href="mailto:conexiumengenharia@gmail.com" class="text-[#C79A3B] underline font-bold">conexiumengenharia@gmail.com</a> ou pelo WhatsApp: <a href="https://wa.me/551138429930" class="text-[#C79A3B] underline font-bold">+55 11 3842-9930</a>.`;
         }
-        form.reset();
         return;
       }
 
@@ -164,14 +163,14 @@ const demandTypes = [
         });
         if (!response.ok) throw new Error("Falha no endpoint");
         if (feedback) {
-          feedback.textContent = "Solicitação enviada com sucesso. A equipe técnica da Conexium Engenharia analisará as informações e retornará.";
-          feedback.classList.remove("hidden");
+          feedback.className = "mt-4 block rounded-lg border border-emerald-600/30 bg-emerald-950/40 px-4 py-3 text-xs font-medium text-emerald-200";
+          feedback.textContent = "Solicitação recebida com sucesso. As informações foram encaminhadas para análise inicial. O retorno será realizado pelos contatos informados.";
         }
         form.reset();
       } catch {
         if (feedback) {
-          feedback.textContent = "Não foi possível concluir o envio automático no momento. Por favor entre em contato direto pelo e-mail ou WhatsApp oficial.";
-          feedback.classList.remove("hidden");
+          feedback.className = "mt-4 block rounded-lg border border-red-500/30 bg-red-950/40 px-4 py-3 text-xs font-medium text-red-200";
+          feedback.innerHTML = `Não foi possível confirmar o recebimento automático no momento. Para garantir seu atendimento, favor encaminhar sua solicitação para o e-mail: <a href="mailto:conexiumengenharia@gmail.com" class="text-[#C79A3B] underline font-bold">conexiumengenharia@gmail.com</a> ou WhatsApp: <a href="https://wa.me/551138429930" class="text-[#C79A3B] underline font-bold">+55 11 3842-9930</a>.`;
         }
       } finally {
         submit?.removeAttribute("disabled");
