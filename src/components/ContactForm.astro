@@ -100,6 +100,26 @@ const demandTypes = [
   }
 
   document.querySelectorAll("[data-contact-form]").forEach((form) => {
+    // Pre-selecionar tipo de demanda a partir de parâmetro de URL (?servico=...)
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const servicoParam = urlParams.get("servico");
+      if (servicoParam) {
+        const select = form.querySelector('[data-field="perfil"]');
+        if (select) {
+          if (servicoParam.includes("projeto") || servicoParam.includes("eletrico")) {
+            select.value = "Engenharia e Projetos Elétricos";
+          } else if (servicoParam.includes("regulat") || servicoParam.includes("consultoria")) {
+            select.value = "Consultoria Técnico-Regulatória";
+          } else if (servicoParam.includes("pericia") || servicoParam.includes("parecer")) {
+            select.value = "Perícia / Quesitos / Parecer Técnico";
+          }
+        }
+      }
+    } catch (e) {
+      // Ignora falhas de parse de URL
+    }
+
     form.querySelector('[data-field="telefone"]')?.addEventListener("input", (event) => {
       event.currentTarget.value = formatPhone(event.currentTarget.value);
     });

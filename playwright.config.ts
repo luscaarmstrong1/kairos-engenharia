@@ -11,7 +11,7 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   webServer: {
-    command: "node ./node_modules/astro/astro.js preview --host 127.0.0.1 --port 4321",
+    command: "npm run preview -- --port 4321",
     url: `http://127.0.0.1:4321${base}/`,
     reuseExistingServer: true,
     timeout: 120000,
